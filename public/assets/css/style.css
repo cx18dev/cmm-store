@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+html {
+    width: 100%;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+}
+
+img,
+svg {
+    vertical-align: middle;
+    max-width: 100%;
+}
+
+.header .navbar-brand img {
+    width: 450px;
+}
+
+.marketplace-section .market-content h2 {
+    color: #3498db;
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: 600;
+}
+
+.marketplace-section .market-content p {
+    color: #000000;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.Navbar-section .navbar {
+    background: #043d4a;
+    padding: 4px;
+}
+
+.Navbar-section .navbar-nav .nav-link {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.Navbar-section .navbar-nav .nav-item .nav-link {
+    position: relative;
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.Navbar-section .navbar-nav .nav-item.active a {
+    font-weight: 600;
+}
+
+.Navbar-section .navbar-nav .nav-item .nav-link:hover::after,
+.Navbar-section .navbar-nav .nav-item.active .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #dddddd;
+    transition: width 0.3s ease;
+}
+
+.Navbar-section .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.footer {
+    background: #043d4a;
+}
+
+@media screen and (max-width: 991px) {
+    .Navbar-section .navbar {
+        background: #043d4a;
+        padding: 10px;
+        border-radius: 6px;
+    }
+
+    .Navbar-section .navbar-toggler {
+        background: #ffffff;
+        padding: 8px 12px;
+    }
+}
