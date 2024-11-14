@@ -18,8 +18,8 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between m-2" id="navbarNav">
                     <ul class="navbar-nav w-100 justify-content-between text-center">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">CMM Probes</a>
+                        <li class="nav-item {{ request()->is('CMM-Probes') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('probes') }}">CMM Probes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Certified CMMs</a>
