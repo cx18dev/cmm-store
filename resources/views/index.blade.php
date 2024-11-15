@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.guest')
 
 @section('content')
     <section class="marketplace-section">
