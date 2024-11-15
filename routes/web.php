@@ -3,19 +3,23 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\DashboardController;
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::view('/', 'index')->name('index');
 
 Route::get('CMM-Probes', [HomeController::class, 'probes'])->name('probes');
 Route::post('send-email', [HomeController::class, 'sendEmail'])->name('send.email');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/CMM/{category}/{subcategory?}/{childcategory?}', [HomeController::class, 'category'])->name('category');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+
+    // Admin dashboard route
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Admin profile routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

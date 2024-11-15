@@ -1,30 +1,80 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="en">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <!-- Character Set and Responsive Meta Tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <!-- Title -->
+    <title>@yield('title', 'CMM Online Store')</title>
+    <!-- Title -->
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+    <!-- Meta Tags -->
+    <meta name="description" content="@yield('description', 'CMM Online Store')">
+    <meta name="keywords" content="@yield('keywords', 'CMM Online Store')">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="canonical" href="{{ url()->current() }}">
+    <!-- Meta Tags -->
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
-        </div>
-    </body>
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="@yield('title', 'CMM Online Store')">
+    <meta property="og:description" content="@yield('description', 'CMM Online Store.')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('assets/images/CMM-banner.jpg') }}">
+    <meta property="og:type" content="website">
+
+    <!-- Bootstrap 5.3 CDN -->
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    @yield('style')
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header -->
+    @include('layouts.partials.front.header')
+    <!-- End Header -->
+
+    <!-- Main Content -->
+    @yield('content')
+    <!-- End Main Content -->
+
+    <!-- Footer -->
+    @include('layouts.partials.front.footer')
+    <!-- End Footer -->
+
+    <!-- Bootstrap 5.3 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    
+    <!-- Sweetalert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        // $("#leftside-navigation .parent > p > .arrow-icon").click(function(e) {
+        //     e.preventDefault();
+        //     var toClose = $("#leftside-navigation ul").not($(this).parents("ul"));
+        //     toClose.slideUp();
+        //     toClose.parent().removeClass("open");
+        //     if (!$(this).parent().next().is(":visible")) {
+        //         var toOpen = $(this).parent().next()
+        //         toOpen.slideDown();
+        //         toOpen.parent().not(".open").addClass("open");
+        //     }
+        //     e.stopPropagation();
+        // });
+    </script>
+    @yield('script')
+</body>
+
 </html>
