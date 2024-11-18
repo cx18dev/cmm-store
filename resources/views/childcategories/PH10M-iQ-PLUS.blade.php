@@ -1,12 +1,12 @@
 @extends('probes')
 
-<title>@yield('title', 'PH10M/PH10MQ PLUS | CMM Online Store')</title>
+<title>@yield('title', 'PH10M-iQ PLUS | CMM Online Store')</title>
 
 @section('category')
     <div class="col-md-10 category">
         <div class="row">
             <div class="col-10 infobox p-5">
-                <h2 class="product-item-name text-center">PH10M PLUS / PH10MQ PLUS motorised indexing probe head</h2>
+                <h2 class="product-item-name text-center">PH10M-iQ PLUS motorised indexing probe head</h2>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1"
@@ -27,18 +27,16 @@
                 </ul>
                 <div class="tab-content mt-3" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab1" role="tabpanel">
-                        <h5>PH10M PLUS shank-mounted and PH10MQ quill-mounted heads with multiwired probe capability and a
-                            Renishaw autojoint</h5>
+                        <h5>A shank-mounted head with multiwired probe capability, a Renishaw autojoint and inferred
+                            qualification</h5>
                         <ul>
-                            <li>The PH10M PLUS and PH10MQ PLUS are motorised indexing heads that re-orientate the probe
-                                repeatably to any one of 720 positions at 7.5° increments</li>
-                            <li>Autojoint mount for repeatable probe positioning</li>
-                            <li>Torque capable of lifting a 300 mm (11.81 in) long extension bar</li>
-                            <li>Full multiwire capability for probes such as TP7M and SP25M</li>
-                            <li>Rapid automatic probe interchange via ACR1 or ACR3</li>
-                            <li>AM1 for PH10M PLUS and AM2 for PH10MQ PLUS adjustment modules for aligning the probe head to
-                                machine</li>
-                            <li>PH10MQ PLUS fits inside the quill for a neater and shorter probe mount</li>
+                            <li>720 indexing positions</li>
+                            <li>0.4 μm indexing repeatability</li>
+                            <li>7.5° indexing steps in both axes</li>
+                            <li>300 mm extension bar capability, 450 mm with special order carbon fibre extensions</li>
+                            <li>Inferred qualification when mounted vertically or horizontally*</li>
+                            <li>* The inferred calibration procedure is different depending on the chosen orientation of the
+                                head</li>
                         </ul>
                         <div class="table-outer">
                             <h5>Specification</h5>
@@ -46,216 +44,68 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <p>Repeatability of position<br></p>
+                                            <p>Length</p>
                                         </td>
                                         <td>
-                                            <p>&lt;0.4 μm (0.00002 in) @ 100 mm from centre of A-axis rotation</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Positioning</p>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">Step<br></p>
-                                        </td>
-                                        <td>
-                                            <p>7.5°<br></p>
+                                            <p>117 mm (4.6 in)</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p class="small-text">A-axis 0° to 105°<br></p>
+                                            <p>Width</p>
                                         </td>
                                         <td>
-                                            <p>15 positions</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">B-axis -180° to +180°<br></p>
-                                        </td>
-                                        <td>
-                                            <p>48 positions</p>
+                                            <p>60 mm (2.44 in)</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p class="small-text">Total<br></p>
+                                            <p>Weight</p>
+                                        </td>
+                                        <td>
+                                            <p>645 g (22.07 oz)</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>Mounting</p>
+                                        </td>
+                                        <td>
+                                            <p>Shank</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>Probe mount</p>
+                                        </td>
+                                        <td>
+                                            <p>Renishaw autojoint (multiwire)</p>
+                                            <p>M8 threaded probes can be used with a PAA probe adaptor</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>Controller</p>
+                                        </td>
+                                        <td>
+                                            <p>PHC10-3 PLUS</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>Angular movement</p>
+                                        </td>
+                                        <td>
+                                            <p>A-axis: 0° to 105° in 7.5 steps</p>
+                                            <p>B-axis: 0° to 180° in 7.5 steps</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>Total number of positions</p>
                                         </td>
                                         <td>
                                             <p>720 positions</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Probe mounting<br></p>
-                                        </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">PH10T PLUS<br></p>
-                                        </td>
-                                        <td>
-                                            <p>M8 thread, 18 mm diameter bush face<br></p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">PH10M PLUS / PH10MQ PLUS<br></p>
-                                        </td>
-                                        <td>
-                                            <p>Multiwired autojoint</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Dimensions from quill face<br></p>
-                                        </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">XY (all)<br></p>
-                                        </td>
-                                        <td>
-                                            <p>62 mm</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">Z (PH10T PLUS)<br></p>
-                                        </td>
-                                        <td>
-                                            <p>102 mm</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">Z (PH10M PLUS)<br></p>
-                                        </td>
-                                        <td>
-                                            <p>117 mm</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">Z (PH10MQ PLUS)<br></p>
-                                        </td>
-                                        <td>
-                                            <p>73 mm</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Weight<br></p>
-                                        </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">PH10T PLUS<br></p>
-                                        </td>
-                                        <td>
-                                            <p>595 g</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">PH10M PLUS<br></p>
-                                        </td>
-                                        <td>
-                                            <p>620 g</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">PH10MQ PLUS<br></p>
-                                        </td>
-                                        <td>
-                                            <p>730 g</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>System operating temperature<br></p>
-                                        </td>
-                                        <td>
-                                            <p>+10 °C to +40 °C (+50 °F to +104 °F)</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>System storage temperature<br></p>
-                                        </td>
-                                        <td>
-                                            <p>-10 °C to +70 °C (+14 °F to +158 °F)</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <p>The PHC10-3 PLUS is powered from the ac mains supply via an IEC 320 connector.</p>
-                            <p>The operating voltages of the unit are as follows:</p>
-                            <p>100 Vac - 240 Vac +10%, -15% 47 Hz - 66 Hz, 30 W maximum</p>
-                        </div>
-
-                        <div class="table-outer">
-                            <h5>Environmental conditions</h5>
-                            <p class="mb-2">
-                                The following environmental conditions comply with those defined in BS EN61010 - 1:2001:</p>
-                            <table width="100%" cellspacing="0" cellpadding="10">
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <p>Indoor use<br></p>
-                                        </td>
-                                        <td>
-                                            <p>IP30 (no protection against liquids)</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Altitude<br></p>
-                                        </td>
-                                        <td>
-                                            <p>Up to 2000 m</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Operating temperature range<br></p>
-                                        </td>
-                                        <td>
-                                            <p>0 °C to +50 °C</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Storage temperature range<br></p>
-                                        </td>
-                                        <td>
-                                            <p>-10 °C to +70 °C</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Relative humidity<br></p>
-                                        </td>
-                                        <td>
-                                            <p>80% maximum for temperatures up to +31 °C</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Pollution degree<br></p>
-                                        </td>
-                                        <td>
-                                            <p>2</p>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -265,10 +115,10 @@
                     <div class="tab-pane fade" id="tab2" role="tabpanel">
                         <div class="row">
                             <div class="col-lg-4 col-md-6">
-                                <a href="{{ asset('assets/docs/H-1000-7592_(PH10_PLUS_IUG).pdf') }}"
+                                <a href="{{ asset('assets/docs/H-1000-7564_(PH10M-iQ_PLUS_IUG).pdf') }}"
                                     class="tab-iiner-cust-link" download>
-                                    <img src="{{ asset('assets/thumbnails/PH10M.jpg') }}" alt="pdf">
-                                    <span>Installation & user's guide: PH10 PLUS</span>
+                                    <img src="{{ asset('assets/thumbnails/PH10M-iQ-PLUS.jpg') }}" alt="pdf">
+                                    <span>Installation & user's guide: PH10M-iQ PLUS</span>
                                 </a>
                             </div>
                         </div>
@@ -490,16 +340,16 @@
                                 <tbody>
                                     <tr>
                                         <td> </td>
-                                        <td>
+                                        <td class="fw-bold">
                                             <p>PH10M PLUS</p>
                                             <p>A-5863-</p>
                                         </td>
-                                        <td>
+                                        <td class="fw-bold">
                                             <p>PH10M PLUS</p>
                                             <p>(with AM1)</p>
                                             <p>A-5863-</p>
                                         </td>
-                                        <td>
+                                        <td class="fw-bold">
                                             <p>PH10T PLUS</p>
                                             <p>A-5863-</p>
                                         </td>
@@ -677,15 +527,36 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab4" role="tabpanel">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <a href="{{ asset('assets/zip/CAD_model_PH10_head_family.zip') }}"
-                                    class="tab-iiner-cust-link" download>
-                                    <img src="{{ asset('assets/thumbnails/zip_80px-trans-icon.png') }}" alt="zip">
-                                    <span>CAD model: PH10 head family</span>
-                                </a>
+                        <div class="pb-4">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <a href="{{ asset('assets/zip/CAD_model_PH10_head_family.zip') }}"
+                                        class="tab-iiner-cust-link" download>
+                                        <img src="{{ asset('assets/thumbnails/zip_80px-trans-icon.png') }}" alt="zip">
+                                        <span>CAD model: PH10 head family</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
+                        <div class="pt-1">
+                            <h4>Presentations</h4>
+                            <ul class="ppt-section">
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <img src="{{ asset('assets/thumbnails/ppt_15px-trans-icon.png') }}" alt="ppt"
+                                            class="pe-2">
+                                        <a href="{{ asset('assets/ppt/PH10M-iQ_PLUS_presentation.pptx') }}" download>
+                                            Presentation: PH10M-iQ PLUS
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>Presentation introducing PH10M-iQ PLUS, a variant of PH10M with the added
+                                        functionality of inferred qualification.</span>
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
                 <!-- Get Quote Form Section -->
@@ -694,11 +565,7 @@
 
             <!-- Image Gallery Section -->
             <div class="col-md-2 gallery p-3">
-                <img src="{{ asset('assets/probes/PH10M/G1-PH10M.jpg') }}" alt="G1-PH10M">
-                <img src="{{ asset('assets/probes/PH10M/G2-PH10M.jpg') }}" alt="G2-PH10M">
-                <img src="{{ asset('assets/probes/PH10M/G3-PH10M.jpg') }}" alt="G3-PH10M">
-                <img src="{{ asset('assets/probes/PH10M/G4-PH10M.jpg') }}" alt="G4-PH10M">
-                <img src="{{ asset('assets/probes/PH10M/G5-PH10M.jpg') }}" alt="G5-PH10M">
+                <img src="{{ asset('assets/probes/PH10M-IQ/G1-PH10M-iQ-PLUS.jpg') }}" alt="G1-PH10M-iQ-PLUS">
             </div>
         </div>
     </div>

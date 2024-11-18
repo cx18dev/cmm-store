@@ -9,11 +9,13 @@
 
     <!-- Title -->
     <title>@yield('title', 'CMM Store | Admin')</title>
-
-    <meta name="description" content="" />
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon" />
+        
+    <!-- Favicon Icons -->
+    <link rel="icon" type="image/png" href="{{ asset('assets/favicon/favicon-96x96.png') }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/favicon/favicon.svg') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/favicon/favicon.ico') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/favicon/apple-touch-icon.png') }}" />
+    <!-- Favicon Icons -->
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

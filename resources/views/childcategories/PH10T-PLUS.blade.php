@@ -1,10 +1,12 @@
 @extends('probes')
 
+<title>@yield('title', 'PH10T PLUS | CMM Online Store')</title>
+
 @section('category')
     <div class="col-md-10 category">
         <div class="row">
             <div class="col-10 infobox p-5">
-                <h2 class="product-item-name">PH10T PLUS motorised indexing probe head</h2>
+                <h2 class="product-item-name text-center">PH10T PLUS motorised indexing probe head</h2>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1"
@@ -266,11 +268,15 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab2" role="tabpanel">
-                        <a href="{{ asset('assets/docs/H-1000-7592_(PH10_PLUS_IUG).pdf') }}"
-                            class="tab-iiner-cust-link" download>
-                            <img src="{{ asset('assets/thumbnails/PH10M.jpg') }}" alt="pdf">
-                            <span>Installation & user's guide: PH10 PLUS</span>
-                        </a>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <a href="{{ asset('assets/docs/H-1000-7592_(PH10_PLUS_IUG).pdf') }}"
+                                    class="tab-iiner-cust-link" download>
+                                    <img src="{{ asset('assets/thumbnails/PH10M.jpg') }}" alt="pdf">
+                                    <span>Installation & user's guide: PH10 PLUS</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="tab3" role="tabpanel">
                         <div class="table-outer">
@@ -676,99 +682,19 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab4" role="tabpanel">
-                        <a href="{{ asset('assets/zip/CAD_model_PH10_head_family.zip') }}"
-                            class="tab-iiner-cust-link" download>
-                            <img src="{{ asset('assets/thumbnails/zip_80px-trans-icon.png') }}" alt="zip">
-                            <span>CAD model: PH10 head family</span>
-                        </a>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <a href="{{ asset('assets/zip/CAD_model_PH10_head_family.zip') }}"
+                                    class="tab-iiner-cust-link" download>
+                                    <img src="{{ asset('assets/thumbnails/zip_80px-trans-icon.png') }}" alt="zip">
+                                    <span>CAD model: PH10 head family</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Get Quote Form Section -->
-                <section class="cust-form-sec relative shadow">
-                    <h3 class="text-center">Get a Quote</h3>
-                    <div class="cust-discount">
-                        <img src="{{ asset('assets/images/discount.png') }}" alt="cust-discount" class="cust-img">
-                    </div>
-                    <form id="product-form" method="POST">
-                        <div class="my-4 select-product text-center">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center fw-bold" style="width: 5%;"></th>
-                                            <th class="text-center fw-bold" style="width: 30%;">Part Number</th>
-                                            <th class="text-center fw-bold" style="width: 30%;">Renishaw List Price</th>
-                                            <th class="text-center fw-bold" style="width: 30%;">Our Discounted Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-center">
-                                                <input class="form-check-input" type="checkbox" id="A-5863-11**">
-                                            </td>
-                                            <td><label for="A-5863-11**">A-5863-11**</label></td>
-                                            <td><label for="A-5863-11**">$22,174.00</label></td>
-                                            <td><label for="A-5863-11**">$17,739.20</label></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <input class="form-check-input" type="checkbox" id="A-5863-19**">
-                                            </td>
-                                            <td><label for="A-5863-19**">A-5863-19**</label></td>
-                                            <td><label for="A-5863-19**">$22,174.00</label></td>
-                                            <td><label for="A-5863-19**">$17,739.20</label></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <input class="form-check-input" type="checkbox" id="A-5863-4000">
-                                            </td>
-                                            <td><label for="A-5863-4000">A-5863-4000</label></td>
-                                            <td><label for="A-5863-4000">$22,174.00</label></td>
-                                            <td><label for="A-5863-4000">$17,739.20</label></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <input class="form-check-input" type="checkbox" id="A-5863-1060">
-                                            </td>
-                                            <td><label for="A-5863-1060">A-5863-1060</label></td>
-                                            <td><label for="A-5863-1060">$22,174.00</label></td>
-                                            <td><label for="A-5863-1060">$17,739.20</label></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <label for="name" class="form-label fw-bold">Name:</label>
-                                <input type="text" class="form-control" id="name" name="name"
-                                    placeholder="Enter Name" required>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="email" class="form-label fw-bold">Email:</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Enter Email" required>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="phone" class="form-label fw-bold">Phone:</label>
-                                <input type="tel" class="form-control" id="phone" name="phone"
-                                    placeholder="Enter Phone" required>
-                            </div>
-                            <div class="col-12 mb-3">
-                                <label for="details" class="form-label fw-bold">Details:</label>
-                                <textarea class="form-control" id="details" name="details" placeholder="Enter Details" rows="3"></textarea>
-                            </div>
-                            <div class="col-12 mb-3">
-                                <button type="submit" class="btn btn-primary" id="submit-btn">
-                                    <span class="spinner-border spinner-border-sm me-2 d-none" id="spinner"
-                                        role="status" aria-hidden="true"></span>
-                                    Submit
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </section>
+                @include('layouts.partials.get-quote')
             </div>
 
             <!-- Image Gallery Section -->

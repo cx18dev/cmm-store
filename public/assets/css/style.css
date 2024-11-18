@@ -270,10 +270,10 @@ svg {
     opacity: 1;
 }
 
-.infobox .tab-content {
+/* .infobox .tab-content {
     overflow: auto;
     max-height: 400px;
-}
+} */
 
 .gallery::-webkit-scrollbar-track,
 .infobox .tab-content::-webkit-scrollbar-track {
@@ -341,9 +341,10 @@ svg {
     background: #fff;
 }
 
-.table-outer tr td:first-child {
+.table-outer tr td,
+.table-outer tr th {
     font-weight: 600;
-    border-right: 1px solid #000;
+    border-right: 1px solid #b7b7b7;
 }
 
 .cust-form-sec {
@@ -384,7 +385,7 @@ svg {
 }
 
 a.tab-iiner-cust-link {
-    display: inline-flex;
+    display: flex;
     border: 1px solid #ff8e27;
     align-items: center;
     background: #ffc08b;
@@ -392,6 +393,12 @@ a.tab-iiner-cust-link {
     gap: 20px;
     color: #000;
     text-decoration: none;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.product-item-name{
+    padding-bottom: 15px;
 }
 
 a.tab-iiner-cust-link img {
@@ -409,10 +416,13 @@ a.tab-iiner-cust-link:hover {
 .table-outer table td {
     width: 50%;
 }
-
+table a {
+    text-decoration: none;
+    color: #0079c1;
+}
 .table-outer.cust-table tr td {
     width: 25%;
-    border-right: 1px solid #ff8118;
+    border-right: 1px solid #000;
 }
 
 #leftside-navigation > ul {
@@ -470,6 +480,15 @@ a.tab-iiner-cust-link:hover {
 
 #leftside-navigation .main {
     font-weight: 600;
+}
+
+.ppt-section {
+    list-style: none;
+    font-size: 16px;
+}
+
+.ppt-section a {
+    text-decoration: none;
 }
 
 @media screen and (max-width: 991px) {

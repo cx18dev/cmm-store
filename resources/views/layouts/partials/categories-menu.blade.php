@@ -48,8 +48,9 @@
                     <ul class="level-2">
                         <li>
                             <p>
-                                <a href="https://www.renishaw.com/cmmsupport/knowledgebase/en/22149.aspx">
-                                    <span>PH10T PLUS</span>
+                                <a
+                                    href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'coordinate-measuring-machine-probes', 'childcategory' => 'PH10MQ-PLUS']) }}">
+                                    <span>PH10MQ PLUS</span>
                                 </a>
                             </p>
                         </li>
@@ -58,8 +59,8 @@
                         <li>
                             <p>
                                 <a
-                                    href="https://www.renishaw.com/cmmsupport/knowledgebase/en/ph10t-plus-motorised-indexing-probe-head-product-tree--22103">
-                                    <span>PH10T PLUS product tree</span>
+                                    href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'coordinate-measuring-machine-probes', 'childcategory' => 'PH10M-iQ-PLUS']) }}">
+                                    <span>PH10M-iQ PLUS</span>
                                 </a>
                             </p>
                         </li>
@@ -77,7 +78,8 @@
                     <ul class="level-2">
                         <li>
                             <p>
-                                <a href="https://www.renishaw.com/cmmsupport/knowledgebase/en/22149.aspx">
+                                <a
+                                    href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'AM1-AM2-adjustment-modules']) }}">
                                     <span>AM1/AM2</span>
                                 </a>
                             </p>
@@ -87,7 +89,7 @@
                         <li>
                             <p>
                                 <a
-                                    href="https://www.renishaw.com/cmmsupport/knowledgebase/en/ph10t-plus-motorised-indexing-probe-head-product-tree--22103">
+                                    href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'PHC10-3-PLUS']) }}">
                                     <span>PHC10-3 PLUS</span>
                                 </a>
                             </p>

@@ -1,12 +1,12 @@
 @extends('probes')
 
-<title>@yield('title', 'PH10M/PH10MQ PLUS | CMM Online Store')</title>
+<title>@yield('title', 'AM1/AM2 adjustment modules | CMM Online Store')</title>
 
 @section('category')
     <div class="col-md-10 category">
         <div class="row">
             <div class="col-10 infobox p-5">
-                <h2 class="product-item-name text-center">PH10M PLUS / PH10MQ PLUS motorised indexing probe head</h2>
+                <h2 class="product-item-name text-center">AM1 / AM2 adjustment modules</h2>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1"
@@ -20,259 +20,142 @@
                         <button class="nav-link" id="tab3-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button"
                             role="tab">Part numbers</button>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab4-tab" data-bs-toggle="tab" data-bs-target="#tab4" type="button"
-                            role="tab">Additional information</button>
-                    </li>
                 </ul>
                 <div class="tab-content mt-3" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab1" role="tabpanel">
-                        <h5>PH10M PLUS shank-mounted and PH10MQ quill-mounted heads with multiwired probe capability and a
-                            Renishaw autojoint</h5>
-                        <ul>
-                            <li>The PH10M PLUS and PH10MQ PLUS are motorised indexing heads that re-orientate the probe
-                                repeatably to any one of 720 positions at 7.5° increments</li>
-                            <li>Autojoint mount for repeatable probe positioning</li>
-                            <li>Torque capable of lifting a 300 mm (11.81 in) long extension bar</li>
-                            <li>Full multiwire capability for probes such as TP7M and SP25M</li>
-                            <li>Rapid automatic probe interchange via ACR1 or ACR3</li>
-                            <li>AM1 for PH10M PLUS and AM2 for PH10MQ PLUS adjustment modules for aligning the probe head to
-                                machine</li>
-                            <li>PH10MQ PLUS fits inside the quill for a neater and shorter probe mount</li>
-                        </ul>
+                        <h5>The AM1 adjustment module has been designed for use with the PH6M and MIH manual probe heads and
+                            the PH10T PLUS / PH10M PLUS motorised probe heads</h5>
+                        <h5>The AM2 adjustment module has been designed for use with the PH10MQ PLUS motorised probe head.
+                        </h5><br>
+                        <div class="mb-5">
+                            <h5>AM1 module:</h5>
+                            <p class="mb-0">It provides quick and accurate angular alignment of the probe heads with the
+                                CMM's axes and/or the autochange rack.</p>
+                            <p class="mb-0">In addition, the quick release mechanism allows the head to be removed for
+                                storage and subsequently replaced without further alignment. Built in the overtravel
+                                protection decreases the risk of head damage.<br></p>
+                        </div>
+                        <div>
+                            <h5>AM2 module:</h5>
+                            <p class="mb-0">The probe head is mounted directly onto the quill via the AM2.</p>
+                            <p class="mb-0">M = Multiwire.</p>
+                            <p class="mb-0">Q = Quill mounted.</p>
+                        </div>
                         <div class="table-outer">
                             <h5>Specification</h5>
                             <table width="100%" cellspacing="0" cellpadding="10">
                                 <tbody>
                                     <tr>
+                                        <th> </th>
+                                        <th>
+                                            <p>AM1</p>
+                                        </th>
+                                        <th>
+                                            <p>AM2</p>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <p style="text-align: left;">Size</p>
+                                        </th>
                                         <td>
-                                            <p>Repeatability of position<br></p>
+                                            <p>60 mm × 15.5 mm (2.36 in × 0.61 in) nominal</p>
                                         </td>
                                         <td>
-                                            <p>&lt;0.4 μm (0.00002 in) @ 100 mm from centre of A-axis rotation</p>
+                                            <p>80 mm × 10 mm (3.15 in × 0.39 in) nominal</p>
                                         </td>
                                     </tr>
                                     <tr>
+                                        <th>
+                                            <p style="text-align: left;">Adjustment</p>
+                                        </th>
                                         <td>
-                                            <p>Positioning</p>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">Step<br></p>
+                                            <p>±2° in pitch and roll* (recommended)</p>
+                                            <p>±4.5° in yaw</p>
                                         </td>
                                         <td>
-                                            <p>7.5°<br></p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">A-axis 0° to 105°<br></p>
-                                        </td>
-                                        <td>
-                                            <p>15 positions</p>
+                                            <p>±1° in pitch and roll* (recommended)</p>
+                                            <p>±1° in yaw</p>
                                         </td>
                                     </tr>
                                     <tr>
+                                        <th>
+                                            <p style="text-align: left;">Overtravel</p>
+                                        </th>
                                         <td>
-                                            <p class="small-text">B-axis -180° to +180°<br></p>
+                                            <p>±3.5° in pitch and roll</p>
                                         </td>
                                         <td>
-                                            <p>48 positions</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">Total<br></p>
-                                        </td>
-                                        <td>
-                                            <p>720 positions</p>
+                                            <p>0°</p>
                                         </td>
                                     </tr>
                                     <tr>
+                                        <th>
+                                            <p style="text-align: left;">Mounting</p>
+                                        </th>
                                         <td>
-                                            <p>Probe mounting<br></p>
-                                        </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">PH10T PLUS<br></p>
+                                            <p>Mounts to quill using shanks</p>
+                                            <p>Alternatively direct to quill using OEM adaptor</p>
                                         </td>
                                         <td>
-                                            <p>M8 thread, 18 mm diameter bush face<br></p>
+                                            <p>Mounts direct to quill</p>
                                         </td>
                                     </tr>
                                     <tr>
+                                        <th>
+                                            <p style="text-align: left;">Weight</p>
+                                        </th>
                                         <td>
-                                            <p class="small-text">PH10M PLUS / PH10MQ PLUS<br></p>
+                                            <p>150 g (5.29 oz)</p>
                                         </td>
                                         <td>
-                                            <p>Multiwired autojoint</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Dimensions from quill face<br></p>
-                                        </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">XY (all)<br></p>
-                                        </td>
-                                        <td>
-                                            <p>62 mm</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">Z (PH10T PLUS)<br></p>
-                                        </td>
-                                        <td>
-                                            <p>102 mm</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">Z (PH10M PLUS)<br></p>
-                                        </td>
-                                        <td>
-                                            <p>117 mm</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">Z (PH10MQ PLUS)<br></p>
-                                        </td>
-                                        <td>
-                                            <p>73 mm</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Weight<br></p>
-                                        </td>
-                                        <td> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">PH10T PLUS<br></p>
-                                        </td>
-                                        <td>
-                                            <p>595 g</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">PH10M PLUS<br></p>
-                                        </td>
-                                        <td>
-                                            <p>620 g</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="small-text">PH10MQ PLUS<br></p>
-                                        </td>
-                                        <td>
-                                            <p>730 g</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>System operating temperature<br></p>
-                                        </td>
-                                        <td>
-                                            <p>+10 °C to +40 °C (+50 °F to +104 °F)</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>System storage temperature<br></p>
-                                        </td>
-                                        <td>
-                                            <p>-10 °C to +70 °C (+14 °F to +158 °F)</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <p>The PHC10-3 PLUS is powered from the ac mains supply via an IEC 320 connector.</p>
-                            <p>The operating voltages of the unit are as follows:</p>
-                            <p>100 Vac - 240 Vac +10%, -15% 47 Hz - 66 Hz, 30 W maximum</p>
-                        </div>
-
-                        <div class="table-outer">
-                            <h5>Environmental conditions</h5>
-                            <p class="mb-2">
-                                The following environmental conditions comply with those defined in BS EN61010 - 1:2001:</p>
-                            <table width="100%" cellspacing="0" cellpadding="10">
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <p>Indoor use<br></p>
-                                        </td>
-                                        <td>
-                                            <p>IP30 (no protection against liquids)</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Altitude<br></p>
-                                        </td>
-                                        <td>
-                                            <p>Up to 2000 m</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Operating temperature range<br></p>
-                                        </td>
-                                        <td>
-                                            <p>0 °C to +50 °C</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Storage temperature range<br></p>
-                                        </td>
-                                        <td>
-                                            <p>-10 °C to +70 °C</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Relative humidity<br></p>
-                                        </td>
-                                        <td>
-                                            <p>80% maximum for temperatures up to +31 °C</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Pollution degree<br></p>
-                                        </td>
-                                        <td>
-                                            <p>2</p>
+                                            <p>48 g (1.69 oz)</p>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <p>* Up to ±5.5° in pitch and roll is possible but this is at the expense of overtravel.</p>
                     </div>
                     <div class="tab-pane fade" id="tab2" role="tabpanel">
+                        @php
+                            $guides = [
+                                [
+                                    'pdf' => 'assets/docs/AM1-AM2/H-1000-2051_AM2_DS.pdf',
+                                    'thumbnail' => 'assets/thumbnails/TH1-AM2-adjustment-module.jpg',
+                                    'label' => "Data sheet: AM2 adjustment module",
+                                ],
+                                [
+                                    'pdf' => 'assets/docs/AM1-AM2/H-1000-4010_AM1_UG.pdf',
+                                    'thumbnail' => 'assets/thumbnails/TH1-AM1.jpg',
+                                    'label' => "User guide: AM1",
+                                ],
+                                [
+                                    'pdf' => 'assets/docs/AM1-AM2/H-1000-5090_Autochange_system_UG.pdf',
+                                    'thumbnail' => 'assets/thumbnails/TH3-Autochange-system.jpg',
+                                    'label' => "User guide: Autochange system",
+                                ],
+                                [
+                                    'pdf' => 'assets/docs/AM1-AM2/H-1000-6010_Autochange_system_IG.pdf',
+                                    'thumbnail' => 'assets/thumbnails/TH4-Autochange-system.jpg',
+                                    'label' => "Installation guide: Autochange system",
+                                ],
+                            ];
+                        @endphp
+
                         <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <a href="{{ asset('assets/docs/H-1000-7592_(PH10_PLUS_IUG).pdf') }}"
-                                    class="tab-iiner-cust-link" download>
-                                    <img src="{{ asset('assets/thumbnails/PH10M.jpg') }}" alt="pdf">
-                                    <span>Installation & user's guide: PH10 PLUS</span>
-                                </a>
-                            </div>
+                            @foreach ($guides as $guide)
+                                <div class="col-lg-4 col-md-6">
+                                    <a href="{{ asset($guide['pdf']) }}" class="tab-iiner-cust-link " download
+                                        aria-label="{{ $guide['label'] }}">
+                                        <img src="{{ asset($guide['thumbnail']) }}" alt="PDF Thumbnail">
+                                        <span>{{ $guide['label'] }}</span>
+                                    </a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
+
                     <div class="tab-pane fade" id="tab3" role="tabpanel">
                         <div class="table-outer">
                             <table width="100%" cellspacing="0" cellpadding="10">
@@ -490,16 +373,16 @@
                                 <tbody>
                                     <tr>
                                         <td> </td>
-                                        <td>
+                                        <td class="fw-bold">
                                             <p>PH10M PLUS</p>
                                             <p>A-5863-</p>
                                         </td>
-                                        <td>
+                                        <td class="fw-bold">
                                             <p>PH10M PLUS</p>
                                             <p>(with AM1)</p>
                                             <p>A-5863-</p>
                                         </td>
-                                        <td>
+                                        <td class="fw-bold">
                                             <p>PH10T PLUS</p>
                                             <p>A-5863-</p>
                                         </td>
@@ -676,29 +559,17 @@
                             </table>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="tab4" role="tabpanel">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <a href="{{ asset('assets/zip/CAD_model_PH10_head_family.zip') }}"
-                                    class="tab-iiner-cust-link" download>
-                                    <img src="{{ asset('assets/thumbnails/zip_80px-trans-icon.png') }}" alt="zip">
-                                    <span>CAD model: PH10 head family</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+                
                 <!-- Get Quote Form Section -->
                 @include('layouts.partials.get-quote')
             </div>
 
             <!-- Image Gallery Section -->
             <div class="col-md-2 gallery p-3">
-                <img src="{{ asset('assets/probes/PH10M/G1-PH10M.jpg') }}" alt="G1-PH10M">
-                <img src="{{ asset('assets/probes/PH10M/G2-PH10M.jpg') }}" alt="G2-PH10M">
-                <img src="{{ asset('assets/probes/PH10M/G3-PH10M.jpg') }}" alt="G3-PH10M">
-                <img src="{{ asset('assets/probes/PH10M/G4-PH10M.jpg') }}" alt="G4-PH10M">
-                <img src="{{ asset('assets/probes/PH10M/G5-PH10M.jpg') }}" alt="G5-PH10M">
+                <img src="{{ asset('assets/probes/AM1-AM2/G1-AM1-AM2.jpg') }}" alt="G1-AM1-AM2">
+                <img src="{{ asset('assets/probes/AM1-AM2/G2-AM1-AM2.jpg') }}" alt="G2-AM1-AM2">
+                <img src="{{ asset('assets/probes/AM1-AM2/G3-AM1-AM2.jpg') }}" alt="G3-AM1-AM2">
             </div>
         </div>
     </div>
