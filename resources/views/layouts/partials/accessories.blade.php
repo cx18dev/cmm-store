@@ -28,7 +28,8 @@
             </a>
         </div>
         <div class="col-md-4 p-2">
-            <a class="card shadow" href="#">
+            <a class="card shadow" 
+                href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'PHC10-3-PLUS-with-internal-PI200-3']) }}">
                 <img src="{{ asset('assets/probes/PHC10-3-PLUS-PI200-3.png') }}" alt="PHC10-3-PLUS-PI200-3">
                 <div class="info">
                     <h5 class="title">PHC10-3 PLUS with internal PI200-3</h5>
@@ -40,7 +41,8 @@
             </a>
         </div>
         <div class="col-md-4 p-2">
-            <a class="card shadow" href="#">
+            <a class="card shadow" 
+                href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'HCU2']) }}">
                 <img src="{{ asset('assets/probes/HCU2.png') }}" alt="HCU2">
                 <div class="info">
                     <h5 class="title">HCU2</h5>

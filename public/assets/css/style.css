@@ -341,10 +341,14 @@ svg {
     background: #fff;
 }
 
-.table-outer tr td,
 .table-outer tr th {
     font-weight: 600;
-    border-right: 1px solid #b7b7b7;
+    border: 1px solid;
+}
+
+.table-outer tr td {
+    /* font-weight: 600; */
+    border-right: 1px solid;
 }
 
 .cust-form-sec {

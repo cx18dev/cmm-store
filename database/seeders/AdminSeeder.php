@@ -14,7 +14,6 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        // You can add more users if needed
         User::create([
             'name' => 'CMM Admin',
             'email' => 'admin@cmmstore.com',

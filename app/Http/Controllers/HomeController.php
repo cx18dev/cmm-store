@@ -6,10 +6,18 @@ use Illuminate\Http\Request;
 use App\Mail\ProductFormSubmission;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
+use App\Repositories\PartsRepository;
 use App\Http\Requests\ProductFormRequest;
 
 class HomeController extends Controller
 {
+    protected $partsRepo;
+
+    public function __construct()
+    {
+        $this->partsRepo = new PartsRepository;
+    }
+    
     public function probes()
     {
         return redirect()->to('CMM/3-axis-systems');
@@ -39,18 +47,22 @@ class HomeController extends Controller
 
     public function category($category, $subCategory = null, $childCategory = null)
     {
-        if ($category && is_null($subCategory) && is_null($childCategory)) {
+        $viewPath = null;
+        $data = [];
+
+        if ($category && !$subCategory && !$childCategory) {
             $viewPath = "categories.$category";
-        } elseif ($category && $subCategory && is_null($childCategory)) {
+        } elseif ($category && $subCategory && !$childCategory) {
             $viewPath = "subcategories.$subCategory";
-        } else {
+        } elseif ($category && $subCategory && $childCategory) {
             $viewPath = "childcategories.$childCategory";
+            $data['parts'] = $this->partsRepo->showAll();
         }
 
-        if (View::exists($viewPath)) {
-            return view($viewPath);
-        } else {
-            abort(404, "View not found: $viewPath");
+        if ($viewPath && View::exists($viewPath)) {
+            return view($viewPath, $data);
         }
+
+        abort(404, "View not found or invalid category path.");
     }
 }

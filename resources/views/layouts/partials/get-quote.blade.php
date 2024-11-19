@@ -9,45 +9,35 @@
                 <table class="table text-center">
                     <thead>
                         <tr>
-                            <th class="fw-bold" style="width: 5%;"></th>
+                            @if (count($parts) > 0)
+                                <th class="fw-bold" style="width: 5%;"></th>
+                            @endif
                             <th class="fw-bold" style="width: 30%;">Part Number</th>
                             <th class="fw-bold" style="width: 30%;">Renishaw List Price</th>
                             <th class="fw-bold" style="width: 30%;">Our Discounted Price</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @php
-                            $parts = [
-                                ['part_number' => 'A-5863-11**', 'price' => 22174],
-                                ['part_number' => 'A-5863-19**', 'price' => 22174],
-                                ['part_number' => 'A-5863-4000', 'price' => 25149],
-                                ['part_number' => 'A-5863-5000', 'price' => 22174],
-                                ['part_number' => 'A-5863-6000', 'price' => 25149],
-                                ['part_number' => 'A-5863-7000', 'price' => 28416],
-                                ['part_number' => 'A-1026-0320 (AM1)', 'price' => 897],
-                                ['part_number' => 'A-1026-0080 (AM1)', 'price' => 897],
-                                ['part_number' => 'A-5863-0100', 'price' => 3409],
-                                ['part_number' => 'A-5863-0200', 'price' => 4310],
-                                ['part_number' => 'A-5882-0010', 'price' => 880],
-                            ];
-                        @endphp
-
-                        @foreach ($parts as $part)
+                        @forelse ($parts as $part)
                             <tr>
                                 <td>
-                                    <input class="form-check-input" type="checkbox" id="{{ $part['part_number'] }}">
+                                    <input class="form-check-input" type="checkbox" id="{{ $part['name'] }}">
                                 </td>
                                 <td>
-                                    <label for="{{ $part['part_number'] }}">{{ $part['part_number'] }}</label>
+                                    <label for="{{ $part['name'] }}">{{ $part['name'] }}</label>
                                 </td>
                                 <td>
-                                    <label for="{{ $part['part_number'] }}">${{ number_format($part['price'], 2) }}</label>
+                                    <label for="{{ $part['name'] }}">{{ $part['price'] }}</label>
                                 </td>
                                 <td>
-                                    <label for="{{ $part['part_number'] }}">${{ number_format($part['price'] * 0.8, 2) }}</label>
+                                    <label for="{{ $part['name'] }}">{{ $part['discounted_price'] }}</label>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="4">---- No parts are currently available ----</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                     {{-- <thead>
                         <tr>

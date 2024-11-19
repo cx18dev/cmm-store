@@ -99,7 +99,7 @@
                         <li>
                             <p>
                                 <a
-                                    href="https://www.renishaw.com/cmmsupport/knowledgebase/en/ph10t-plus-motorised-indexing-probe-head-product-tree--22103">
+                                    href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'PHC10-3-PLUS-with-internal-PI200-3']) }}">
                                     <span>PHC10-3 PLUS with internal PI200-3</span>
                                 </a>
                             </p>
@@ -109,7 +109,7 @@
                         <li>
                             <p>
                                 <a
-                                    href="https://www.renishaw.com/cmmsupport/knowledgebase/en/ph10t-plus-motorised-indexing-probe-head-product-tree--22103">
+                                    href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'HCU2']) }}">
                                     <span>HCU2</span>
                                 </a>
                             </p>
