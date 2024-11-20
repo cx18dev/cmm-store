@@ -389,6 +389,7 @@ svg {
 }
 
 .activeCate {
+    font-weight: 600 !important;
     color: #d10000 !important;
 }
 
