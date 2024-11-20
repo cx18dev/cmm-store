@@ -388,6 +388,10 @@ svg {
     width: calc(33.33% - 14px);
 }
 
+.activeCate {
+    color: #d10000 !important;
+}
+
 a.tab-iiner-cust-link {
     display: flex;
     border: 1px solid #ff8e27;
@@ -399,10 +403,6 @@ a.tab-iiner-cust-link {
     text-decoration: none;
     margin-bottom: 15px;
     border-radius: 10px;
-}
-
-.product-item-name{
-    padding-bottom: 15px;
 }
 
 a.tab-iiner-cust-link img {
@@ -462,6 +462,11 @@ table a {
     text-decoration: none;
     border: 1px solid lightgray;
     border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category .card:hover {
+    transform: scale(1.06);
 }
 
 .category .card img {
@@ -476,11 +481,17 @@ table a {
 
 .category .card .info .desc {
     color: #000000;
-    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    max-height: calc(1.5em * 4);
 }
 
 .cate-sec {
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
 }
 
 #leftside-navigation .main {
@@ -495,7 +506,16 @@ table a {
 .ppt-section a {
     text-decoration: none;
 }
-
+#product-form table thead th{
+    font-size: 20px;
+}
+#product-form table tbody .form-check-input {
+    width: 20px;
+    height: 20px;
+}
+#product-form table tbody #discounted-price {
+    color: #008900;
+}
 @media screen and (max-width: 991px) {
     .Navbar-section .navbar {
         background: #043d4a;

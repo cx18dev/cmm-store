@@ -66,14 +66,15 @@
                     var selectedProducts = [];
                     $('input[type="checkbox"]:checked').each(function() {
                         var row = $(this).closest('tr');
-                        var partNumber = row.find('td:eq(1) label').text();
+                        var part = row.find('td:eq(1) label').text();
                         var listPrice = row.find('td:eq(2) label').text();
-                        var discountedPrice = row.find('td:eq(3) label').text();
+                        var clearPrice = listPrice.replace(/[\$,]/g, '').split('.')[0];
+                        var discount = row.find('td:eq(3) label').text();
 
                         selectedProducts.push({
-                            Part_Number: partNumber,
-                            Renishaw_List_Price: listPrice,
-                            Our_Discounted_Price: discountedPrice
+                            part: part,
+                            price: clearPrice,
+                            discount: discount,
                         });
                     });
 

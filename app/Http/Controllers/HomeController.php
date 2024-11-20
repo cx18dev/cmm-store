@@ -36,7 +36,12 @@ class HomeController extends Controller
         ];
 
         // Send the email to the admin
-        Mail::to('admin@example.com')->send(new ProductFormSubmission($formDetails));
+        // Mail::to('admin@example.com')->send(new ProductFormSubmission($formDetails));
+        Mail::send('emails.product-form', compact('formDetails'), function ($message) {
+            $message->from('info@cmmstore.com', 'CMM Online Store')
+                ->to('crazycoder09@gmail.com')
+                ->subject('Product Form Submission');
+        });
 
         // Return a response (success message)
         return response()->json([
@@ -56,7 +61,7 @@ class HomeController extends Controller
             $viewPath = "subcategories.$subCategory";
         } elseif ($category && $subCategory && $childCategory) {
             $viewPath = "childcategories.$childCategory";
-            $data['parts'] = $this->partsRepo->showAll();
+            // $data['parts'] = $this->partsRepo->showAll();
         }
 
         if ($viewPath && View::exists($viewPath)) {

@@ -2,10 +2,35 @@
 
 <title>@yield('title', 'PH10T PLUS | CMM Online Store')</title>
 
+@php
+    $parts = [
+        [
+            'name' => 'A-5863-11**',
+            'price' => 22174,
+            'discount' => 20,
+        ],
+        [
+            'name' => 'A-5863-19**',
+            'price' => 22174,
+            'discount' => 20,
+        ],
+        [
+            'name' => 'A-5863-4000',
+            'price' => 22174,
+            'discount' => 20,
+        ],
+        [
+            'name' => 'A-5863-1060',
+            'price' => 22174,
+            'discount' => 20,
+        ],
+    ];
+@endphp
+
 @section('category')
     <div class="col-md-10 category">
         <div class="row">
-            <div class="col-10 infobox p-5">
+            <div class="col-10 infobox p-4">
                 <h2 class="product-item-name text-center">PH10T PLUS motorised indexing probe head</h2>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">

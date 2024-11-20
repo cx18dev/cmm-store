@@ -2,10 +2,20 @@
 
 <title>@yield('title', 'HCU2 | CMM Online Store')</title>
 
+@php
+    $parts = [
+        [
+            'name' => 'A-5882-0010',
+            'price' => 880,
+            'discount' => 20,
+        ],
+    ];
+@endphp
+
 @section('category')
     <div class="col-md-10 category">
         <div class="row">
-            <div class="col-10 infobox p-5">
+            <div class="col-10 infobox p-4">
                 <h2 class="product-item-name text-center">HCU2 hand control unit</h2>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">

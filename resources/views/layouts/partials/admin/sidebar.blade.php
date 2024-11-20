@@ -42,10 +42,10 @@
             </ul>
         </li>
 
-        <li class="menu-item {{ request()->getRequestUri() === '/admin/probes' ? 'active' : '' }}">
+        <li class="menu-item {{ request()->getRequestUri() === '/admin/parts' ? 'active' : '' }}">
             <a href="{{ route('admin.parts.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>
-                <div data-i18n="Probes">Probes</div>
+                <div data-i18n="Parts">Parts</div>
             </a>
         </li>
 

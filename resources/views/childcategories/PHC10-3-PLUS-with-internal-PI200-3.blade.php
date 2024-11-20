@@ -2,6 +2,16 @@
 
 <title>@yield('title', 'PHC10-3 PLUS with internal PI200-3 | CMM Online Store')</title>
 
+@php
+    $parts = [
+        [
+            'name' => 'A-5863-0200',
+            'price' => 4310,
+            'discount' => 20,
+        ],
+    ];
+@endphp
+
 @section('style')
     <style>
         .table-outer table td {

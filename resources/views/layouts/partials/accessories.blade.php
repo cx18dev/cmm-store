@@ -1,8 +1,8 @@
 <div class="cate-sec">
-    <h2 class="product-item-name">Motorized probe head accessories</h2>
-    <div class="row ps-2">
-        <div class="col-md-4 p-2">
-            <a class="card shadow"
+    <h3 class="product-item-name">Motorized probe head accessories</h3>
+    <div class="row">
+        <div class="col-md-4 p-3">
+            <a class="card shadow-sm"
                 href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'AM1-AM2-adjustment-modules']) }}">
                 <img src="{{ asset('assets/probes/AM1-AM2.png') }}" alt="AM1-AM2">
                 <div class="info">
@@ -14,8 +14,8 @@
                 </div>
             </a>
         </div>
-        <div class="col-md-4 p-2">
-            <a class="card shadow" 
+        <div class="col-md-4 p-3">
+            <a class="card shadow-sm"
                 href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'PHC10-3-PLUS']) }}">
                 <img src="{{ asset('assets/probes/PHC10-3-PLUS.png') }}" alt="PHC10-3-PLUS">
                 <div class="info">
@@ -27,8 +27,8 @@
                 </div>
             </a>
         </div>
-        <div class="col-md-4 p-2">
-            <a class="card shadow" 
+        <div class="col-md-4 p-3">
+            <a class="card shadow-sm"
                 href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'PHC10-3-PLUS-with-internal-PI200-3']) }}">
                 <img src="{{ asset('assets/probes/PHC10-3-PLUS-PI200-3.png') }}" alt="PHC10-3-PLUS-PI200-3">
                 <div class="info">
@@ -40,8 +40,8 @@
                 </div>
             </a>
         </div>
-        <div class="col-md-4 p-2">
-            <a class="card shadow" 
+        <div class="col-md-4 p-3">
+            <a class="card shadow-sm"
                 href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'HCU2']) }}">
                 <img src="{{ asset('assets/probes/HCU2.png') }}" alt="HCU2">
                 <div class="info">

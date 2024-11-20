@@ -2,10 +2,25 @@
 
 <title>@yield('title', 'AM1/AM2 adjustment modules | CMM Online Store')</title>
 
+@php
+    $parts = [
+        [
+            'name' => 'A-1026-0320 (AM1)',
+            'price' => 897,
+            'discount' => 20,
+        ],
+        [
+            'name' => 'A-1036-0080 (AM2)',
+            'price' => 897,
+            'discount' => 20,
+        ],
+    ];
+@endphp
+
 @section('category')
     <div class="col-md-10 category">
         <div class="row">
-            <div class="col-10 infobox p-5">
+            <div class="col-10 infobox p-4">
                 <h2 class="product-item-name text-center">AM1 / AM2 adjustment modules</h2>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -123,22 +138,22 @@
                                 [
                                     'pdf' => 'assets/docs/AM1-AM2/H-1000-2051_AM2_DS.pdf',
                                     'thumbnail' => 'assets/thumbnails/TH1-AM2-adjustment-module.jpg',
-                                    'label' => "Data sheet: AM2 adjustment module",
+                                    'label' => 'Data sheet: AM2 adjustment module',
                                 ],
                                 [
                                     'pdf' => 'assets/docs/AM1-AM2/H-1000-4010_AM1_UG.pdf',
                                     'thumbnail' => 'assets/thumbnails/TH1-AM1.jpg',
-                                    'label' => "User guide: AM1",
+                                    'label' => 'User guide: AM1',
                                 ],
                                 [
                                     'pdf' => 'assets/docs/AM1-AM2/H-1000-5090_Autochange_system_UG.pdf',
                                     'thumbnail' => 'assets/thumbnails/TH3-Autochange-system.jpg',
-                                    'label' => "User guide: Autochange system",
+                                    'label' => 'User guide: Autochange system',
                                 ],
                                 [
                                     'pdf' => 'assets/docs/AM1-AM2/H-1000-6010_Autochange_system_IG.pdf',
                                     'thumbnail' => 'assets/thumbnails/TH4-Autochange-system.jpg',
-                                    'label' => "Installation guide: Autochange system",
+                                    'label' => 'Installation guide: Autochange system',
                                 ],
                             ];
                         @endphp
@@ -560,7 +575,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Get Quote Form Section -->
                 @include('layouts.partials.get-quote')
             </div>

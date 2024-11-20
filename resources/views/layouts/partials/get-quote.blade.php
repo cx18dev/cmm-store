@@ -9,9 +9,9 @@
                 <table class="table text-center">
                     <thead>
                         <tr>
-                            @if (count($parts) > 0)
-                                <th class="fw-bold" style="width: 5%;"></th>
-                            @endif
+                            {{-- @if (count($parts) > 0) --}}
+                            <th class="fw-bold" style="width: 5%;"></th>
+                            {{-- @endif --}}
                             <th class="fw-bold" style="width: 30%;">Part Number</th>
                             <th class="fw-bold" style="width: 30%;">Renishaw List Price</th>
                             <th class="fw-bold" style="width: 30%;">Our Discounted Price</th>
@@ -27,10 +27,15 @@
                                     <label for="{{ $part['name'] }}">{{ $part['name'] }}</label>
                                 </td>
                                 <td>
-                                    <label for="{{ $part['name'] }}">{{ $part['price'] }}</label>
+                                    <label for="{{ $part['name'] }}">${{ number_format($part['price'], 2) }}</label>
+                                </td>
+                                <td style="display: none;">
+                                    <label>{{ $part['discount'] }}</label>
                                 </td>
                                 <td>
-                                    <label for="{{ $part['name'] }}">{{ $part['discounted_price'] }}</label>
+                                    <label id="discounted-price" for="{{ $part['name'] }}">
+                                        ${{ number_format($part['price'] - ($part['price'] * $part['discount']) / 100, 2) }}
+                                    </label>
                                 </td>
                             </tr>
                         @empty
@@ -39,14 +44,6 @@
                             </tr>
                         @endforelse
                     </tbody>
-                    {{-- <thead>
-                        <tr>
-                            <th class="fw-bold" style="width: 5%;"></th>
-                            <th class="fw-bold" style="width: 30%;"></th>
-                            <th class="fw-bold" style="width: 30%;">Total Price:<br>$1,23,456.00</th>
-                            <th class="fw-bold" style="width: 30%;">Total Price:<br>$1,23,456.00</th>
-                        </tr>
-                    </thead> --}}
                 </table>
             </div>
         </div>

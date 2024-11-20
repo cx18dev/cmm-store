@@ -1,8 +1,8 @@
 <div class="cate-sec">
-    <h2 class="product-item-name">Coordinate measuring machine probes</h2>
-    <div class="row ps-2">
-        <div class="col-md-4 p-2">
-            <a class="card shadow"
+    <h3 class="product-item-name">Coordinate measuring machine probes</h3>
+    <div class="row">
+        <div class="col-md-4 p-3">
+            <a class="card shadow-sm"
                 href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'coordinate-measuring-machine-probes', 'childcategory' => 'PH10MQ-PLUS']) }}">
                 <img src="{{ asset('assets/probes/PH10M-IQ/PH10MQ-PLUS.png') }}" alt="PH10MQ-PLUS">
                 <div class="info">
@@ -14,8 +14,8 @@
                 </div>
             </a>
         </div>
-        <div class="col-md-4 p-2">
-            <a class="card shadow"
+        <div class="col-md-4 p-3">
+            <a class="card shadow-sm"
                 href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'coordinate-measuring-machine-probes', 'childcategory' => 'PH10M-iQ-PLUS']) }}">
                 <img src="{{ asset('assets/probes/PH10M-IQ/PH10M-iQ-PLUS.jpg') }}" alt="PH10M-iQ-PLUS">
                 <div class="info">
