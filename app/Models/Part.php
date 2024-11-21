@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Parts extends Model
+class Part extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,6 +12,7 @@ class Parts extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'probe_id',
         'name',
         'title',
         'price',

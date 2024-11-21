@@ -3,12 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\ProbeController;
+use App\Http\Controllers\Admin\PartController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\MainCategoryController;
 use App\Http\Controllers\Admin\ChildCategoryController;
-use App\Http\Controllers\Admin\PartsController;
 
 require __DIR__ . '/auth.php';
 
@@ -29,6 +30,11 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Category routes
-    Route::resource('parts', PartsController::class);
+    // Parts routes
+    Route::resource('parts', PartController::class);
+
+    // Probes routes
+    Route::resource('probes', ProbeController::class);
+    Route::match(['post', 'put'], '/image-upload', [ProbeController::class, 'imageUpload'])->name('image.upload');
+    Route::put('probes/{probe}', [ProbeController::class, 'update']);
 });

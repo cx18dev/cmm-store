@@ -8,7 +8,7 @@ use App\Http\Requests\PartRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\PartsRepository;
 
-class PartsController extends Controller
+class PartController extends Controller
 {
     protected $partsRepo;
 

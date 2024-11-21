@@ -2,18 +2,23 @@
 
 namespace App\Repositories;
 
-use App\Models\Parts;
+use App\Models\Part;
 
 class PartsRepository
 {
     public function all()
     {
-        return Parts::all();
+        return Part::all();
+    }
+
+    public function getCount()
+    {
+        return Part::count();
     }
 
     public function showAll()
     {
-        return Parts::all()->map(function ($part) {
+        return Part::all()->map(function ($part) {
             return [
                 'name' => $part->name,
                 'title' => $part->title,
@@ -26,23 +31,23 @@ class PartsRepository
 
     public function create(array $data)
     {
-        return Parts::create($data);
+        return Part::create($data);
     }
 
     public function find($id)
     {
-        return Parts::find($id);
+        return Part::find($id);
     }
 
     public function update($id, array $data)
     {
-        $pages = $this->find($id);
-        $pages->update($data);
+        $part = $this->find($id);
+        $part->update($data);
     }
 
     public function delete($id)
     {
-        $pages = Parts::findOrFail($id);
-        $pages->delete();
+        $part = Part::findOrFail($id);
+        $part->delete();
     }
 }

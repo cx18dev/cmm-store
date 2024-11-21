@@ -22,19 +22,19 @@
         </li>
 
         <li class="menu-item open {{ request()->is('admin/category*') ? 'active' : '' }}">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-info-circle"></i>
+            <a href="javascript:void(0);" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Category">Category</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item {{ request()->is('admin/category/main-category') ? 'active' : '' }}">
-                    <a href="#" class="menu-link">
+                    <a href="javascript:void(0);" class="menu-link">
                         <i class="menu-icon tf-icons bx bx-file"></i>
                         <div data-i18n="Main Category">Main Category</div>
                     </a>
                 </li>
                 <li class="menu-item {{ request()->is('admin/category/sub-category') ? 'active' : '' }}">
-                    <a href="#" class="menu-link">
+                    <a href="javascript:void(0);" class="menu-link">
                         <i class="menu-icon tf-icons bx bxs-file"></i>
                         <div data-i18n="Sub Category">Sub Category</div>
                     </a>
@@ -42,14 +42,21 @@
             </ul>
         </li>
 
-        <li class="menu-item {{ request()->getRequestUri() === '/admin/parts' ? 'active' : '' }}">
+        <li class="menu-item {{ request()->is('admin/probes') ? 'active' : '' }}">
+            <a href="{{ route('admin.probes.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-package"></i>
+                <div data-i18n="Probes">Probes</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('admin/parts*') ? 'active' : '' }}">
             <a href="{{ route('admin.parts.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="Parts">Parts</div>
             </a>
         </li>
 
-        <li class="menu-item {{ request()->getRequestUri() === '/admin/profile' ? 'active' : '' }}">
+        <li class="menu-item {{ request()->is('admin/profile') ? 'active' : '' }}">
             <a href="{{ route('admin.profile.edit') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Profile">Profile</div>

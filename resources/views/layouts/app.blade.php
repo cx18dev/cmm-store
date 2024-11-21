@@ -41,13 +41,16 @@
         href="{{ asset('assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/flatpickr/flatpickr.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/dropzone/dropzone.css') }}" />
+    {{-- <link rel="stylesheet" href="{{ asset('assets/vendor/libs/dropzone/dropzone.css') }}" /> --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/dropzone.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/dropzone.css') }}" />
 
     <!-- Row Group CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css') }}">
 
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/page-auth.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
 
     <!-- Helpers -->
     <!-- Include SweetAlert2 from CDN -->
@@ -113,9 +116,10 @@
 
     <!-- Vendors JS -->
     <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/dropzone/dropzone.js') }}"></script>
+    {{-- <script src="{{ asset('assets/vendor/libs/dropzone/dropzone.js') }}"></script> --}}
+    <script src="{{ asset('assets/js/dropzone.min.js') }}"></script>
 
-    <script src="{{ asset('assets/js/forms-file-upload.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/forms-file-upload.js') }}"></script> --}}
 
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Parts | Admin CMM Store')
+@section('title', 'Probes | Admin CMM Store')
 
 @section('content')
 
@@ -29,9 +29,7 @@
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Title</th>
-                                <th>Price</th>
-                                <th>Discount</th>
-                                <th>Final Price</th>
+                                <th>Image</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -51,12 +49,16 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: `{{ route('admin.parts.index') }}`,
+                    url: `{{ route('admin.probes.index') }}`,
                     type: 'GET'
                 },
                 columns: [{
                         data: 'id',
                         name: 'id'
+                    },
+                    {
+                        data: 'image',
+                        name: 'image'
                     },
                     {
                         data: 'name',
@@ -65,18 +67,6 @@
                     {
                         data: 'title',
                         name: 'title'
-                    },
-                    {
-                        data: 'price',
-                        name: 'price'
-                    },
-                    {
-                        data: 'discount',
-                        name: 'discount',
-                    },
-                    {
-                        data: 'discounted_price',
-                        name: 'discounted_price',
                     },
                     {
                         data: 'actions',
@@ -90,7 +80,7 @@
                     text: '<i class="bx bx-plus bx-sm me-sm-2"></i> Add New Record',
                     className: "create-new btn btn-primary",
                     attr: {
-                        'data-url': "{{ route('admin.parts.create') }}"
+                        'data-url': "{{ route('admin.probes.create') }}"
                     }
                 }],
                 lengthMenu: [5, 10, 25, 50, 100],
