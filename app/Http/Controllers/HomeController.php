@@ -39,7 +39,7 @@ class HomeController extends Controller
         // Mail::to('admin@example.com')->send(new ProductFormSubmission($formDetails));
         Mail::send('emails.product-form', compact('formDetails'), function ($message) {
             $message->from('info@cmmstore.com', 'CMM Online Store')
-                ->to('crazycoder09@gmail.com')
+                ->to('info@cmmstore.com')
                 ->subject('Product Form Submission');
         });
 

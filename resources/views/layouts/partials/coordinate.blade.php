@@ -1,5 +1,5 @@
 <div class="cate-sec">
-    <h3 class="product-item-name">Coordinate measuring machine probes</h3>
+    {{-- <h3 class="product-item-name">Coordinate measuring machine probes</h3> --}}
     <div class="row">
         <div class="col-md-4 p-3">
             <a class="card shadow-sm"

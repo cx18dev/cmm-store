@@ -10,12 +10,12 @@
             </p>
             <ul class="level-1">
                 <li class="parent">
-                    <p class="text-dark main">
+                    {{-- <p class="text-dark main">
                         <a class="{{ request()->is('CMM/3-axis-systems/motorized-probe-heads') ? 'activeCate' : '' }}"
                             href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-heads']) }}">
                             <span>Motorized probe heads</span>
                         </a>
-                    </p>
+                    </p> --}}
                     <ul class="level-2">
                         <li>
                             <p>
@@ -40,12 +40,12 @@
             </ul>
             <ul class="level-1">
                 <li class="parent">
-                    <p class="text-dark main">
+                    {{-- <p class="text-dark main">
                         <a class="{{ request()->is('CMM/3-axis-systems/coordinate-measuring-machine-probes') ? 'activeCate' : '' }}"
                             href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'coordinate-measuring-machine-probes']) }}">
                             <span>Coordinate measuring machine probes</span>
                         </a>
-                    </p>
+                    </p> --}}
                     <ul class="level-2">
                         <li>
                             <p>
@@ -70,12 +70,12 @@
             </ul>
             <ul class="level-1">
                 <li class="parent">
-                    <p class="text-dark main">
+                    {{-- <p class="text-dark main">
                         <a class="{{ request()->is('CMM/3-axis-systems/motorized-probe-head-accessories') ? 'activeCate' : '' }}"
                             href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories']) }}">
                             <span>Motorized probe head accessories</span>
                         </a>
-                    </p>
+                    </p> --}}
                     <ul class="level-2">
                         <li>
                             <p>
