@@ -6,22 +6,26 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\PartsRepository;
 use App\Repositories\ProbeRepository;
+use App\Repositories\CategoryRepository;
 
 class DashboardController extends Controller
 {
     protected $partsRepo;
     protected $probeRepo;
+    protected $categoryRepo;
 
     public function __construct()
     {
         $this->partsRepo = new PartsRepository;
         $this->probeRepo = new ProbeRepository;
+        $this->categoryRepo = new CategoryRepository;
     }
     
     public function index()
     {
         $parts = $this->partsRepo->getCount();
         $probes = $this->probeRepo->getCount();
-        return view('admin.dashboard', compact('parts', 'probes'));
+        $categories = $this->categoryRepo->getCount();
+        return view('admin.dashboard', compact('parts', 'probes', 'categories'));
     }
 }

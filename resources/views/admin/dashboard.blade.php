@@ -7,6 +7,18 @@
     <div class="row g-6">
         <!-- Card Border Shadow -->
         <div class="col-lg-3 col-sm-6">
+            <a href="{{ route('admin.category.index') }}" class="card card-border-shadow-primary h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="avatar me-4">
+                            <span class="avatar-initial rounded bg-label-success"><i class="bx bx-box bx-collection"></i></span>
+                        </div>
+                        <h4 class="mb-0">Categories: {{ number_format($categories) }}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
             <a href="{{ route('admin.parts.index') }}" class="card card-border-shadow-primary h-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-2">
