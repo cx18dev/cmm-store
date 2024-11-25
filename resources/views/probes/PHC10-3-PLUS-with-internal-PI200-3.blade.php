@@ -31,7 +31,7 @@
 @section('category')
     <div class="col-md-10 category">
         <div class="row">
-            <div class="col-12 infobox p-5">
+            <div class="col-12 infobox p-4">
                 <h2 class="product-item-name text-center">PHC10-3 PLUS with internal PI200-3 probe head controller</h2>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">

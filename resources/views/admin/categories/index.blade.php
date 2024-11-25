@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Probes | Admin CMM Store')
+@section('title', 'Category | Admin CMM Store')
 
 @section('content')
 
@@ -28,9 +28,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Category</th>
-                                <th>Title</th>
-                                <th>Image</th>
+                                <th>Slug</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -50,7 +48,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: `{{ route('admin.probes.index') }}`,
+                    url: `{{ route('admin.category.index') }}`,
                     type: 'GET'
                 },
                 columns: [{
@@ -58,20 +56,12 @@
                         name: 'id'
                     },
                     {
-                        data: 'image',
-                        name: 'image'
-                    },
-                    {
                         data: 'name',
                         name: 'name'
                     },
                     {
-                        data: 'category',
-                        name: 'category'
-                    },
-                    {
-                        data: 'title',
-                        name: 'title'
+                        data: 'slug',
+                        name: 'slug',
                     },
                     {
                         data: 'actions',
@@ -85,7 +75,7 @@
                     text: '<i class="bx bx-plus bx-sm me-sm-2"></i> Add New Record',
                     className: "create-new btn btn-primary",
                     attr: {
-                        'data-url': "{{ route('admin.probes.create') }}"
+                        'data-url': "{{ route('admin.category.create') }}"
                     }
                 }],
                 lengthMenu: [5, 10, 25, 50, 100],

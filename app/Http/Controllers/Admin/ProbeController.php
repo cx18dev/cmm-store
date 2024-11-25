@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Requests\ProbeRequest;
 use App\Http\Controllers\Controller;
+use App\Repositories\CategoryRepository;
 use Illuminate\Support\Facades\File;
 use App\Repositories\ProbeRepository;
 use Illuminate\Support\Facades\Storage;
@@ -13,10 +14,12 @@ use Illuminate\Support\Facades\Storage;
 class ProbeController extends Controller
 {
     protected $probeRepo;
+    protected $categoryRepo;
 
     public function __construct()
     {
         $this->probeRepo = new ProbeRepository;
+        $this->categoryRepo = new CategoryRepository;
     }
 
     /**
@@ -37,6 +40,9 @@ class ProbeController extends Controller
                 ->addColumn('name', function ($probe) {
                     return $probe->name;
                 })
+                ->addColumn('category', function ($probe) {
+                    return $probe->category->name;
+                })
                 ->addColumn('title', function ($probe) {
                     $words = explode(' ', $probe->title);
                     $chunks = array_chunk($words, 10);
@@ -51,7 +57,7 @@ class ProbeController extends Controller
                     return '<a href="' . route('admin.probes.edit', $probe->id) . '" id="edit-' . $probe->id . '" class="btn rounded-pill btn-icon btn-outline-secondary"><span class="bx bx-edit-alt"></span></a>
                     <a href="' . route('admin.probes.destroy', $probe->id) . '" id="delete-' . $probe->id . '" class="btn rounded-pill btn-icon btn-outline-danger"><span class="bx bx-trash"></span></a>';
                 })
-                ->rawColumns(['id', 'image', 'name', 'title', 'actions'])
+                ->rawColumns(['id', 'image', 'name', 'category', 'title', 'actions'])
                 ->make(true);
         }
         return view('admin.probes.index');
@@ -62,7 +68,8 @@ class ProbeController extends Controller
      */
     public function create()
     {
-        return view('admin.probes.form');
+        $categories = $this->categoryRepo->all();
+        return view('admin.probes.form', compact('categories'));
     }
 
     public function imageUpload(Request $request)
@@ -104,6 +111,7 @@ class ProbeController extends Controller
      */
     public function edit(string $id)
     {
+        $categories = $this->categoryRepo->all();
         $probe = $this->probeRepo->find($id);
 
         if (!$probe) {
@@ -111,7 +119,7 @@ class ProbeController extends Controller
                 ->with('error', 'Selected record not found.');
         }
 
-        return view('admin.probes.form', compact('probe'));
+        return view('admin.probes.form', compact('probe', 'categories'));
     }
 
     /**

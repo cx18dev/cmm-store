@@ -7,15 +7,18 @@ use App\Mail\ProductFormSubmission;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
 use App\Repositories\PartsRepository;
+use App\Repositories\CategoryRepository;
 use App\Http\Requests\ProductFormRequest;
 
 class HomeController extends Controller
 {
     protected $partsRepo;
+    protected $categoryRepo;
 
     public function __construct()
     {
         $this->partsRepo = new PartsRepository;
+        $this->categoryRepo = new CategoryRepository;
     }
     
     public function probes()

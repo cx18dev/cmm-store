@@ -2,29 +2,29 @@
 
 namespace App\Repositories;
 
-use App\Models\Probe;
+use App\Models\Category;
 use Illuminate\Support\Facades\File;
 
-class ProbeRepository
+class CategoryRepository
 {
     public function all()
     {
-        return Probe::with('category')->get();
+        return Category::all();
     }
 
     public function getCount()
     {
-        return Probe::count();
+        return Category::count();
     }
 
     public function create(array $data)
     {
-        return Probe::create($data);
+        return Category::create($data);
     }
 
     public function find($id)
     {
-        return Probe::find($id);
+        return Category::find($id);
     }
 
     public function update($id, array $data)
@@ -35,12 +35,7 @@ class ProbeRepository
 
     public function delete($id)
     {
-        $probe = Probe::findOrFail($id);
-        if($probe){
-            if (File::exists(public_path('assets/admin/probes/' . $probe->image))) {
-                File::delete(public_path('assets/admin/probes/' . $probe->image));
-            }
-        }
+        $probe = Category::findOrFail($id);
         $probe->delete();
     }
 }

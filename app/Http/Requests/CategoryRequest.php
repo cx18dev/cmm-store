@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProbeRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,19 +21,19 @@ class ProbeRequest extends FormRequest
      */
     public function rules(): array
     {
+        // Retrieve the ID from the route parameter
+        $id = $this->route('category');
+
         return [
-            'name' => 'required|string|max:255',
-            'category_id' => 'required',
+            'name' => ['required', 'string', 'max:255'],
             'slug' => [
                 'required',
                 'string',
                 'max:255',
-                'regex:/^[a-zA-Z0-9-_]+$/', // Allow only alphanumeric characters, dash, and underscore
-                Rule::unique('probes', 'slug')->ignore($this->route('probe')),
+                'regex:/^[a-zA-Z0-9-]+$/',
+                'unique:categories,slug,' . $id, // Exclude the current record by ID
             ],
-            'image' => 'required',
-            'title' => 'nullable|string',
-            'description' => 'nullable|string',
         ];
     }
+
 }

@@ -46,7 +46,22 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
+                            <label for="category_id" class="form-label">Category</label>
+                            <select class="form-select" name="category_id" id="category_id">
+                                <option value="">Select Category</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}"
+                                        {{ old('category_id', $probe->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('category_id')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 mb-3">
                             <label for="slug" class="form-label">Slug</label>
                             <input type="text" id="slug" name="slug" class="form-control"
                                 placeholder="Enter Slug" value="{{ old('slug', $probe->slug ?? '') }}">
@@ -141,11 +156,10 @@
                         name: 'Uploaded Image',
                         size: 0
                     };
-                    const finalImagePath = "{{ asset('assets/admin/probes') }}" + "/" + imagePath;
-                    // const finalImagePath = imagePath;
+                    const finalImagePath = "{{ asset('assets/admin/probes') }}" + `/${imagePath}`;
                     dropzoneInstance.emit("addedfile", file);
                     dropzoneInstance.emit("thumbnail", file, finalImagePath);
-                    document.querySelector('input[name="image"]').value = finalImagePath;
+                    document.querySelector('input[name="image"]').value = imagePath;
                 }
 
                 // On file upload success, update the hidden input field with the new image path

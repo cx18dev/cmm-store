@@ -21,7 +21,14 @@
             </a>
         </li>
 
-        <li class="menu-item open {{ request()->is('admin/category*') ? 'active' : '' }}">
+        <li class="menu-item {{ request()->is('admin/category*') ? 'active' : '' }}">
+            <a href="{{ route('admin.category.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Category">Category</div>
+            </a>
+        </li>
+
+        {{-- <li class="menu-item open {{ request()->is('admin/category*') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Category">Category</div>
@@ -40,9 +47,9 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
-        <li class="menu-item {{ request()->is('admin/probes') ? 'active' : '' }}">
+        <li class="menu-item {{ request()->is('admin/probes*') ? 'active' : '' }}">
             <a href="{{ route('admin.probes.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-package"></i>
                 <div data-i18n="Probes">Probes</div>

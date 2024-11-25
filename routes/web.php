@@ -7,9 +7,6 @@ use App\Http\Controllers\Admin\ProbeController;
 use App\Http\Controllers\Admin\PartController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\SubCategoryController;
-use App\Http\Controllers\Admin\MainCategoryController;
-use App\Http\Controllers\Admin\ChildCategoryController;
 
 require __DIR__ . '/auth.php';
 
@@ -33,6 +30,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     // Parts routes
     Route::resource('parts', PartController::class);
+
+    // Category routes
+    Route::resource('category', CategoryController::class);
 
     // Probes routes
     Route::resource('probes', ProbeController::class);
