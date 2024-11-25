@@ -60,7 +60,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4 p-3">
+                {{-- <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
                         href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'AM1-AM2-adjustment-modules']) }}">
                         <img src="{{ asset('assets/probes/AM1-AM2.png') }}" alt="AM1-AM2">
@@ -72,7 +72,7 @@
                             </p>
                         </div>
                     </a>
-                </div>
+                </div> --}}
                 <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
                         href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PHC10-3-PLUS']) }}">

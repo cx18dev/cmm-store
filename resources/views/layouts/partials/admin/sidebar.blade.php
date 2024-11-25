@@ -63,6 +63,10 @@
             </a>
         </li>
 
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text" data-i18n="Account">Account</span>
+        </li>
+
         <li class="menu-item {{ request()->is('admin/profile') ? 'active' : '' }}">
             <a href="{{ route('admin.profile.edit') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>

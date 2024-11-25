@@ -76,7 +76,7 @@
                             <span>Motorized probe head accessories</span>
                         </a>
                     </p> --}}
-                    <ul class="level-2">
+                    {{-- <ul class="level-2">
                         <li>
                             <p>
                                 <a class="{{ request()->is('CMM/3-axis-motorized-probe-heads/AM1-AM2-adjustment-modules') ? 'activeCate' : '' }}"
@@ -85,7 +85,7 @@
                                 </a>
                             </p>
                         </li>
-                    </ul>
+                    </ul> --}}
                     <ul>
                         <li>
                             <p>
