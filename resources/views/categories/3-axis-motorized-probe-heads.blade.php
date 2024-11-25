@@ -5,7 +5,7 @@
 @section('category')
     <div class="col-md-10 p-4 category">
         <div class="cate-sec">
-            {{-- <h3 class="product-item-name">Motorized probe heads</h3> --}}
+            <h2 class="category-title"><u>3-Axis Motorized Probe Heads</u></h2>
             <div class="row">
                 <div class="col-md-4 p-3">
                     <a class="card shadow-sm"

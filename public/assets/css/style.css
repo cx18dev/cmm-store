@@ -94,7 +94,7 @@ svg {
     height: 100vh;
     overflow-y: auto;
     /* background: linear-gradient(to bottom, #f93 0, #f93 30%, #ff8118 100%); */
-    background: linear-gradient(to bottom, #ff9933 0, #f93, #ff8118);
+    /* background: linear-gradient(to bottom, #ff9933 0, #f93, #ff8118); */
 }
 
 .col-md-2.gallery.p-3 img {
@@ -166,6 +166,12 @@ svg {
     width: auto;
     max-width: calc(100% - 40px);
     color: #fff;
+}
+
+.category-title {
+    color: #d10000;
+    text-align: center;
+    padding-bottom: 15px;
 }
 
 #leftside-navigation ul li p span {
@@ -507,7 +513,7 @@ table a {
 .ppt-section a {
     text-decoration: none;
 }
-#product-form table thead th{
+#product-form table thead th {
     font-size: 20px;
 }
 #product-form table tbody .form-check-input {

@@ -1,11 +1,11 @@
 @extends('probes')
 
-<title>@yield('title', '5-Axis Motorized Probe Heads | CMM Online Store')</title>
+<title>@yield('title', 'RBE Repair By Exchange | CMM Online Store')</title>
 
 @section('category')
     <div class="col-md-10 p-4 category">
         <div class="cate-sec">
-            <h2 class="category-title"><u>5-Axis Motorized Probe Heads</u></h2>
+            <h2 class="category-title"><u>RBE Repair By Exchange</u></h2>
             {{-- <div class="row">
                 <div class="col-md-4 p-3">
                     <a class="card shadow-sm"

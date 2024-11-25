@@ -80,7 +80,7 @@
                         <li>
                             <p>
                                 <a class="{{ request()->is('CMM/3-axis-motorized-probe-heads/AM1-AM2-adjustment-modules') ? 'activeCate' : '' }}"
-                                    href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'AM1-AM2-adjustment-modules',]) }}">
+                                    href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'AM1-AM2-adjustment-modules']) }}">
                                     <span>AM1/AM2</span>
                                 </a>
                             </p>
@@ -90,7 +90,7 @@
                         <li>
                             <p>
                                 <a class="{{ request()->is('CMM/3-axis-motorized-probe-heads/PHC10-3-PLUS') ? 'activeCate' : '' }}"
-                                    href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PHC10-3-PLUS',]) }}">
+                                    href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PHC10-3-PLUS']) }}">
                                     <span>PHC10-3 PLUS</span>
                                 </a>
                             </p>
@@ -100,7 +100,7 @@
                         <li>
                             <p>
                                 <a class="{{ request()->is('CMM/3-axis-motorized-probe-heads/PHC10-3-PLUS-with-internal-PI200-3') ? 'activeCate' : '' }}"
-                                    href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PHC10-3-PLUS-with-internal-PI200-3',]) }}">
+                                    href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PHC10-3-PLUS-with-internal-PI200-3']) }}">
                                     <span>PHC10-3 PLUS with internal PI200-3</span>
                                 </a>
                             </p>
@@ -110,7 +110,7 @@
                         <li>
                             <p>
                                 <a class="{{ request()->is('CMM/3-axis-motorized-probe-heads/HCU2') ? 'activeCate' : '' }}"
-                                    href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'HCU2',]) }}">
+                                    href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'HCU2']) }}">
                                     <span>HCU2</span>
                                 </a>
                             </p>
@@ -123,7 +123,8 @@
     <ul class="level-0">
         <li class="parent">
             <p class="text-dark main">
-                <a href="#">
+                <a class="{{ request()->is('CMM/5-axis-motorized-probe-heads') ? 'activeCate' : '' }}"
+                    href="{{ route('category', ['category' => '5-axis-motorized-probe-heads']) }}">
                     <span>5-Axis Motorized Probe Heads</span>
                 </a>
             </p>
@@ -132,8 +133,9 @@
     <ul class="level-0">
         <li class="parent">
             <p class="text-dark main">
-                <a href="#">
-                    <span>Fixed & Manual Probe Heads</span>
+                <a class="{{ request()->is('CMM/fixed-and-manual-probe-heads') ? 'activeCate' : '' }}"
+                    href="{{ route('category', ['category' => 'fixed-and-manual-probe-heads']) }}">
+                    <span>Fixed And Manual Probe Heads</span>
                 </a>
             </p>
         </li>
@@ -141,17 +143,9 @@
     <ul class="level-0">
         <li class="parent">
             <p class="text-dark main">
-                <a href="#">
+                <a class="{{ request()->is('CMM/RBE-repair-by-exchange') ? 'activeCate' : '' }}"
+                    href="{{ route('category', ['category' => 'RBE-repair-by-exchange']) }}">
                     <span>RBE Repair By Exchange</span>
-                </a>
-            </p>
-        </li>
-    </ul>
-    <ul class="level-0">
-        <li class="parent">
-            <p class="text-dark main">
-                <a href="#">
-                    <span>Scanning probe systems</span>
                 </a>
             </p>
         </li>
