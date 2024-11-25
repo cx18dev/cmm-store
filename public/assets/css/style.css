@@ -165,7 +165,7 @@ svg {
 #leftside-navigation ul li p a {
     width: auto;
     max-width: calc(100% - 40px);
-    color: #000;
+    color: #fff;
 }
 
 #leftside-navigation ul li p span {
@@ -491,9 +491,9 @@ table a {
     max-height: calc(1.5em * 4);
 }
 
-.cate-sec {
+/* .cate-sec {
     padding-bottom: 2rem;
-}
+} */
 
 #leftside-navigation .main {
     font-weight: 600;

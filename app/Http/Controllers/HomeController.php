@@ -20,7 +20,7 @@ class HomeController extends Controller
     
     public function probes()
     {
-        return redirect()->to('CMM/3-axis-systems');
+        return redirect()->to('CMM/3-axis-motorized-probe-heads');
     }
 
     public function sendEmail(ProductFormRequest $request)
@@ -58,11 +58,12 @@ class HomeController extends Controller
         if ($category && !$subCategory && !$childCategory) {
             $viewPath = "categories.$category";
         } elseif ($category && $subCategory && !$childCategory) {
-            $viewPath = "subcategories.$subCategory";
-        } elseif ($category && $subCategory && $childCategory) {
-            $viewPath = "childcategories.$childCategory";
-            // $data['parts'] = $this->partsRepo->showAll();
-        }
+            $viewPath = "probes.$subCategory";
+        } 
+        // elseif ($category && $subCategory && $childCategory) {
+        //     $viewPath = "childcategories.$childCategory";
+        //     // $data['parts'] = $this->partsRepo->showAll();
+        // }
 
         if ($viewPath && View::exists($viewPath)) {
             return view($viewPath, $data);
