@@ -132,7 +132,7 @@ class ProbeController extends Controller
         $data = $request->validated();
 
         // Check if a new image was uploaded
-        if ($request->has('image')) {
+        if ($request->has('image') && $probe['image'] !== $data['image']) {
             // Get the existing image path
             $existingImage = $probe->image;
 

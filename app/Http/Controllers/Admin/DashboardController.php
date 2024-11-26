@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\PartsRepository;
+use App\Repositories\PartRepository;
 use App\Repositories\ProbeRepository;
 use App\Repositories\CategoryRepository;
 
@@ -16,7 +16,7 @@ class DashboardController extends Controller
 
     public function __construct()
     {
-        $this->partsRepo = new PartsRepository;
+        $this->partsRepo = new PartRepository;
         $this->probeRepo = new ProbeRepository;
         $this->categoryRepo = new CategoryRepository;
     }

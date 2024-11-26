@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Requests\PartRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\PartsRepository;
+use App\Repositories\PartRepository;
 
 class PartController extends Controller
 {
@@ -14,7 +14,7 @@ class PartController extends Controller
 
     public function __construct()
     {
-        $this->partsRepo = new PartsRepository;
+        $this->partsRepo = new PartRepository;
     }
 
     /**
