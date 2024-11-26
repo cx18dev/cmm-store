@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-4 p-3">
             <a class="card shadow-sm"
-                href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'AM1-AM2-adjustment-modules']) }}">
+                href="{{ route('probes', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'AM1-AM2-adjustment-modules']) }}">
                 <img src="{{ asset('assets/probes/AM1-AM2.png') }}" alt="AM1-AM2">
                 <div class="info">
                     <h5 class="title">AM1/AM2</h5>
@@ -16,7 +16,7 @@
         </div>
         <div class="col-md-4 p-3">
             <a class="card shadow-sm"
-                href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'PHC10-3-PLUS']) }}">
+                href="{{ route('probes', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'PHC10-3-PLUS']) }}">
                 <img src="{{ asset('assets/probes/PHC10-3-PLUS.png') }}" alt="PHC10-3-PLUS">
                 <div class="info">
                     <h5 class="title">PHC10-3 PLUS</h5>
@@ -29,7 +29,7 @@
         </div>
         <div class="col-md-4 p-3">
             <a class="card shadow-sm"
-                href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'PHC10-3-PLUS-with-internal-PI200-3']) }}">
+                href="{{ route('probes', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'PHC10-3-PLUS-with-internal-PI200-3']) }}">
                 <img src="{{ asset('assets/probes/PHC10-3-PLUS-PI200-3.png') }}" alt="PHC10-3-PLUS-PI200-3">
                 <div class="info">
                     <h5 class="title">PHC10-3 PLUS with internal PI200-3</h5>
@@ -42,7 +42,7 @@
         </div>
         <div class="col-md-4 p-3">
             <a class="card shadow-sm"
-                href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'HCU2']) }}">
+                href="{{ route('probes', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-head-accessories', 'childcategory' => 'HCU2']) }}">
                 <img src="{{ asset('assets/probes/HCU2.png') }}" alt="HCU2">
                 <div class="info">
                     <h5 class="title">HCU2</h5>

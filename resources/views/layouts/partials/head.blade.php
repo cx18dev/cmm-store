@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-4 p-3">
             <a class="card shadow-sm"
-                href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-heads', 'childcategory' => 'PH10T-PLUS']) }}">
+                href="{{ route('probes', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-heads', 'childcategory' => 'PH10T-PLUS']) }}">
                 <img src="{{ asset('assets/probes/PH10T/PH10T-PLUS.jpg') }}" alt="PH10T-PLUS">
                 <div class="info">
                     <h5 class="title">PH10T PLUS</h5>
@@ -16,7 +16,7 @@
         </div>
         <div class="col-md-4 p-3">
             <a class="card shadow-sm"
-                href="{{ route('category', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-heads', 'childcategory' => 'PH10M-PLUS']) }}">
+                href="{{ route('probes', ['category' => '3-axis-systems', 'subcategory' => 'motorized-probe-heads', 'childcategory' => 'PH10M-PLUS']) }}">
                 <img src="{{ asset('assets/probes/PH10M/PH10M-PLUS.jpg') }}" alt="PH10M-PLUS">
                 <div class="info">
                     <h5 class="title">PH10M PLUS</h5>

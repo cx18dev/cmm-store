@@ -18,20 +18,20 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between m-2" id="navbarNav">
                     <ul class="navbar-nav w-100 justify-content-between text-center">
-                        <li class="nav-item {{ request()->is('CMM-Probes') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('probes') }}">CMM Probes</a>
+                        <li class="nav-item {{ request()->is('CMM-probes*') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads']) }}">CMM Probes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Certified CMMs</a>
+                            <a class="nav-link" href="javascript:void(0);">Certified CMMs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">CMM Software</a>
+                            <a class="nav-link" href="javascript:void(0);">CMM Software</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">CMM Services</a>
+                            <a class="nav-link" href="javascript:void(0);">CMM Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">CMM Fixtures</a>
+                            <a class="nav-link" href="javascript:void(0);">CMM Fixtures</a>
                         </li>
                     </ul>
                 </div>

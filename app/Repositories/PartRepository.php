@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Part;
 
-class PartsRepository
+class PartRepository
 {
     public function all()
     {

@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
-                        href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PH10T-PLUS']) }}">
+                        href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PH10T-PLUS']) }}">
                         <img src="{{ asset('assets/probes/PH10T/PH10T-PLUS.jpg') }}" alt="PH10T-PLUS">
                         <div class="info">
                             <h5 class="title">PH10T PLUS</h5>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
-                        href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PH10M-PLUS']) }}">
+                        href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PH10M-PLUS']) }}">
                         <img src="{{ asset('assets/probes/PH10M/PH10M-PLUS.jpg') }}" alt="PH10M-PLUS">
                         <div class="info">
                             <h5 class="title">PH10M PLUS</h5>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
-                        href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PH10MQ-PLUS']) }}">
+                        href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PH10MQ-PLUS']) }}">
                         <img src="{{ asset('assets/probes/PH10M-IQ/PH10MQ-PLUS.png') }}" alt="PH10MQ-PLUS">
                         <div class="info">
                             <h5 class="title">PH10MQ PLUS</h5>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
-                        href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PH10M-iQ-PLUS']) }}">
+                        href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PH10M-iQ-PLUS']) }}">
                         <img src="{{ asset('assets/probes/PH10M-IQ/PH10M-iQ-PLUS.jpg') }}" alt="PH10M-iQ-PLUS">
                         <div class="info">
                             <h5 class="title">PH10M-iQ PLUS</h5>
@@ -62,7 +62,7 @@
                 </div>
                 {{-- <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
-                        href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'AM1-AM2-adjustment-modules']) }}">
+                        href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'AM1-AM2-adjustment-modules']) }}">
                         <img src="{{ asset('assets/probes/AM1-AM2.png') }}" alt="AM1-AM2">
                         <div class="info">
                             <h5 class="title">AM1/AM2</h5>
@@ -75,7 +75,7 @@
                 </div> --}}
                 <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
-                        href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PHC10-3-PLUS']) }}">
+                        href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PHC10-3-PLUS']) }}">
                         <img src="{{ asset('assets/probes/PHC10-3-PLUS.png') }}" alt="PHC10-3-PLUS">
                         <div class="info">
                             <h5 class="title">PHC10-3 PLUS</h5>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
-                        href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PHC10-3-PLUS-with-internal-PI200-3']) }}">
+                        href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PHC10-3-PLUS-with-internal-PI200-3']) }}">
                         <img src="{{ asset('assets/probes/PHC10-3-PLUS-PI200-3.png') }}" alt="PHC10-3-PLUS-PI200-3">
                         <div class="info">
                             <h5 class="title">PHC10-3 PLUS with internal PI200-3</h5>
@@ -99,9 +99,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4 p-3">
+                {{-- <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
-                        href="{{ route('category', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'HCU2']) }}">
+                        href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'HCU2']) }}">
                         <img src="{{ asset('assets/probes/HCU2.png') }}" alt="HCU2">
                         <div class="info">
                             <h5 class="title">HCU2</h5>
@@ -111,7 +111,7 @@
                             </p>
                         </div>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

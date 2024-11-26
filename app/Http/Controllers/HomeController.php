@@ -6,24 +6,41 @@ use Illuminate\Http\Request;
 use App\Mail\ProductFormSubmission;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
-use App\Repositories\PartsRepository;
+use App\Repositories\PartRepository;
 use App\Repositories\CategoryRepository;
 use App\Http\Requests\ProductFormRequest;
 
 class HomeController extends Controller
 {
-    protected $partsRepo;
+    protected $partRepo;
     protected $categoryRepo;
 
     public function __construct()
     {
-        $this->partsRepo = new PartsRepository;
+        $this->partRepo = new PartRepository;
         $this->categoryRepo = new CategoryRepository;
     }
-    
-    public function probes()
+
+    public function probes($category, $subCategory = null, $childCategory = null)
     {
-        return redirect()->to('CMM/3-axis-motorized-probe-heads');
+        $viewPath = null;
+        $data = [];
+
+        if ($category && !$subCategory && !$childCategory) {
+            $viewPath = "categories.$category";
+        } elseif ($category && $subCategory && !$childCategory) {
+            $viewPath = "probes.$subCategory";
+        }
+        // elseif ($category && $subCategory && $childCategory) {
+        //     $viewPath = "childcategories.$childCategory";
+        //     // $data['parts'] = $this->partRepo->showAll();
+        // }
+
+        if ($viewPath && View::exists($viewPath)) {
+            return view($viewPath, $data);
+        }
+
+        abort(404, "View not found or invalid category path.");
     }
 
     public function sendEmail(ProductFormRequest $request)
@@ -51,27 +68,5 @@ class HomeController extends Controller
             'status' => true,
             'message' => 'Your form has been sent to the admin. Please wait for a response!'
         ]);
-    }
-
-    public function category($category, $subCategory = null, $childCategory = null)
-    {
-        $viewPath = null;
-        $data = [];
-
-        if ($category && !$subCategory && !$childCategory) {
-            $viewPath = "categories.$category";
-        } elseif ($category && $subCategory && !$childCategory) {
-            $viewPath = "probes.$subCategory";
-        } 
-        // elseif ($category && $subCategory && $childCategory) {
-        //     $viewPath = "childcategories.$childCategory";
-        //     // $data['parts'] = $this->partsRepo->showAll();
-        // }
-
-        if ($viewPath && View::exists($viewPath)) {
-            return view($viewPath, $data);
-        }
-
-        abort(404, "View not found or invalid category path.");
     }
 }

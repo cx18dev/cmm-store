@@ -12,11 +12,11 @@ require __DIR__ . '/auth.php';
 
 Route::view('/', 'index')->name('index');
 
-Route::get('CMM-Probes', [HomeController::class, 'probes'])->name('probes');
+// Route::get('CMM-Probes', [HomeController::class, 'probes'])->name('probes');
 Route::post('send-email', [HomeController::class, 'sendEmail'])->name('send.email');
 
 // Route::get('/CMM/{category}/{subcategory?}/{childcategory?}', [HomeController::class, 'category'])->name('category');
-Route::get('/CMM/{category}/{probes?}', [HomeController::class, 'category'])->name('category');
+Route::get('/CMM-probes/{category}/{probes?}', [HomeController::class, 'probes'])->name('probes');
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
 

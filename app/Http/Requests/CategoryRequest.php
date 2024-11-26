@@ -22,7 +22,7 @@ class CategoryRequest extends FormRequest
     public function rules(): array
     {
         // Retrieve the ID from the route parameter
-        $id = $this->route('category');
+        $id = $this->route('probes');
 
         return [
             'name' => ['required', 'string', 'max:255'],
@@ -35,5 +35,4 @@ class CategoryRequest extends FormRequest
             ],
         ];
     }
-
 }
