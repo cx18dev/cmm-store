@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Part;
 use App\Models\Probe;
 use Illuminate\Support\Facades\File;
 
@@ -42,5 +43,16 @@ class ProbeRepository
             }
         }
         $probe->delete();
+    }
+
+    public function getPartsByProbeSlug($slug)
+    {
+        $probe = Probe::where('slug', $slug)->first();
+
+        if (!$probe) {
+            return [];
+        }
+
+        return Part::whereRaw('FIND_IN_SET(?, probe_id)', [$probe->id])->get();
     }
 }

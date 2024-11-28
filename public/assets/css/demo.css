@@ -164,3 +164,15 @@ table .table-img {
     object-fit: contain;
     object-position: center;
 }
+
+.tagify--focus {
+    border-color: #696cff !important;
+}
+
+.tagify__tag>div::before {
+    box-shadow: 0 0 0 2em rgb(231 231 255) inset !important;
+}
+
+.tagify__tag>div>*{
+    color: #696cff !important;
+}

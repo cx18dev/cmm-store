@@ -2,16 +2,6 @@
 
 <title>@yield('title', 'PH10M-iQ PLUS | CMM Online Store')</title>
 
-@php
-    $parts = [
-        [
-            'name' => 'A-5863-7000',
-            'price' => 28416,
-            'discount' => 20,
-        ],
-    ];
-@endphp
-
 @section('category')
     <div class="col-md-10 category">
         <div class="row">

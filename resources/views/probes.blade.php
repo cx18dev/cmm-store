@@ -7,7 +7,7 @@
             <div class="col-md-2 cust-sidebar p-3 text-dark">
                 @include('layouts.partials.categories-menu')
             </div>
-            
+
             <!-- Main content area with tabbed layout and table -->
             @yield('category')
             {{-- @include('layouts.partials.category') --}}
@@ -36,6 +36,10 @@
                     details: {
                         required: true,
                         minlength: 10
+                    },
+                    'parts[]': {
+                        required: true,
+                        minlength: 1
                     }
                 },
                 messages: {
@@ -53,13 +57,32 @@
                     details: {
                         required: "Please enter some details",
                         minlength: "Details must be at least 10 characters long"
+                    },
+                    'parts[]': {
+                        required: "Please select at least one part",
+                        minlength: "Please select at least one part"
+                    }
+                },
+                errorPlacement: function(error, element) {
+                    if (element.is(':checkbox')) {
+                        if (element.closest('.select-product').length) {
+                            error.insertAfter(element.closest('.select-product'));
+                        } else {
+                            error.insertAfter(element);
+                        }
+                    } else {
+                        error.insertAfter(element);
                     }
                 },
                 highlight: function(element) {
-                    $(element).addClass('is-invalid');
+                    if (!$(element).is(':checkbox')) {
+                        $(element).addClass('is-invalid');
+                    }
                 },
                 unhighlight: function(element) {
-                    $(element).removeClass('is-invalid');
+                    if (!$(element).is(':checkbox')) {
+                        $(element).removeClass('is-invalid');
+                    }
                 },
                 submitHandler: function(form) {
                     // Collect selected products' details

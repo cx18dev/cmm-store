@@ -7,14 +7,17 @@ use Yajra\DataTables\DataTables;
 use App\Http\Requests\PartRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\PartRepository;
+use App\Repositories\ProbeRepository;
 
 class PartController extends Controller
 {
     protected $partsRepo;
+    protected $probeRepo;
 
     public function __construct()
     {
         $this->partsRepo = new PartRepository;
+        $this->probeRepo = new ProbeRepository;
     }
 
     /**
@@ -32,15 +35,16 @@ class PartController extends Controller
                 ->addColumn('name', function ($part) {
                     return $part->name;
                 })
-                ->addColumn('title', function ($part) {
-                    $words = explode(' ', $part->title);
-                    $chunks = array_chunk($words, 10);
+                ->addColumn('probe', function ($part) {
+                    $probes = $part->probes()->pluck('name')->toArray();
 
-                    $formattedTitle = '';
-                    foreach ($chunks as $chunk) {
-                        $formattedTitle .= implode(' ', $chunk) . ' <br>';
-                    }
-                    return $formattedTitle;
+                    $badgeHTML = array_map(function ($chunk) {
+                        return implode(' ', array_map(function ($probe) {
+                            return '<span class="badge bg-label-dark m-1">' . e($probe) . '</span>';
+                        }, $chunk));
+                    }, array_chunk($probes, 3));
+
+                    return implode('<br>', $badgeHTML);
                 })
                 ->addColumn('price', function ($part) {
                     return "$" . number_format($part->price, 2);
@@ -55,7 +59,7 @@ class PartController extends Controller
                     return '<a href="' . route('admin.parts.edit', $part->id) . '" id="edit-' . $part->id . '" class="btn rounded-pill btn-icon btn-outline-secondary"><span class="bx bx-edit-alt"></span></a>
                     <a href="' . route('admin.parts.destroy', $part->id) . '" id="delete-' . $part->id . '" class="btn rounded-pill btn-icon btn-outline-danger"><span class="bx bx-trash"></span></a>';
                 })
-                ->rawColumns(['id', 'name', 'title', 'price', 'discount', 'discounted_price', 'actions'])
+                ->rawColumns(['id', 'name', 'probe', 'price', 'discount', 'discounted_price', 'actions'])
                 ->make(true);
         }
         return view('admin.parts.index');
@@ -66,7 +70,8 @@ class PartController extends Controller
      */
     public function create()
     {
-        return view('admin.parts.form');
+        $probes = $this->probeRepo->all();
+        return view('admin.parts.form', compact('probes'));
     }
 
     /**
@@ -75,6 +80,10 @@ class PartController extends Controller
     public function store(PartRequest $request)
     {
         $data = $request->validated();
+
+        if(is_array($data['probe_id'])){
+            $data['probe_id'] = implode(",", $data['probe_id']);
+        }
 
         $this->partsRepo->create($data);
 
@@ -88,13 +97,14 @@ class PartController extends Controller
     public function edit(string $id)
     {
         $part = $this->partsRepo->find($id);
+        $probes = $this->probeRepo->all();
 
         if (!$part) {
             return redirect()->route('admin.parts.index')
                 ->with('error', 'Selected record not found.');
         }
 
-        return view('admin.parts.form', compact('part'));
+        return view('admin.parts.form', compact('part', 'probes'));
     }
 
     /**
@@ -104,6 +114,10 @@ class PartController extends Controller
     {
         // Retrieve only the fields that should be updated
         $data = $request->validated();
+
+        if (is_array($data['probe_id'])) {
+            $data['probe_id'] = implode(",", $data['probe_id']);
+        }
 
         $this->partsRepo->update($id, $data);
 

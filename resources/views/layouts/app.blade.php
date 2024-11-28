@@ -9,7 +9,7 @@
 
     <!-- Title -->
     <title>@yield('title', 'CMM Store | Admin')</title>
-        
+
     <!-- Favicon Icons -->
     <link rel="icon" type="image/png" href="{{ asset('assets/favicon/favicon-96x96.png') }}" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="{{ asset('assets/favicon/favicon.svg') }}" />
@@ -31,6 +31,13 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/theme-default.css') }}"
         class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
+
+    <!-- Tagify CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/tagify/tagify.css') }}" />
+
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/select2/select2.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/select2/bootstrap-select.css') }}" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
@@ -116,10 +123,17 @@
 
     <!-- Vendors JS -->
     <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
-    {{-- <script src="{{ asset('assets/vendor/libs/dropzone/dropzone.js') }}"></script> --}}
+    
+    <!-- Select2 JS -->
+    <script src="{{ asset('assets/vendor/libs/select2/bootstrap-select.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/select2/forms-selects.js') }}"></script>
     <script src="{{ asset('assets/js/dropzone.min.js') }}"></script>
 
     {{-- <script src="{{ asset('assets/js/forms-file-upload.js') }}"></script> --}}
+
+    <!-- Tagify JS -->
+    <script src="{{ asset('assets/vendor/libs/tagify/tagify.js') }}"></script>
 
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>

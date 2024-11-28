@@ -24,6 +24,7 @@ class PartRequest extends FormRequest
         return [
             'name' => 'required|string',
             'title' => 'nullable|string',
+            'probe_id' => 'required|array',
             'price' => 'required|numeric|min:0',
             'discount' => 'required|numeric|min:0|max:100',
         ];

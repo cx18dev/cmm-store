@@ -3,14 +3,6 @@
 <title>@yield('title', 'PH10MQ PLUS | CMM Online Store')</title>
 
 @php
-    $parts = [
-        [
-            'name' => 'A-5863-6000',
-            'price' => 25149,
-            'discount' => 20,
-        ],
-    ];
-
     $specifications = [
         [
             'key' => 'Head mounting',

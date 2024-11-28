@@ -4,47 +4,50 @@
         <img src="{{ asset('assets/images/discount.png') }}" alt="cust-discount" class="cust-img">
     </div>
     <form id="product-form" method="POST">
-        <div class="my-4 select-product">
-            <div class="table-responsive">
-                <table class="table text-center">
-                    <thead>
-                        <tr>
-                            {{-- @if (count($parts) > 0) --}}
-                            <th class="fw-bold" style="width: 5%;"></th>
-                            {{-- @endif --}}
-                            <th class="fw-bold" style="width: 30%;">Part Number</th>
-                            <th class="fw-bold" style="width: 30%;">Renishaw List Price</th>
-                            <th class="fw-bold" style="width: 30%;">Our Discounted Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($parts as $part)
+        <div class="my-4">
+            <div class="select-product">
+                <div class="table-responsive">
+                    <table class="table text-center">
+                        <thead>
                             <tr>
-                                <td>
-                                    <input class="form-check-input" type="checkbox" id="{{ $part['name'] }}">
-                                </td>
-                                <td>
-                                    <label for="{{ $part['name'] }}">{{ $part['name'] }}</label>
-                                </td>
-                                <td>
-                                    <label for="{{ $part['name'] }}">${{ number_format($part['price'], 2) }}</label>
-                                </td>
-                                <td style="display: none;">
-                                    <label>{{ $part['discount'] }}</label>
-                                </td>
-                                <td>
-                                    <label id="discounted-price" for="{{ $part['name'] }}">
-                                        ${{ number_format($part['price'] - ($part['price'] * $part['discount']) / 100, 2) }}
-                                    </label>
-                                </td>
+                                @if (count($parts) > 0)
+                                    <th class="fw-bold" style="width: 5%;"></th>
+                                @endif
+                                <th class="fw-bold" style="width: 30%;">Part Number</th>
+                                <th class="fw-bold" style="width: 30%;">Renishaw List Price</th>
+                                <th class="fw-bold" style="width: 30%;">Our Discounted Price</th>
                             </tr>
-                        @empty
-                            <tr>
-                                <td colspan="4">---- No parts are currently available ----</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @forelse ($parts as $part)
+                                <tr>
+                                    <td>
+                                        <input class="form-check-input" type="checkbox" id="{{ $part['name'] }}"
+                                            name="parts[]">
+                                    </td>
+                                    <td>
+                                        <label for="{{ $part['name'] }}">{{ $part['name'] }}</label>
+                                    </td>
+                                    <td>
+                                        <label for="{{ $part['name'] }}">${{ number_format($part['price'], 2) }}</label>
+                                    </td>
+                                    <td style="display: none;">
+                                        <label>{{ $part['discount'] }}</label>
+                                    </td>
+                                    <td>
+                                        <label id="discounted-price" for="{{ $part['name'] }}">
+                                            ${{ number_format($part['price'] - ($part['price'] * $part['discount']) / 100, 2) }}
+                                        </label>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="4">---- No parts are currently available ----</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 

@@ -80,7 +80,7 @@
                         searchable: false
                     }
                 ],
-                dom: '<"card-header flex-column flex-md-row p-0"<"head-label text-center"><"dt-action-buttons text-end pt-6 pt-md-0"B>><"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end mt-n6 mt-md-0"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
+                dom: '<"card-header flex-column flex-md-row p-0"<"head-label text-center"><"dt-action-buttons text-end pt-6 pt-md-0"B>> <"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end mt-n6 mt-md-0"f>tr> t <"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
                 buttons: [{
                     text: '<i class="bx bx-plus bx-sm me-sm-2"></i> Add New Record',
                     className: "create-new btn btn-primary",

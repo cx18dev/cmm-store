@@ -9,15 +9,18 @@ use Illuminate\Support\Facades\View;
 use App\Repositories\PartRepository;
 use App\Repositories\CategoryRepository;
 use App\Http\Requests\ProductFormRequest;
+use App\Repositories\ProbeRepository;
 
 class HomeController extends Controller
 {
     protected $partRepo;
+    protected $probeRepo;
     protected $categoryRepo;
 
     public function __construct()
     {
         $this->partRepo = new PartRepository;
+        $this->probeRepo = new ProbeRepository;
         $this->categoryRepo = new CategoryRepository;
     }
 
@@ -29,6 +32,7 @@ class HomeController extends Controller
         if ($category && !$subCategory && !$childCategory) {
             $viewPath = "categories.$category";
         } elseif ($category && $subCategory && !$childCategory) {
+            $data['parts'] = $this->probeRepo->getPartsByProbeSlug($subCategory);
             $viewPath = "probes.$subCategory";
         }
         // elseif ($category && $subCategory && $childCategory) {

@@ -46,6 +46,20 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="col-md-12 mb-3 select2-primary">
+                            <label for="probe_id" class="form-label">Probes</label>
+                            <select class="select2 select2-primary form-select" name="probe_id[]" id="probe_id" multiple>
+                                <option value="">Select Probes</option>
+                                @foreach ($probes as $probe)
+                                    <option value="{{ $probe->id }}" @if (in_array($probe->id, old('probe_id', isset($part->probe_id) ? explode(',', $part->probe_id) : []))) selected @endif>
+                                        {{ $probe->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('probe_id')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                         <div class="col-md-12 mb-6">
                             <label for="title" class="form-label">Title</label>
                             <textarea id="title" name="title" class="form-control" rows="3" placeholder="Enter Title">{{ old('title', $part->title ?? '') }}</textarea>
@@ -142,6 +156,9 @@
                     name: {
                         required: true,
                     },
+                    "probe_id[]": {
+                        required: true,
+                    },
                     price: {
                         required: true,
                         number: true,
@@ -155,6 +172,9 @@
                     }
                 },
                 messages: {
+                    "probe_id[]": {
+                        required: "Please select at least one probe."
+                    },
                     price: {
                         required: "Please enter the price",
                         number: "Please enter a valid number",
@@ -168,12 +188,14 @@
                     }
                 },
                 errorPlacement: function(error, element) {
-                    if (element.closest('.input-group').length) {
+                    if (element.hasClass('select2-hidden-accessible')) {
+                        error.insertAfter(element.next('.select2-container'));
+                    } else if (element.closest('.input-group').length) {
                         error.insertAfter(element.closest('.input-group'));
                     } else {
                         error.insertAfter(element);
                     }
-                },
+                }
             });
         });
     </script>

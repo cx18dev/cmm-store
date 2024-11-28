@@ -18,4 +18,12 @@ class Part extends Model
         'price',
         'discount',
     ];
+
+    public function probes()
+    {
+        $probeIds = explode(',', $this->probe_id);
+
+        return Probe::whereIn('id', $probeIds)->get();
+    }
+
 }
