@@ -4,6 +4,9 @@
 
 @section('category')
     <div class="col-md-10 p-4 category">
+
+        @include('layouts.partials.probe-nav')
+
         <div class="cate-sec">
             <h2 class="category-title"><u>3-Axis Motorized Probe Heads</u></h2>
             <div class="row">
@@ -60,7 +63,29 @@
                         </div>
                     </a>
                 </div>
-                {{-- <div class="col-md-4 p-3">
+                <div class="col-md-4 p-3">
+                    <a class="card shadow-sm" href="javascript:void(0);">
+                        <img src="{{ asset('assets/probes/RTP20.jpg') }}" alt="RTP20">
+                        <div class="info">
+                            <h5 class="title">RTP20</h5>
+                            <p class="desc">
+                                Low-cost 'motorised' head functionality with integral TP20 touch-trigger probe.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 p-3">
+                    <a class="card shadow-sm" href="javascript:void(0);">
+                        <img src="{{ asset('assets/probes/PHS-2.jpg') }}" alt="PHS-2">
+                        <div class="info">
+                            <h5 class="title">PHS-2</h5>
+                            <p class="desc">
+                                Servo positioning head for infinite angular orientation.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                {{--  <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
                         href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'AM1-AM2-adjustment-modules']) }}">
                         <img src="{{ asset('assets/probes/AM1-AM2.png') }}" alt="AM1-AM2">
@@ -72,7 +97,7 @@
                             </p>
                         </div>
                     </a>
-                </div> --}}
+                </div>
                 <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
                         href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'PHC10-3-PLUS']) }}">
@@ -99,7 +124,7 @@
                         </div>
                     </a>
                 </div>
-                {{-- <div class="col-md-4 p-3">
+                <div class="col-md-4 p-3">
                     <a class="card shadow-sm"
                         href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => 'HCU2']) }}">
                         <img src="{{ asset('assets/probes/HCU2.png') }}" alt="HCU2">
@@ -114,5 +139,6 @@
                 </div> --}}
             </div>
         </div>
+
     </div>
 @endsection

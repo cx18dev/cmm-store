@@ -4,6 +4,9 @@
 
 @section('category')
     <div class="col-md-10 p-4 category">
+        
+        @include('layouts.partials.probe-nav')
+        
         <div class="cate-sec">
             <h2 class="category-title"><u>5-Axis Motorized Probe Heads</u></h2>
             {{-- <div class="row">

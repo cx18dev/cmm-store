@@ -40,6 +40,13 @@ class HomeController extends Controller
         //     // $data['parts'] = $this->partRepo->showAll();
         // }
 
+        $data['probeLinks'] = $this->probeRepo->all()->map(function($probe){
+            return [
+                'name' => $probe['name'],
+                'slug' => $probe['slug'],
+            ];
+        });
+
         if ($viewPath && View::exists($viewPath)) {
             return view($viewPath, $data);
         }
