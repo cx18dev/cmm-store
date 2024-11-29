@@ -4,8 +4,12 @@
 
 @section('category')
     <div class="col-md-10 category">
+
         <div class="row">
             <div class="col-10 infobox p-4">
+                
+                @include('layouts.partials.probe-nav')
+
                 <h2 class="product-item-name text-center">PH10M-iQ PLUS motorised indexing probe head</h2>
                 <div class="tab-content mt-3" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab1" role="tabpanel">

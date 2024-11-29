@@ -24,16 +24,16 @@ class HomeController extends Controller
         $this->categoryRepo = new CategoryRepository;
     }
 
-    public function probes($category, $subCategory = null, $childCategory = null)
+    public function probes($category, $slug = null, $childCategory = null)
     {
         $viewPath = null;
         $data = [];
 
-        if ($category && !$subCategory && !$childCategory) {
+        if ($category && !$slug && !$childCategory) {
             $viewPath = "categories.$category";
-        } elseif ($category && $subCategory && !$childCategory) {
-            $data['parts'] = $this->probeRepo->getPartsByProbeSlug($subCategory);
-            $viewPath = "probes.$subCategory";
+        } elseif ($category && $slug && !$childCategory) {
+            $data['parts'] = $this->probeRepo->getPartsByProbeSlug($slug);
+            $viewPath = "probes.$slug";
         }
         // elseif ($category && $subCategory && $childCategory) {
         //     $viewPath = "childcategories.$childCategory";

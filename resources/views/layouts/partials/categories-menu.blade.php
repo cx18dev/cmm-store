@@ -3,7 +3,7 @@
     <ul class="level-0">
         <li class="parent">
             <p class="text-dark main">
-                <a class="{{ request()->is('CMM-probes/RBE-repair-by-exchange') ? 'activeCate' : '' }}"
+                <a class="{{ request()->is('CMM-probes/RBE-repair-by-exchange*') ? 'activeCate' : '' }}"
                     href="{{ route('probes', ['category' => 'RBE-repair-by-exchange']) }}">
                     <span>RBE Repair By Exchange</span>
                 </a>
@@ -13,7 +13,7 @@
     <ul class="level-0">
         <li class="parent">
             <p class="text-dark main">
-                <a class="{{ request()->is('CMM-probes/3-axis-motorized-probe-heads') ? 'activeCate' : '' }}"
+                <a class="{{ request()->is('CMM-probes/3-axis-motorized-probe-heads*') ? 'activeCate' : '' }}"
                     href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads']) }}">
                     <span>3-Axis Motorized Probe Heads</span>
                 </a>
@@ -95,7 +95,7 @@
     <ul class="level-0">
         <li class="parent">
             <p class="text-dark main">
-                <a class="{{ request()->is('CMM-probes/5-axis-motorized-probe-heads') ? 'activeCate' : '' }}"
+                <a class="{{ request()->is('CMM-probes/5-axis-motorized-probe-heads*') ? 'activeCate' : '' }}"
                     href="{{ route('probes', ['category' => '5-axis-motorized-probe-heads']) }}">
                     <span>5-Axis Motorized Probe Heads</span>
                 </a>
@@ -105,7 +105,7 @@
     <ul class="level-0">
         <li class="parent">
             <p class="text-dark main">
-                <a class="{{ request()->is('CMM-probes/fixed-and-manual-probe-heads') ? 'activeCate' : '' }}"
+                <a class="{{ request()->is('CMM-probes/fixed-and-manual-probe-heads*') ? 'activeCate' : '' }}"
                     href="{{ route('probes', ['category' => 'fixed-and-manual-probe-heads']) }}">
                     <span>Fixed And Manual Probe Heads</span>
                 </a>

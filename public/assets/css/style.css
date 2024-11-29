@@ -519,9 +519,9 @@ table a {
     padding-bottom: 2rem;
 } */
 
-#leftside-navigation .main {
+/* #leftside-navigation .main {
     font-weight: 600;
-}
+} */
 
 .ppt-section {
     list-style: none;
@@ -588,7 +588,7 @@ table a {
 .category .list-inline .tab-link.active {
     font-weight: 600;
     transition: 0.3s ease;
-    background: #ff8118;
+    background: #ff9933;
     border-radius: 8px 8px 0 0;
 }
 

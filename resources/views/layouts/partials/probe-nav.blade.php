@@ -8,12 +8,18 @@
             @continue
         @endif
 
-        {{-- @php
-            $slug = in_array($link['slug'], ['RTP20', 'PHS-2']) ? 'javascript:void(0);' : $link['slug'];
-        @endphp --}}
+        @php
+            // Determine the route or use `javascript:void(0)` for specific slugs
+            $route = in_array($link['slug'], ['RTP20', 'PHS-2']) 
+                ? 'javascript:void(0);' 
+                : route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => $link['slug']]);
+
+            // Check if the current link should be active
+            $isActive = request('probes') === $link['slug'] ? 'active' : '';
+        @endphp
 
         <li class="list-inline-item">
-            <a class="tab-link" href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => $link['slug']]) }}">
+            <a class="tab-link {{ $isActive }}" href="{{ $route }}">
                 {{ $link['name'] }}
             </a>
         </li>
