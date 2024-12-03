@@ -19,23 +19,29 @@
                             </tr>
                         </thead>
                         <tbody>
+                            
                             @forelse ($parts as $part)
                                 <tr>
                                     <td>
-                                        <input class="form-check-input" type="checkbox" id="{{ $part['name'] }}"
-                                            name="parts[]">
+                                        <input class="form-check-input" type="checkbox"
+                                            id="part-{{ $part['code'] }}"
+                                            data-part="{{ json_encode($part) }}" />
                                     </td>
                                     <td>
-                                        <label for="{{ $part['name'] }}">{{ $part['name'] }}</label>
+                                        <label for="part-{{ $part['code'] }}">{{ $part['name'] }}</label>
                                     </td>
                                     <td>
-                                        <label for="{{ $part['name'] }}">${{ number_format($part['price'], 2) }}</label>
+                                        <label
+                                            for="part-{{ $part['code'] }}">${{ number_format($part['price'], 2) }}</label>
                                     </td>
                                     <td style="display: none;">
                                         <label>{{ $part['discount'] }}</label>
                                     </td>
+                                    <td style="display: none;">
+                                        <label id="main-product">{{ $part['product_name'] }}</label>
+                                    </td>
                                     <td>
-                                        <label id="discounted-price" for="{{ $part['name'] }}">
+                                        <label id="discounted-price" for="discounted-price-{{ $part['code'] }}">
                                             ${{ number_format($part['price'] - ($part['price'] * $part['discount']) / 100, 2) }}
                                         </label>
                                     </td>
@@ -45,13 +51,14 @@
                                     <td colspan="4">---- No parts are currently available ----</td>
                                 </tr>
                             @endforelse
+                                
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label fw-bold">Name:</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name"
@@ -78,6 +85,36 @@
                     Submit
                 </button>
             </div>
-        </div>
+        </div> --}}
     </form>
 </section>
+
+@section('script')
+    <script>
+        // When a checkbox is changed (checked/unchecked)
+        document.querySelectorAll('.form-check-input').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                var partDetails = JSON.parse(this.getAttribute('data-part')); // Get part details
+                var isChecked = this.checked;
+
+                // Make an AJAX call to save the selected part in the cache
+                $.ajax({
+                    url: '/save-part-selection', // The route to handle AJAX in Laravel
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}', // CSRF token for security
+                        part: partDetails, // Send part details
+                        isChecked: isChecked, // Whether the part is selected
+                    },
+                    success: function(response) {
+                        console.log('Part saved to cache:', response);
+                        // You can update the UI or show a success message here
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Error saving part to cache:', error);
+                    }
+                });
+            });
+        });
+    </script>
+@endsection
