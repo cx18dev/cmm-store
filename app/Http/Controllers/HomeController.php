@@ -52,34 +52,10 @@ class HomeController extends Controller
         return view('cart', compact('cartItems'));
     }
 
-    public function savePartSelection(Request $request)
+    public function addToCart(Request $request)
     {
-        $part = $request->input('part');
-        $isChecked = $request->input('isChecked');
-
-        // Retrieve the cart from cache or create a new cart if it doesn't exist
-        $cart = Cache::get('cart', []);
-
-        // If the part is checked, add it to the cart, else remove it
-        if ($isChecked) {
-            // Add part to cart
-            $cart[] = $part;
-        } else {
-            // Remove part from cart
-            $cart = array_filter($cart, function ($item) use ($part) {
-                return $item['code'] !== $part['code'];  // Filter out the unchecked part
-            });
-            $cart = array_values($cart); // Reindex array after filter
-        }
-
-        // Save the updated cart back to cache
-        Cache::put('cart', $cart);
-
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Part selection saved successfully',
-            'cart' => $cart,
-        ]);
+        $parts = $request->input('parts');
+        // dd($parts);
     }
 
     public function probes($category, $slug = null, $childCategory = null)
@@ -90,7 +66,8 @@ class HomeController extends Controller
         if ($category && !$slug && !$childCategory) {
             $viewPath = "categories.$category";
         } elseif ($category && $slug && !$childCategory) {
-            $data['parts'] = $this->probeRepo->getPartsByProbeSlug($slug);
+            $data['parts'] = $this->probeRepo->getPartsByProbeSlug($slug)['parts'];
+            $data['probe'] = $this->probeRepo->getPartsByProbeSlug($slug)['probe'];
             $viewPath = "probes.$slug";
         }
         // elseif ($category && $subCategory && $childCategory) {

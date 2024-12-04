@@ -3,8 +3,8 @@
     <div class="cust-discount">
         <img src="{{ asset('assets/images/discount.png') }}" alt="cust-discount" class="cust-img">
     </div>
-    <form id="product-form" method="POST">
-        <div class="my-4">
+    <div id="product-form">
+        <div class="my-4 mb-2">
             <div class="select-product">
                 <div class="table-responsive">
                     <table class="table text-center">
@@ -19,29 +19,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
                             @forelse ($parts as $part)
+                                @php
+                                    $part['probe_id'] = $probe->id;
+                                    $part['probe'] = $probe->name;
+                                    $part['probe_img'] = asset('assets/admin/probes/'.$probe->image);
+                                    $part['category'] = $probe->category->name;
+                                    $partDetails = json_encode($part->toArray());
+                                    $id = "part-" . $part['id'] . "-probe-" . $part['probe_id'];
+                                @endphp
                                 <tr>
                                     <td>
-                                        <input class="form-check-input" type="checkbox"
-                                            id="part-{{ $part['code'] }}"
-                                            data-part="{{ json_encode($part) }}" />
+                                        <input class="form-check-input mt-0" type="checkbox"
+                                            id="{{ $id }}" data-part="{{ $partDetails }}" />
                                     </td>
                                     <td>
-                                        <label for="part-{{ $part['code'] }}">{{ $part['name'] }}</label>
+                                        <label for="{{ $id }}">{{ $part['name'] }}</label>
                                     </td>
                                     <td>
                                         <label
-                                            for="part-{{ $part['code'] }}">${{ number_format($part['price'], 2) }}</label>
-                                    </td>
-                                    <td style="display: none;">
-                                        <label>{{ $part['discount'] }}</label>
-                                    </td>
-                                    <td style="display: none;">
-                                        <label id="main-product">{{ $part['product_name'] }}</label>
+                                            for="{{ $id }}">${{ number_format($part['price'], 2) }}</label>
                                     </td>
                                     <td>
-                                        <label id="discounted-price" for="discounted-price-{{ $part['code'] }}">
+                                        <label id="discounted-price" for="discounted-price-{{ $id }}">
                                             ${{ number_format($part['price'] - ($part['price'] * $part['discount']) / 100, 2) }}
                                         </label>
                                     </td>
@@ -51,11 +51,15 @@
                                     <td colspan="4">---- No parts are currently available ----</td>
                                 </tr>
                             @endforelse
-                                
                         </tbody>
                     </table>
+
                 </div>
             </div>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-warning text-light" id="AddToCart">Add to cart</button>
         </div>
 
         {{-- <div class="row">
@@ -86,32 +90,39 @@
                 </button>
             </div>
         </div> --}}
-    </form>
+    </div>
 </section>
 
 @section('script')
     <script>
-        // When a checkbox is changed (checked/unchecked)
-        document.querySelectorAll('.form-check-input').forEach(function(checkbox) {
-            checkbox.addEventListener('change', function() {
-                var partDetails = JSON.parse(this.getAttribute('data-part')); // Get part details
-                var isChecked = this.checked;
+        $(document).ready(function() {
+            $('#AddToCart').on('click', function() {
+                // Initialize an array to hold selected parts
+                let selectedParts = [];
 
-                // Make an AJAX call to save the selected part in the cache
+                // Loop through all checked checkboxes
+                $('input[type="checkbox"]:checked').each(function() {
+                    // Retrieve the data-part attribute and parse it as JSON
+                    let partData = $(this).data('part');
+                    selectedParts.push(partData);
+                });
+
+                // Log the selected parts to verify
+                console.log(selectedParts);
+
                 $.ajax({
-                    url: '/save-part-selection', // The route to handle AJAX in Laravel
+                    url: `{{ route('add.cart') }}`,
                     method: 'POST',
                     data: {
-                        _token: '{{ csrf_token() }}', // CSRF token for security
-                        part: partDetails, // Send part details
-                        isChecked: isChecked, // Whether the part is selected
+                        parts: selectedParts,
+                        _token: $('meta[name="csrf-token"]').attr('content')
                     },
-                    success: function(response) {
-                        console.log('Part saved to cache:', response);
-                        // You can update the UI or show a success message here
+                    success: function (response) {
+                        alert('Parts added to cart successfully!');
                     },
-                    error: function(xhr, status, error) {
-                        console.log('Error saving part to cache:', error);
+                    error: function (error) {
+                        console.error(error);
+                        alert('Failed to add parts to cart.');
                     }
                 });
             });

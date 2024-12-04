@@ -473,7 +473,7 @@ table a {
     background: #000;
 }
 
-.cust-form-sec form .select-product {
+.cust-form-sec #product-form .select-product {
     background: linear-gradient(to bottom, #f93 0, #f93 30%, #ff8118 100%);
     padding: 20px;
     border-radius: 10px;

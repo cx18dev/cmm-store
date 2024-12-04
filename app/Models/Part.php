@@ -26,4 +26,15 @@ class Part extends Model
         return Probe::whereIn('id', $probeIds)->get();
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function probe()
+    {
+        return $this->belongsTo(Probe::class);
+    }
+
+
 }
