@@ -31,7 +31,14 @@ class PartRepository
 
     public function create(array $data)
     {
-        return Part::create($data);
+        return Part::create([
+            'probe_id' => $data['probe_id'],
+            'name' => $data['name'],
+            'title' => $data['title'],
+            'price' => $data['price'],
+            'discount' => $data['discount'],
+            'status' => $data['status'] ?? 0,
+        ]);
     }
 
     public function find($id)
@@ -42,7 +49,14 @@ class PartRepository
     public function update($id, array $data)
     {
         $part = $this->find($id);
-        $part->update($data);
+        $part->update([
+            'probe_id' => $data['probe_id'],
+            'name' => $data['name'],
+            'title' => $data['title'],
+            'price' => $data['price'],
+            'discount' => $data['discount'],
+            'status' => $data['status'] ?? 0,
+        ]);
     }
 
     public function delete($id)

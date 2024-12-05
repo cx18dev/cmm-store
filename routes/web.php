@@ -17,6 +17,7 @@ Route::post('send-email', [HomeController::class, 'sendEmail'])->name('send.emai
 
 Route::get('cart', [HomeController::class, 'cart'])->name('cart');
 Route::post('/add-to-cart', [HomeController::class, 'addToCart'])->name('add.cart');
+Route::post('/remove-from-cart', [HomeController::class, 'removeFromCart'])->name('remove.cart');
 
 // Route::get('/CMM/{category}/{subcategory?}/{childcategory?}', [HomeController::class, 'category'])->name('category');
 Route::get('/CMM-probes/{category}/{probes?}', [HomeController::class, 'probes'])->name('probes');

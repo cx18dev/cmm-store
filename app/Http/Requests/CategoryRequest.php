@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CategoryRequest extends FormRequest
@@ -21,9 +22,6 @@ class CategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        // Retrieve the ID from the route parameter
-        $id = $this->route('probes');
-
         return [
             'name' => ['required', 'string', 'max:255'],
             'slug' => [
@@ -31,8 +29,9 @@ class CategoryRequest extends FormRequest
                 'string',
                 'max:255',
                 'regex:/^[a-zA-Z0-9-]+$/',
-                'unique:categories,slug,' . $id, // Exclude the current record by ID
+                Rule::unique('categories', 'slug')->ignore($this->route('category')),
             ],
+            'status' => 'nullable'
         ];
     }
 }

@@ -35,6 +35,7 @@ class ProbeRequest extends FormRequest
             'image' => 'required',
             'title' => 'nullable|string',
             'description' => 'nullable|string',
+            'status' => 'nullable',
         ];
     }
 }

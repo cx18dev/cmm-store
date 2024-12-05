@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\CartHelper;
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use App\Mail\ProductFormSubmission;
 use App\Repositories\PartRepository;
@@ -28,65 +28,178 @@ class HomeController extends Controller
 
     public function cart()
     {
-        // Sample array of products with parts
-        $cartItems = [
-            [
-                'name' => 'PH10M-PLUS',
-                'image' => 'https://cmmstore.com/assets/probes/PH10M/G2-PH10M.jpg',
-                'parts' => [
-                    ['code' => 'A-5863-5000', 'quantity' => 1, 'price' => 20.00, 'discount' => '20%'],
-                    ['code' => 'B-5863-4000', 'quantity' => 2, 'price' => 15.00, 'discount' => '20%'],
-                    ['code' => 'C-5863-3000', 'quantity' => 1, 'price' => 10.00, 'discount' => '20%'],
-                ],
-            ],
-            [
-                'name' => 'PH10T-PLUS',
-                'image' => 'http://cmm-store.local/assets/probes/PH10T/G1-PH10T.jpg',
-                'parts' => [
-                    ['code' => 'D-5863-2000', 'quantity' => 3, 'price' => 25.00, 'discount' => '20%'],
-                    ['code' => 'E-5863-1000', 'quantity' => 1, 'price' => 50.00, 'discount' => '20%'],
-                ],
-            ],
-        ];
-
+        $cartItems = Cache::get('cart');
         return view('cart', compact('cartItems'));
     }
 
     public function addToCart(Request $request)
     {
-        $parts = $request->input('parts');
-        // dd($parts);
+        // Retrieve selected parts from the request
+        $selectedParts = $request->input('parts');
+
+        // If selectedParts is not an array, initialize it as an empty array
+        if (!is_array($selectedParts)) {
+            $selectedParts = [];
+        }
+
+        // Retrieve the existing cart from the cache, or initialize it as an empty array
+        $cartItems = Cache::get('cart', []);
+
+        $cartUpdated = false; // Track if the cart was updated
+
+        // Process each selected part
+        foreach ($selectedParts as $item) {
+            $probe = $item['probe'];
+            $part = $item['part'];
+
+            // Check if the probe already exists in the cart
+            if (null !== ($cartItems[$probe['name']] ?? null)) {
+                // Check if the part already exists in this probe
+                $existingPartKey = array_search($part['name'], array_column($cartItems[$probe['name']]['parts'], 'name'));
+
+                if ($existingPartKey === false) {
+                    // If the part doesn't exist, add it to the parts list
+                    $cartItems[$probe['name']]['parts'][] = [
+                        'name' => $part['name'],
+                        'price' => $part['price'],
+                        'quantity' => 1,  // quantity removed as per your request
+                        'discount' => $part['discount'] . '%',
+                    ];
+                    $cartUpdated = true;
+                }
+            } else {
+                // If the probe doesn't exist, add it and include the part
+                $cartItems[$probe['name']] = [
+                    'name' => $probe['name'],
+                    'image' => $probe['probe_img'],
+                    'probe_link' => $probe['probe_link'],
+                    'parts' => [
+                        [
+                            'name' => $part['name'],
+                            'price' => $part['price'],
+                            'quantity' => 1,  // quantity removed as per your request
+                            'discount' => $part['discount'] . '%',
+                        ]
+                    ],
+                ];
+                $cartUpdated = true;
+            }
+        }
+
+        // Handle removing unchecked items
+        if (null !== $request->input('remove_parts')) {
+            $removeParts = $request->input('remove_parts');
+
+            foreach ($removeParts as $item) {
+                $probe = $item['probe'];
+                $part = $item['part'];
+
+                if (null !== ($cartItems[$probe['name']] ?? null)) {
+                    // Filter out the part to remove it
+                    $cartItems[$probe['name']]['parts'] = array_filter($cartItems[$probe['name']]['parts'], function ($cartPart) use ($part) {
+                        return $cartPart['name'] !== $part['name'];
+                    });
+                    $cartUpdated = true;
+
+                    // If there are no parts left under the probe, remove the probe
+                    if (empty($cartItems[$probe['name']]['parts'])) {
+                        unset($cartItems[$probe['name']]);
+                        $cartUpdated = true; // Mark the cart as updated
+                    }
+                }
+            }
+        }
+
+        // Use the if-else structure to check whether the cart was updated
+        if ($cartUpdated) {
+            // Save the updated cart to the cache for 5 hours
+            Cache::put('cart', $cartItems, now()->addHours(5));
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Cart updated successfully.',
+                'cart' => $cartItems,
+            ]);
+        } else {
+            // If no changes were made to the cart
+            return response()->json([
+                'status' => false,
+                'message' => 'No changes were made to the cart.',
+            ]);
+        }
     }
 
-    public function probes($category, $slug = null, $childCategory = null)
+    public function removeFromCart(Request $request)
+    {
+        $probeName = $request->input('probe');
+        $partName = $request->input('part');
+
+        $cart = Cache::get('cart', []);
+
+        if (isset($cart[$probeName])) {
+            $cart[$probeName]['parts'] = array_filter($cart[$probeName]['parts'], function ($part) use ($partName) {
+                return $part['name'] !== $partName;
+            });
+
+            // If no parts are left under this probe, remove the probe
+            if (empty($cart[$probeName]['parts'])) {
+                unset($cart[$probeName]);
+            }
+
+            Cache::put('cart', $cart, now()->addHours(5));
+
+            return response()->json(['status' => true, 'message' => 'Item removed successfully.']);
+        }
+
+        return response()->json(['status' => false, 'message' => 'Item not found in the cart.']);
+    }
+
+
+    public function probes($category, $probSlug = null)
     {
         $viewPath = null;
         $data = [];
 
-        if ($category && !$slug && !$childCategory) {
-            $viewPath = "categories.$category";
-        } elseif ($category && $slug && !$childCategory) {
-            $data['parts'] = $this->probeRepo->getPartsByProbeSlug($slug)['parts'];
-            $data['probe'] = $this->probeRepo->getPartsByProbeSlug($slug)['probe'];
-            $viewPath = "probes.$slug";
-        }
-        // elseif ($category && $subCategory && $childCategory) {
-        //     $viewPath = "childcategories.$childCategory";
-        //     // $data['parts'] = $this->partRepo->showAll();
-        // }
+        // Retrieve category by slug if provided
+        $categoryData = $this->categoryRepo->getBySlug($category);
 
-        $data['probeLinks'] = $this->probeRepo->all()->map(function($probe){
+        // If category is not found, abort early with 404
+        if (!$categoryData) {
+            abort(404, 'Category not found.');
+        }
+
+        // If no slug is provided, show the category view
+        if ($probSlug === null) {
+            $data['category'] = $categoryData;
+            $data['probes'] = $this->probeRepo->getByCategoryProbes($categoryData->id);
+            $viewPath = 'category';
+        } else {
+            // If a slug is provided, get parts for the specific probe
+            $partsData = $this->probeRepo->getPartsByProbeSlug($probSlug);
+
+            if (!$partsData) {
+                abort(404, 'Probe not found.');
+            }
+
+            $data['parts'] = $partsData['parts'];
+            $data['probe'] = $partsData['probe'];
+            $viewPath = "probes.$probSlug";
+        }
+
+        // Get all probe links for navigation
+        $data['probeLinks'] = $this->probeRepo->all()->map(function ($probe) {
             return [
                 'name' => $probe['name'],
                 'slug' => $probe['slug'],
             ];
         });
 
+        // Return the appropriate view if it exists, otherwise 404
         if ($viewPath && View::exists($viewPath)) {
             return view($viewPath, $data);
         }
 
-        abort(404, "View not found or invalid category path.");
+        abort(404, 'View not found or invalid category path.');
     }
 
     public function sendEmail(ProductFormRequest $request)

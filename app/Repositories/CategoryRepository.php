@@ -12,6 +12,16 @@ class CategoryRepository
         return Category::all();
     }
 
+    public function getActiveCategories()
+    {
+        return Category::where('status', 1)->get();
+    }
+
+    public function getBySlug($slug)
+    {
+        return Category::where('status', 1)->where('slug', $slug)->first();
+    }
+
     public function getCount()
     {
         return Category::count();
@@ -19,7 +29,11 @@ class CategoryRepository
 
     public function create(array $data)
     {
-        return Category::create($data);
+        return Category::create([
+            'name' => $data['name'],
+            'slug' => $data['slug'],
+            'status' => $data['status'] ?? 0
+        ]);
     }
 
     public function find($id)
@@ -30,7 +44,11 @@ class CategoryRepository
     public function update($id, array $data)
     {
         $probe = $this->find($id);
-        $probe->update($data);
+        $probe->update([
+            'name' => $data['name'],
+            'slug' => $data['slug'],
+            'status' => $data['status'] ?? 0
+        ]);
     }
 
     public function delete($id)

@@ -101,6 +101,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row g-2 mt-3">
+                        <div class="col-md-3 mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <div class="form-check">
+                                <input type="checkbox" id="status" name="status" class="form-check-input" value="1"
+                                    {{ old('status', $part->status ?? 0) == 1 ? 'checked' : '' }}>
+                                <label class="form-check-label" for="status">Active</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Save changes</button>

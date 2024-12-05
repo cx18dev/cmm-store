@@ -62,11 +62,19 @@
                             <label for="slug" class="form-label">Slug</label>
                             <input type="text" id="slug" name="slug" class="form-control"
                                 oninput="replaceSpaceWithDash(event)"
-                                {{ isset($category->slug) && !empty($category->slug) ? 'readonly' : '' }}
+                                {{-- {{ isset($category->slug) && !empty($category->slug) ? 'readonly' : '' }} --}}
                                 placeholder="Enter Slug" value="{{ old('slug', $category->slug ?? '') }}">
                             @error('slug')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <div class="form-check">
+                                <input type="checkbox" id="status" name="status" class="form-check-input" value="1"
+                                    {{ old('status', $category->status ?? 0) == 1 ? 'checked' : '' }}>
+                                <label class="form-check-label" for="status">Active</label>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -32,6 +32,7 @@
                                 <th>Price</th>
                                 <th>Discount</th>
                                 <th>Final Price</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -77,6 +78,10 @@
                     {
                         data: 'discounted_price',
                         name: 'discounted_price',
+                    },
+                    {
+                        data: 'status',
+                        name: 'status',
                     },
                     {
                         data: 'actions',

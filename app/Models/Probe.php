@@ -13,6 +13,7 @@ class Probe extends Model
         'image',
         'title',
         'description',
+        'status',
     ];
 
     public function category()

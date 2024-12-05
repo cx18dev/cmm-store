@@ -23,22 +23,41 @@
                                 @php
                                     $part['probe_id'] = $probe->id;
                                     $part['probe'] = $probe->name;
-                                    $part['probe_img'] = asset('assets/admin/probes/'.$probe->image);
-                                    $part['category'] = $probe->category->name;
+                                    $part['probe_img'] = asset('assets/admin/probes/' . $probe->image);
+                                    $part['probe_link'] = route('probes', [
+                                        'category' => $probe->category->slug,
+                                        'probes' => $probe->slug,
+                                    ]);
                                     $partDetails = json_encode($part->toArray());
-                                    $id = "part-" . $part['id'] . "-probe-" . $part['probe_id'];
+                                    $id = 'part-' . $part['id'] . '-probe-' . $part['probe_id'];
+
+                                    // Get cart items from cache
+                                    $cartItems = Cache::get('cart', []);
+
+                                    // Check if the current part is in the cart
+                                    $isPartInCart = false;
+                                    foreach ($cartItems as $cartItem) {
+                                        foreach ($cartItem['parts'] as $cartPart) {
+                                            if (
+                                                $cartPart['name'] == $part['name'] &&
+                                                $cartItem['name'] == $part['probe']
+                                            ) {
+                                                $isPartInCart = true;
+                                                break 2;
+                                            }
+                                        }
+                                    }
                                 @endphp
                                 <tr>
                                     <td>
-                                        <input class="form-check-input mt-0" type="checkbox"
-                                            id="{{ $id }}" data-part="{{ $partDetails }}" />
+                                        <input class="form-check-input mt-0" type="checkbox" id="{{ $id }}"
+                                            data-part="{{ $partDetails }}" {{ $isPartInCart ? 'checked' : '' }} />
                                     </td>
                                     <td>
                                         <label for="{{ $id }}">{{ $part['name'] }}</label>
                                     </td>
                                     <td>
-                                        <label
-                                            for="{{ $id }}">${{ number_format($part['price'], 2) }}</label>
+                                        <label for="{{ $id }}">${{ number_format($part['price'], 2) }}</label>
                                     </td>
                                     <td>
                                         <label id="discounted-price" for="discounted-price-{{ $id }}">
@@ -51,6 +70,7 @@
                                     <td colspan="4">---- No parts are currently available ----</td>
                                 </tr>
                             @endforelse
+
                         </tbody>
                     </table>
 
@@ -58,9 +78,11 @@
             </div>
         </div>
 
-        <div class="text-center">
-            <button class="btn btn-warning text-light" id="AddToCart">Add to cart</button>
-        </div>
+        @if (count($parts) > 0)
+            <div class="text-center">
+                <button class="btn btn-warning text-light" id="AddToCart">Add to cart</button>
+            </div>
+        @endif
 
         {{-- <div class="row">
             <div class="col-md-4 mb-3">
@@ -96,33 +118,83 @@
 @section('script')
     <script>
         $(document).ready(function() {
+            // Handle the Add to Cart button click
             $('#AddToCart').on('click', function() {
-                // Initialize an array to hold selected parts
                 let selectedParts = [];
+                let removedParts = [];
 
-                // Loop through all checked checkboxes
+                // Loop through all checked checkboxes and add to selectedParts
                 $('input[type="checkbox"]:checked').each(function() {
-                    // Retrieve the data-part attribute and parse it as JSON
                     let partData = $(this).data('part');
-                    selectedParts.push(partData);
+                    selectedParts.push({
+                        probe: {
+                            name: partData.probe,
+                            probe_id: partData.probe_id,
+                            probe_img: partData.probe_img,
+                            probe_link: partData.probe_link,
+                        },
+                        part: {
+                            id: partData.id,
+                            name: partData.name,
+                            price: partData.price,
+                            discount: partData.discount,
+                        },
+                    });
                 });
 
-                // Log the selected parts to verify
-                console.log(selectedParts);
+                // Loop through all unchecked checkboxes and add to removedParts
+                $('input[type="checkbox"]:not(:checked)').each(function() {
+                    let partData = $(this).data('part');
+                    removedParts.push({
+                        probe: {
+                            name: partData.probe,
+                            probe_id: partData.probe_id,
+                            probe_img: partData.probe_img,
+                            probe_link: partData.probe_link,
+                        },
+                        part: {
+                            id: partData.id,
+                            name: partData.name,
+                            price: partData.price,
+                            discount: partData.discount,
+                        },
+                    });
+                });
 
+                // Send the selected parts and removed parts to the backend
                 $.ajax({
                     url: `{{ route('add.cart') }}`,
                     method: 'POST',
                     data: {
                         parts: selectedParts,
+                        remove_parts: removedParts, // Send the removed parts
                         _token: $('meta[name="csrf-token"]').attr('content')
                     },
-                    success: function (response) {
-                        alert('Parts added to cart successfully!');
+                    success: function(response) {
+                        console.log(response);
+                        if (response.status) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Cart updated successfully!',
+                                confirmButtonText: 'OK'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Failed to update the cart.',
+                                confirmButtonText: 'OK'
+                            });
+                        }
                     },
-                    error: function (error) {
+                    error: function(error) {
                         console.error(error);
-                        alert('Failed to add parts to cart.');
+                        alert('Failed to update the cart.');
                     }
                 });
             });

@@ -32,11 +32,19 @@ class CategoryController extends Controller
                 ->addColumn('name', function ($category) {
                     return $category->name;
                 })
+                ->addColumn('status', function ($category) {
+                    if ($category->status) {
+                        $status = '<span class="badge bg-label-success m-1">Active</span>';
+                    } else {
+                        $status = '<span class="badge bg-label-danger m-1">Inactive</span>';
+                    }
+                    return $status;
+                })
                 ->addColumn('actions', function ($category) {
                     return '<a href="' . route('admin.category.edit', $category->id) . '" id="edit-' . $category->id . '" class="btn rounded-pill btn-icon btn-outline-secondary"><span class="bx bx-edit-alt"></span></a>
                     <a href="' . route('admin.category.destroy', $category->id) . '" id="delete-' . $category->id . '" class="btn rounded-pill btn-icon btn-outline-danger"><span class="bx bx-trash"></span></a>';
                 })
-                ->rawColumns(['id', 'name', 'actions'])
+                ->rawColumns(['id', 'name', 'status', 'actions'])
                 ->make(true);
         }
         return view('admin.categories.index');

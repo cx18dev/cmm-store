@@ -53,11 +53,19 @@ class ProbeController extends Controller
                     }
                     return $formattedTitle;
                 })
+                ->addColumn('status', function ($probe) {
+                    if ($probe->status) {
+                        $status = '<span class="badge bg-label-success m-1">Active</span>';
+                    } else {
+                        $status = '<span class="badge bg-label-danger m-1">Inactive</span>';
+                    }
+                    return $status;
+                })
                 ->addColumn('actions', function ($probe) {
                     return '<a href="' . route('admin.probes.edit', $probe->id) . '" id="edit-' . $probe->id . '" class="btn rounded-pill btn-icon btn-outline-secondary"><span class="bx bx-edit-alt"></span></a>
                     <a href="' . route('admin.probes.destroy', $probe->id) . '" id="delete-' . $probe->id . '" class="btn rounded-pill btn-icon btn-outline-danger"><span class="bx bx-trash"></span></a>';
                 })
-                ->rawColumns(['id', 'image', 'name', 'category', 'title', 'actions'])
+                ->rawColumns(['id', 'image', 'name', 'category', 'title', 'status', 'actions'])
                 ->make(true);
         }
         return view('admin.probes.index');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PartRequest extends FormRequest
@@ -22,11 +23,16 @@ class PartRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
+            'name' => [
+                'required',
+                'string',
+                Rule::unique('parts', 'name')->ignore($this->route('part')),
+            ],
             'title' => 'nullable|string',
             'probe_id' => 'required|array',
             'price' => 'required|numeric|min:0',
             'discount' => 'required|numeric|min:0|max:100',
+            'status' => 'nullable'
         ];
     }
 }

@@ -55,11 +55,19 @@ class PartController extends Controller
                 ->addColumn('discounted_price', function ($part) {
                     return "$" . number_format($part->price * (1 - $part->discount / 100), 2);
                 })
+                ->addColumn('status', function ($part) {
+                    if ($part->status) {
+                        $status = '<span class="badge bg-label-success m-1">Active</span>';
+                    } else {
+                        $status = '<span class="badge bg-label-danger m-1">Inactive</span>';
+                    }
+                    return $status;
+                })
                 ->addColumn('actions', function ($part) {
                     return '<a href="' . route('admin.parts.edit', $part->id) . '" id="edit-' . $part->id . '" class="btn rounded-pill btn-icon btn-outline-secondary"><span class="bx bx-edit-alt"></span></a>
                     <a href="' . route('admin.parts.destroy', $part->id) . '" id="delete-' . $part->id . '" class="btn rounded-pill btn-icon btn-outline-danger"><span class="bx bx-trash"></span></a>';
                 })
-                ->rawColumns(['id', 'name', 'probe', 'price', 'discount', 'discounted_price', 'actions'])
+                ->rawColumns(['id', 'name', 'probe', 'price', 'discount', 'discounted_price', 'status', 'actions'])
                 ->make(true);
         }
         return view('admin.parts.index');

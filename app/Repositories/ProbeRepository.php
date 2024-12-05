@@ -20,7 +20,15 @@ class ProbeRepository
 
     public function create(array $data)
     {
-        return Probe::create($data);
+        return Probe::create([
+            'category_id' => $data['category_id'],
+            'name' => $data['name'],
+            'slug' => $data['slug'],
+            'image' => $data['image'],
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'status' => $data['status'] ?? 0,
+        ]);
     }
 
     public function find($id)
@@ -31,7 +39,15 @@ class ProbeRepository
     public function update($id, array $data)
     {
         $probe = $this->find($id);
-        $probe->update($data);
+        $probe->update([
+            'category_id' => $data['category_id'],
+            'name' => $data['name'],
+            'slug' => $data['slug'],
+            'image' => $data['image'],
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'status' => $data['status'] ?? 0,
+        ]);
     }
 
     public function delete($id)
@@ -45,9 +61,14 @@ class ProbeRepository
         $probe->delete();
     }
 
+    public function getByCategoryProbes($category)
+    {
+        return Probe::where('category_id', $category)->where('status', 1)->get();
+    }
+
     public function getPartsByProbeSlug($slug)
     {
-        $probe = Probe::with('category')->where('slug', $slug)->first();
+        $probe = Probe::with('category')->where('slug', $slug)->where('status', 1)->first();
 
         if (!$probe) {
             return [];
@@ -55,17 +76,7 @@ class ProbeRepository
 
         return [
             'probe' => $probe,
-            'parts' => Part::whereRaw('FIND_IN_SET(?, probe_id)', [$probe->id])->get(),
+            'parts' => Part::whereRaw('FIND_IN_SET(?, probe_id)', [$probe->id])->where('status', 1)->get(),
         ];
-        // return Part::with('probe')->where('probe_id', $probe->id)
-        //     ->where('probe_id', $probe->id)
-        //     ->get()
-        //     ->map(function ($part) {
-
-        //         $part->category_name = $part->probe->category ? $part->probe->category->name : null;
-        //         $part->probe_name = $part->probe ? $part->probe->name : null;
-        //         $part->probe_image = $part->probe ? $part->probe->image : null;
-        //         return $part;
-        //     });
     }
 }

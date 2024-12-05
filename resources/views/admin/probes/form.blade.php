@@ -115,6 +115,14 @@
                             @enderror
                             <div class="invalid-feedback fw-bold">Please upload an image.</div>
                         </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <div class="form-check">
+                                <input type="checkbox" id="status" name="status" class="form-check-input" value="1"
+                                    {{ old('status', $probe->status ?? 0) == 1 ? 'checked' : '' }}>
+                                <label class="form-check-label" for="status">Active</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card-footer">

@@ -17,6 +17,7 @@ class Part extends Model
         'title',
         'price',
         'discount',
+        'status',
     ];
 
     public function probes()
