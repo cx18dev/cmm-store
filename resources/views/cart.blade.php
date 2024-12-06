@@ -29,6 +29,7 @@
                                     $subtotal = 0;
                                     $totalDiscount = 0;
                                     $count = 1;
+                                    $cartItems = $cartItems ?? [];
                                 @endphp
                                 @forelse ($cartItems as $probe)
                                     <!-- Probe Row -->
@@ -57,8 +58,21 @@
                                             <td class="text-end">{{ $count++ }}</td>
                                             <td>{{ $part['name'] }}</td>
                                             <td class="text-center">
-                                                <input type="number" class="form-control form-control-sm text-center w-100"
-                                                    value="{{ $part['quantity'] }}" min="1" style="width: 80px;">
+                                                <div class="input-group">
+                                                    <button class="btn btn-sm btn-outline-secondary minus-btn"
+                                                        type="button" data-probe="{{ $probe['name'] }}"
+                                                        data-part="{{ $part['name'] }}">
+                                                        -
+                                                    </button>
+                                                    <input type="number"
+                                                        class="form-control form-control-sm text-center part-quantity"
+                                                        value="{{ $part['quantity'] }}" min="1"
+                                                        data-probe="{{ $probe['name'] }}" data-part="{{ $part['name'] }}">
+                                                    <button class="btn btn-sm btn-outline-secondary plus-btn" type="button"
+                                                        data-probe="{{ $probe['name'] }}" data-part="{{ $part['name'] }}">
+                                                        +
+                                                    </button>
+                                                </div>
                                             </td>
                                             <td>${{ number_format($part['price'], 2) }}</td>
                                             <td>{{ $part['discount'] }}</td>
@@ -118,9 +132,13 @@
                                                 <span>Total:</span>
                                                 <span>${{ number_format($totalDiscount, 2) }}</span>
                                             </p>
-                                            <div class="checkout-btn">
-                                                <button class="btn btn-primary">Proceed to Checkout</button>
-                                            </div>
+                                            <form method="POST" action="{{ route('checkout') }}" class="checkout-btn">
+                                                @csrf
+                                                <input type="hidden" name="cartItems" value="{{ json_encode($cartItems) }}">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Proceed to Checkout
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -136,6 +154,66 @@
     @section('script')
         <script>
             $(document).ready(function() {
+                $('.input-group').each(function() {
+                    const group = $(this);
+                    const inputField = group.find('.part-quantity');
+
+                    group.find('.minus-btn').on('click', function() {
+                        let currentValue = parseInt(inputField.val());
+                        let minValue = parseInt(inputField.attr('min')) || 0;
+                        let probe = $(this).data('probe');
+                        let part = $(this).data('part');
+
+                        if (currentValue > minValue) {
+                            inputField.val(currentValue - 1);
+                            updateCart(probe, part, currentValue - 1);
+                        }
+                    });
+
+                    group.find('.plus-btn').on('click', function() {
+                        let currentValue = parseInt(inputField.val());
+                        let probe = $(this).data('probe');
+                        let part = $(this).data('part');
+
+                        inputField.val(currentValue + 1);
+                        updateCart(probe, part, currentValue + 1);
+                    });
+                });
+
+                function updateCart(probe, part, quantity) {
+                    $.ajax({
+                        url: '{{ route("cart.update") }}',
+                        method: 'POST',
+                        data: {
+                            _token: $('meta[name="csrf-token"]').attr('content'),
+                            probe: probe,
+                            part: part,
+                            quantity: quantity,
+                        },
+                        success: function(response) {
+                            if (response.status) {
+                                location.reload();
+                            } else {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Warning',
+                                    text: response.message,
+                                    confirmButtonText: 'OK'
+                                });
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: error,
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    });
+                }
+
+
                 $('.remove-part').on('click', function() {
                     let probeName = $(this).data('probe');
                     let partName = $(this).data('part');

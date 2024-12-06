@@ -42,7 +42,7 @@
                                 @endphp
                                 @if (Helper::getTotalItems() > 0)
                                     <span class="badge rounded-pill text-bg-light ms-2" style="font-size: 12px;">
-                                        {{ number_format($totalItems) }}{{ $totalItems > 10 ? '+' : '' }}
+                                        {{ $totalItems > 10 ? '10+' : $totalItems }}
                                     </span>
                                 @endif
                             </a>

@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Admin\ProbeController;
 use App\Http\Controllers\Admin\PartController;
+use App\Http\Controllers\Admin\ProbeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -13,11 +14,16 @@ require __DIR__ . '/auth.php';
 Route::view('/', 'index')->name('index');
 
 // Route::get('CMM-Probes', [HomeController::class, 'probes'])->name('probes');
-Route::post('send-email', [HomeController::class, 'sendEmail'])->name('send.email');
 
-Route::get('cart', [HomeController::class, 'cart'])->name('cart');
-Route::post('/add-to-cart', [HomeController::class, 'addToCart'])->name('add.cart');
-Route::post('/remove-from-cart', [HomeController::class, 'removeFromCart'])->name('remove.cart');
+
+// Cart functionality
+Route::get('cart', [CartController::class, 'cart'])->name('cart');
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add.cart');
+Route::post('/remove-from-cart', [CartController::class, 'removeFromCart'])->name('remove.cart');
+Route::post('/cart-update', [CartController::class, 'updateCart'])->name('cart.update');
+Route::match(['get', 'post'], '/checkout', [CartController::class, 'checkout'])->name('checkout');
+Route::post('submit-inquiry', [CartController::class, 'submitInquiry'])->name('submit.inquiry');
+
 
 // Route::get('/CMM/{category}/{subcategory?}/{childcategory?}', [HomeController::class, 'category'])->name('category');
 Route::get('/CMM-probes/{category}/{probes?}', [HomeController::class, 'probes'])->name('probes');

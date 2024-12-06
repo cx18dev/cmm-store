@@ -12,12 +12,14 @@ class Helper
 
     public static function getTotalItems()
     {
-        // Retrieve the cart from the cache
         $cart = Cache::get('cart', []);
 
-        // Use array_reduce to calculate the total count of parts
-        return array_reduce($cart, function ($total, $item) {
-            return $total + count($item['parts']);
-        }, 0);
+        return array_reduce(
+            $cart,
+            function ($total, $item) {
+                return $total + array_sum(array_column($item['parts'] ?? [], 'quantity'));
+            },
+            0
+        );
     }
 }
