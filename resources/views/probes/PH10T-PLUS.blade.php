@@ -55,13 +55,18 @@
                 @include('layouts.partials.probe-nav')
                 
                 <h2 class="product-item-name text-center">PH10T PLUS motorised indexing probe head</h2>
-                <div class="tab-content mt-3" id="myTabContent">
-                    <div class="tab-pane fade show active" id="tab1" role="tabpanel">
-                        <div class="table-outer">
-                            <p>The new PH10T PLUS motorized probe head allows complete, rapid, and repeatable
+
+                <p>The new PH10T PLUS motorized probe head allows complete, rapid, and repeatable
                                 inspection of most complex components with minimum human intervention. Full
                                 orientation of your TP2, TP6, TP20 or TP200 probe between any of 720 positions,
                                 under manual or program control, turns your 3 axis CMM into a 5 axis machine.</p>
+
+                                <!-- Get Quote Form Section -->
+                @include('layouts.partials.get-quote')
+
+                <div class="tab-content mt-5" id="myTabContent">
+                    <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                        <div class="table-outer">
                             <h5 class="mt-4 mb-3">Specifications:</h5>
                             <table width="100%" cellspacing="0" cellpadding="10">
                                 <tbody>
@@ -82,8 +87,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Get Quote Form Section -->
-                @include('layouts.partials.get-quote')
+                
             </div>
 
             <!-- Image Gallery Section -->

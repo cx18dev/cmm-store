@@ -1,5 +1,12 @@
 <div id="leftside-navigation">
-    @foreach (Helper::categorySidebar() as $category)
+    @php
+        $categories = Helper::categorySidebar();
+        if ($categories->isNotEmpty()) {
+            $categories = $categories->prepend($categories->pop());
+        }
+    @endphp
+
+    @foreach ($categories as $key => $category)
         <ul class="level-0">
             <li class="parent">
                 <p class="text-dark main">

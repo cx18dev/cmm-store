@@ -36,12 +36,14 @@
                             <a class="nav-link" href="javascript:void(0);">CMM Fixtures</a>
                         </li>
                         <li class="nav-item {{ request()->is('cart') ? 'active' : '' }}">
-                            <a class="nav-link d-flex align-items-center" href="{{ route('cart') }}">CMM Cart
+                            <a class="nav-link d-flex align-items-center position-relative" href="{{ route('cart') }}">
+                                CMM Cart
+                                <i class="fa-duotone fa-solid fa-cart-shopping ms-2"></i>
                                 @php
                                     $totalItems = Helper::getTotalItems();
                                 @endphp
                                 @if (Helper::getTotalItems() > 0)
-                                    <span class="badge rounded-pill text-bg-light ms-2" style="font-size: 12px;">
+                                    <span class="position-absolute top-10 start-100 translate-middle badge rounded-pill bg-light text-bg-light ms-2" style="font-size: 12px;">
                                         {{ $totalItems > 10 ? '10+' : $totalItems }}
                                     </span>
                                 @endif

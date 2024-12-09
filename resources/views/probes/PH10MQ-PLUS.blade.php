@@ -25,14 +25,19 @@
             <div class="col-10 infobox p-4">
 
                 @include('layouts.partials.probe-nav')
-                
+
                 <h2 class="product-item-name text-center">PH10MQ PLUS motorised indexing probe head</h2>
-                <div class="tab-content mt-3" id="myTabContent">
+
+                <p>The PH10MQ PLUS can be mounted vertically inside the CMM’s quill for a greater
+                    working envelope by increasing the Z axis travel. The specification of the PH10MQ
+                    PLUS is identical to that of the PH10M PLUS, with the following exceptions:</p>
+
+                <!-- Get Quote Form Section -->
+                @include('layouts.partials.get-quote')
+
+                <div class="tab-content mt-5" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab1" role="tabpanel">
                         <div class="table-outer">
-                            <p>The PH10MQ PLUS can be mounted vertically inside the CMM’s quill for a greater
-                                working envelope by increasing the Z axis travel. The specification of the PH10MQ
-                                PLUS is identical to that of the PH10M PLUS, with the following exceptions:</p>
                             <h5 class="mt-4 mb-3">Specifications:</h5>
                             <table width="100%" cellspacing="0" cellpadding="10">
                                 <tbody>
@@ -52,8 +57,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Get Quote Form Section -->
-                @include('layouts.partials.get-quote')
             </div>
 
             <!-- Image Gallery Section -->

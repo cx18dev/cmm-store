@@ -80,7 +80,7 @@
 
         @if (count($parts) > 0)
             <div class="text-center">
-                <button class="btn btn-warning text-light" id="AddToCart">Add to cart</button>
+                <img id="AddToCart" src="{{ asset('assets/images/add-to-cart.png') }}" alt="Add to cart" style="width: 15%; cursor: pointer;">
             </div>
         @endif
 
