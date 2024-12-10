@@ -24,6 +24,7 @@ class PartRepository
                 'title' => $part->title,
                 'price' => "$".number_format($part->price, 2),
                 'discount' => number_format($part->discount, 2) . "%",
+                'upgrade_to' => $part->upgrade_to,
                 'discounted_price' => "$" . number_format($part->price - ($part->price * $part->discount / 100), 2),
             ];
         });
@@ -37,6 +38,7 @@ class PartRepository
             'title' => $data['title'],
             'price' => $data['price'],
             'discount' => $data['discount'],
+            'upgrade_to' => $data['upgrade_to'],
             'status' => $data['status'] ?? 0,
         ]);
     }
@@ -55,6 +57,7 @@ class PartRepository
             'title' => $data['title'],
             'price' => $data['price'],
             'discount' => $data['discount'],
+            'upgrade_to' => $data['upgrade_to'],
             'status' => $data['status'] ?? 0,
         ]);
     }

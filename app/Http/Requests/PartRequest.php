@@ -32,7 +32,8 @@ class PartRequest extends FormRequest
             'probe_id' => 'required|array',
             'price' => 'required|numeric|min:0',
             'discount' => 'required|numeric|min:0|max:100',
-            'status' => 'nullable'
+            'status' => 'nullable',
+            'upgrade_to' => 'nullable',
         ];
     }
 }

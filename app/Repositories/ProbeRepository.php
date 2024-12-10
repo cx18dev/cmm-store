@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Part;
 use App\Models\Probe;
+use App\Models\Category;
 use Illuminate\Support\Facades\File;
 
 class ProbeRepository
@@ -79,4 +80,12 @@ class ProbeRepository
             'parts' => Part::whereRaw('FIND_IN_SET(?, probe_id)', [$probe->id])->where('status', 1)->get(),
         ];
     }
+
+    public function getProbeLinks($category)
+    {
+        $probe = Probe::with('category')->where('category_id', $category)->where('status', 1)->get(['name', 'slug']);
+        
+        return $probe;
+    }
+
 }

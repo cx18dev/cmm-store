@@ -30,10 +30,10 @@ class HomeController extends Controller
         if (!$categoryData) {
             abort(404, 'Category not found.');
         }
+        $data['category'] = $categoryData;
 
         // If no slug is provided, show the category view
         if ($probSlug === null) {
-            $data['category'] = $categoryData;
             $data['probes'] = $this->probeRepo->getByCategoryProbes($categoryData->id);
             $viewPath = 'category';
         } else {
@@ -50,12 +50,7 @@ class HomeController extends Controller
         }
 
         // Get all probe links for navigation
-        $data['probeLinks'] = $this->probeRepo->all()->map(function ($probe) {
-            return [
-                'name' => $probe['name'],
-                'slug' => $probe['slug'],
-            ];
-        });
+        $data['probeLinks'] = $this->probeRepo->getProbeLinks($categoryData->id);
 
         // Return the appropriate view if it exists, otherwise 404
         if ($viewPath && View::exists($viewPath)) {

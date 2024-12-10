@@ -12,7 +12,7 @@
             // Determine the route or use `javascript:void(0)` for specific slugs
             $route = in_array($link['slug'], ['RTP20', 'PHS-2']) 
                 ? 'javascript:void(0);' 
-                : route('probes', ['category' => '3-axis-motorized-probe-heads', 'probes' => $link['slug']]);
+                : route('probes', ['category' => $category->slug, 'probes' => $link['slug']]);
 
             // Check if the current link should be active
             $isActive = request('probes') === $link['slug'] ? 'active' : '';

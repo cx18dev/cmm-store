@@ -1,7 +1,11 @@
 <section class="cust-form-sec relative shadow">
     <h3 class="text-center">Get a Quote</h3>
     <div class="cust-discount">
-        <img src="{{ asset('assets/images/discount.png') }}" alt="cust-discount" class="cust-img">
+        @if ($category->slug == 'RBE-repair-by-exchange')
+            <img src="{{ asset('assets/images/10-discount.png') }}" alt="cust-discount" class="cust-img">
+        @else
+            <img src="{{ asset('assets/images/20-discount.png') }}" alt="cust-discount" class="cust-img">
+        @endif
     </div>
     <div id="product-form">
         <div class="my-4 mb-2">
@@ -13,9 +17,10 @@
                                 @if (count($parts) > 0)
                                     <th class="fw-bold" style="width: 5%;"></th>
                                 @endif
-                                <th class="fw-bold" style="width: 30%;">Part Number</th>
-                                <th class="fw-bold" style="width: 30%;">Renishaw List Price</th>
-                                <th class="fw-bold" style="width: 30%;">Our Discounted Price</th>
+                                <th class="fw-bold" style="width: 15%;">Part Number</th>
+                                <th class="fw-bold" style="width: 15%;">Upgrade To</th>
+                                <th class="fw-bold" style="width: 15%;">Renishaw List Price</th>
+                                <th class="fw-bold" style="width: 15%;">Our Discounted Price</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,6 +60,9 @@
                                     </td>
                                     <td>
                                         <label for="{{ $id }}">{{ $part['name'] }}</label>
+                                    </td>
+                                    <td>
+                                        <label for="{{ $id }}">{{ $part['upgrade_to'] ?? '-' }}</label>
                                     </td>
                                     <td>
                                         <label for="{{ $id }}">${{ number_format($part['price'], 2) }}</label>

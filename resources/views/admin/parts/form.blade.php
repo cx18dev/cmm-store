@@ -60,6 +60,11 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="col-md-12 mb-3 select2-primary">
+                            <label for="upgrade_to" class="form-label">Upgrade To</label>
+                            <input type="text" id="upgrade_to" name="upgrade_to" class="form-control"
+                                placeholder="Enter Upgrade To" value="{{ old('upgrade_to', $part->upgrade_to ?? '') }}">
+                        </div>
                         <div class="col-md-12 mb-6">
                             <label for="title" class="form-label">Title</label>
                             <textarea id="title" name="title" class="form-control" rows="3" placeholder="Enter Title">{{ old('title', $part->title ?? '') }}</textarea>
