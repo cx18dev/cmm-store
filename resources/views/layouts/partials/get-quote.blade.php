@@ -37,7 +37,7 @@
                                     $id = 'part-' . $part['id'] . '-probe-' . $part['probe_id'];
 
                                     // Get cart items from cache
-                                    $cartItems = Cache::get('cart', []);
+                                    $cartItems = Session::get('cart', []);
 
                                     // Check if the current part is in the cart
                                     $isPartInCart = false;
@@ -65,7 +65,8 @@
                                         <label for="{{ $id }}">{{ $part['upgrade_to'] ?? '-' }}</label>
                                     </td>
                                     <td>
-                                        <label for="{{ $id }}">${{ number_format($part['price'], 2) }}</label>
+                                        <label
+                                            for="{{ $id }}">${{ number_format($part['price'], 2) }}</label>
                                     </td>
                                     <td>
                                         <label id="discounted-price" for="discounted-price-{{ $id }}">
@@ -88,7 +89,8 @@
 
         @if (count($parts) > 0)
             <div class="text-center">
-                <img id="AddToCart" src="{{ asset('assets/images/add-to-cart.png') }}" alt="Add to cart" style="width: 15%; cursor: pointer;">
+                <img id="AddToCart" src="{{ asset('assets/images/add-to-cart.png') }}" alt="Add to cart"
+                    style="width: 15%; cursor: pointer;">
             </div>
         @endif
 

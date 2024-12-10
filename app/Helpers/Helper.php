@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session;
 use App\Repositories\CategoryRepository;
 
 class Helper
@@ -12,7 +12,7 @@ class Helper
 
     public static function getTotalItems()
     {
-        $cart = Cache::get('cart', []);
+        $cart = Session::get('cart', []);
 
         return array_reduce(
             $cart,

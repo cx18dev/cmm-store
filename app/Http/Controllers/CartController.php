@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\InquiryRequest;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session;
 use App\Repositories\InquiryRepository;
 
 class CartController extends Controller
@@ -19,7 +19,7 @@ class CartController extends Controller
 
     public function cart()
     {
-        $cartItems = Cache::get('cart');
+        $cartItems = Session::get('cart');
         return view('cart', compact('cartItems'));
     }
 
@@ -34,7 +34,7 @@ class CartController extends Controller
         }
 
         // Retrieve the existing cart from the cache, or initialize it as an empty array
-        $cartItems = Cache::get('cart', []);
+        $cartItems = Session::get('cart', []);
 
         $cartUpdated = false; // Track if the cart was updated
 
@@ -104,7 +104,7 @@ class CartController extends Controller
         // Use the if-else structure to check whether the cart was updated
         if ($cartUpdated) {
             // Save the updated cart to the cache for 5 hours
-            Cache::put('cart', $cartItems, now()->addHours(5));
+            Session::put('cart', $cartItems, now()->addHours(5));
 
             return response()->json([
                 'status' => true,
@@ -125,7 +125,7 @@ class CartController extends Controller
         $probeName = $request->input('probe');
         $partName = $request->input('part');
 
-        $cart = Cache::get('cart', []);
+        $cart = Session::get('cart', []);
 
         if (isset($cart[$probeName])) {
             $cart[$probeName]['parts'] = array_filter($cart[$probeName]['parts'], function ($part) use ($partName) {
@@ -137,7 +137,7 @@ class CartController extends Controller
                 unset($cart[$probeName]);
             }
 
-            Cache::put('cart', $cart, now()->addHours(5));
+            Session::put('cart', $cart, now()->addHours(5));
 
             return response()->json(['status' => true, 'message' => 'Item removed successfully.']);
         }
@@ -151,13 +151,13 @@ class CartController extends Controller
         $partName = $request->input('part');
         $quantity = $request->input('quantity');
 
-        $cart = Cache::get('cart', []);
+        $cart = Session::get('cart', []);
 
         if (isset($cart[$probeName])) {
             foreach ($cart[$probeName]['parts'] as &$part) {
                 if ($part['name'] === $partName) {
                     $part['quantity'] = $quantity;
-                    Cache::put('cart', $cart, now()->addHours(5));
+                    Session::put('cart', $cart, now()->addHours(5));
                     return response()->json(['status' => true, 'message' => 'Cart updated successfully.']);
                 }
             }
@@ -209,8 +209,8 @@ class CartController extends Controller
                         ->subject('Product Form Submission - ' . $formDetails['email']);
                 });
 
-                if (Cache::has('cart')) {
-                    Cache::forget('cart');
+                if (Session::has('cart')) {
+                    Session::forget('cart');
                 }
 
                 return response()->json([
