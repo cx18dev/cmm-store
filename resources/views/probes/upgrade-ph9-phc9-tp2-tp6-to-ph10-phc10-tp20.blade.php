@@ -14,7 +14,7 @@
                 </h2>
 
                 <div class="text-center mb-5">
-                    <img src="{{ asset('assets/images/upgrade-ph9-phc9-tp2-tp6-to-ph10-phc10-tp20.png') }}"
+                    <img src="{{ asset('assets/images/upgrade-ph9-phc9-tp2-tp6-to-ph10-phc10-tp20.jpg') }}"
                         alt="upgrade-ph9-phc9-tp2-tp6-to-ph10-phc10-tp20">
                 </div>
 
