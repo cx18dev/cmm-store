@@ -44,6 +44,11 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // Category routes
     Route::resource('category', CategoryController::class);
 
+    // Quote routes
+    Route::get('quotes', [DashboardController::class, 'quotes'])->name('quotes');
+    Route::get('quote/{id}', [DashboardController::class, 'quoteShow'])->name('quote.show');
+    Route::delete('quote-destroy/{id}', [DashboardController::class, 'quoteDestroy'])->name('quote.destroy');
+
     // Probes routes
     Route::resource('probes', ProbeController::class);
     Route::match(['post', 'put'], '/image-upload', [ProbeController::class, 'imageUpload'])->name('image.upload');

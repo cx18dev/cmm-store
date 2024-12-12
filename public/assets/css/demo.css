@@ -140,9 +140,6 @@
     --bs-table-bg: #dbdee0;
 }
 
-.dataTables_length {
-    margin-top: 0 !important;
-}
 .site-logo {
     width: 100%;
     max-width: 170px;

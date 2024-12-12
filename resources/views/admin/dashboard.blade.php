@@ -4,8 +4,7 @@
 
 @section('content')
 
-    <div class="row g-6">
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-sm-6 col-xl-3 my-2">
             <div class="card">
                 <a href="{{ route('admin.category.index') }}" class="card-body">
                     <div class="d-flex align-items-start justify-content-between">
@@ -22,7 +21,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-sm-6 col-xl-3 my-2">
             <div class="card">
                 <a href="{{ route('admin.probes.index') }}" class="card-body">
                     <div class="d-flex align-items-start justify-content-between">
@@ -39,7 +38,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-sm-6 col-xl-3 my-2">
             <div class="card">
                 <a href="{{ route('admin.parts.index') }}" class="card-body">
                     <div class="d-flex align-items-start justify-content-between">
@@ -56,6 +55,22 @@
                 </a>
             </div>
         </div>
-    </div>
+        <div class="col-sm-6 col-xl-3 my-2">
+            <div class="card">
+                <a href="{{ route('admin.quotes') }}" class="card-body">
+                    <div class="d-flex align-items-start justify-content-between">
+                        <div class="content-left">
+                            <span>Total Quotes</span>
+                            <div class="d-flex align-items-end mt-2">
+                                <h3 class="mb-0 me-2">{{ number_format($inquiries) }}</h3>
+                            </div>
+                        </div>
+                        <span class="badge bg-label-info rounded p-2">
+                            <i class="bx bx-box bxs-quote-alt-left bx-sm"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
 
 @endsection

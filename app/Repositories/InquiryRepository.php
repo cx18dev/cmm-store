@@ -15,6 +15,11 @@ class InquiryRepository
         return Inquiry::create($data);
     }
 
+    public function getCount()
+    {
+        return Inquiry::count();
+    }
+
     public function find($id)
     {
         return Inquiry::find($id);

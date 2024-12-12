@@ -63,6 +63,13 @@
             </a>
         </li>
 
+        <li class="menu-item {{ request()->is('admin/quotes*') ? 'active' : '' }}">
+            <a href="{{ route('admin.quotes') }}" class="menu-link">
+                <i class='menu-icon tf-icons bx bxs-quote-alt-left'></i>
+                <div data-i18n="Quotes">Quotes</div>
+            </a>
+        </li>
+
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text" data-i18n="Account">Account</span>
         </li>
