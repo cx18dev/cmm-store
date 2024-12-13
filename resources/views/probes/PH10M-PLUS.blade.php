@@ -48,9 +48,9 @@
 @endphp
 
 @section('category')
-    <div class="col-md-10 category">
+    <div class="col-lg-10 col-md-9 category">
         <div class="row">
-            <div class="col-10 infobox p-4">
+            <div class="col-md-10 col-12 infobox p-4">
 
                 @include('layouts.partials.probe-nav')
 

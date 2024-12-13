@@ -4,14 +4,15 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar with multi-level collapsible menu -->
-            <div class="col-md-2 cust-sidebar p-3 text-dark">
+            <div class="col-lg-2 col-md-10 cust-sidebar p-3 text-dark">
                 @include('layouts.partials.categories-menu')
             </div>
 
-            <div class="col-md-10">
+            <div class="col-lg-10 col-md-9">
                 <div class="Probe-cart">
                     <div class="container">
                         <h2 class="mb-4 text-center">CMM Probe Cart</h2>
+                        <div class="table-responsive">
                         <table class="table table-bordered shadow-sm">
                             <thead class="table-light text-center">
                                 <tr>
@@ -94,6 +95,7 @@
                                 @endforelse
                             </tbody>
                         </table>
+                        </div>
 
                         @if ($cartItems)
                             <!-- Cart Summary -->

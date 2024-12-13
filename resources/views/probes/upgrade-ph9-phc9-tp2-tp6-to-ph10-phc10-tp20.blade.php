@@ -3,9 +3,9 @@
 <title>@yield('title', 'Upgrade PH9/PHC9/TP2/TP6 TO PH10/PHC10/TP20 | CMM Online Store')</title>
 
 @section('category')
-    <div class="col-md-10 category">
+    <div class="col-lg-10 col-md-9 category">
         <div class="row">
-            <div class="col-12 infobox p-4">
+            <div class="col-sm-12 col-12 infobox p-4">
 
                 @include('layouts.partials.probe-nav')
 

@@ -18,9 +18,9 @@
 @endphp
 
 @section('category')
-    <div class="col-md-10 category">
+    <div class="col-lg-10 col-md-9 category">
         <div class="row">
-            <div class="col-10 infobox p-4">
+            <div class="col-sm-10 col-12 infobox p-4">
                 <h2 class="product-item-name text-center">AM1 / AM2 adjustment modules</h2>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">

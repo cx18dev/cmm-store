@@ -13,7 +13,7 @@
 @endphp
 
 @section('category')
-    <div class="col-md-10 category">
+    <div class="col-lg-10 col-md-9 category">
         <div class="row">
             <div class="col-10 infobox p-4">
                 <h2 class="product-item-name text-center">HCU2 hand control unit</h2>

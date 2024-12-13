@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar with multi-level collapsible menu -->
-            <div class="col-md-2 cust-sidebar p-3 text-dark">
+            <div class="col-lg-2 col-md-3 cust-sidebar py-3 text-dark">
                 @include('layouts.partials.categories-menu')
             </div>
 
