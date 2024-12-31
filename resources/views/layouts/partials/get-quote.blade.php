@@ -18,13 +18,30 @@
                                     <th class="fw-bold" style="width: 5%;"></th>
                                 @endif
                                 <th class="fw-bold" style="width: 15%;">Part Number</th>
+                                @if ($probe->slug == 'upgrade-ph10-to-ph10t-ph10m-ph10mq')
+                                    <th class="fw-bold" style="width: 15%;">Legacy PH10 Probe Head</th>
+                                @elseif ($probe->slug == 'upgrade-ph10-phc10-to-ph10t-mq-phc10-3-plus')
+                                    <th class="fw-bold" style="width: 15%;">Legacy PH10 Probe Kit</th>
+                                @endif
                                 <th class="fw-bold" style="width: 15%;">Upgrade To</th>
                                 <th class="fw-bold" style="width: 15%;">Renishaw List Price</th>
                                 <th class="fw-bold" style="width: 15%;">Our Discounted Price</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($parts as $part)
+                            @php
+                                if ($probe->slug === 'upgrade-ph10-to-ph10t-ph10m-ph10mq') {
+                                    $parts->legacy = ['Legacy PH10', 'Legacy PH10', 'Legacy PH10'];
+                                }
+                                if ($probe->slug === 'upgrade-ph10-phc10-to-ph10t-mq-phc10-3-plus') {
+                                    $parts->legacy = [
+                                        'Legacy PH10 + PH10C',
+                                        'Legacy PH10 + PH10C',
+                                        'Legacy PH10 + PH10C',
+                                    ];
+                                }
+                            @endphp
+                            @forelse ($parts as $key => $part)
                                 @php
                                     $part['probe_id'] = $probe->id;
                                     $part['probe'] = $probe->name;
@@ -36,7 +53,7 @@
                                     $partDetails = json_encode($part->toArray());
                                     $id = 'part-' . $part['id'] . '-probe-' . $part['probe_id'];
 
-                                    // Get cart items from cache
+                                    // Get cart items from session
                                     $cartItems = Session::get('cart', []);
 
                                     // Check if the current part is in the cart
@@ -44,8 +61,8 @@
                                     foreach ($cartItems as $cartItem) {
                                         foreach ($cartItem['parts'] as $cartPart) {
                                             if (
-                                                $cartPart['name'] == $part['name'] &&
-                                                $cartItem['name'] == $part['probe']
+                                                $cartPart['name'] === $part['name'] &&
+                                                $cartItem['name'] === $part['probe']
                                             ) {
                                                 $isPartInCart = true;
                                                 break 2;
@@ -61,6 +78,13 @@
                                     <td>
                                         <label for="{{ $id }}">{{ $part['name'] }}</label>
                                     </td>
+                                    @if (
+                                        $probe->slug == 'upgrade-ph10-to-ph10t-ph10m-ph10mq' ||
+                                            $probe->slug == 'upgrade-ph10-phc10-to-ph10t-mq-phc10-3-plus')
+                                        <td>
+                                            <label for="{{ $id }}">{{ $parts->legacy[$key] }}</label>
+                                        </td>
+                                    @endif
                                     <td>
                                         <label for="{{ $id }}">{{ $part['upgrade_to'] ?? '-' }}</label>
                                     </td>
@@ -69,17 +93,16 @@
                                             for="{{ $id }}">${{ number_format($part['price'], 2) }}</label>
                                     </td>
                                     <td>
-                                        <label id="discounted-price" for="discounted-price-{{ $id }}">
-                                            ${{ number_format($part['price'] - ($part['price'] * $part['discount']) / 100, 2) }}
+                                        <label id="discounted-price-{{ $id }}" for="{{ $id }}">
+                                            ${{ number_format($part['price'] - ($part['price'] * ($part['discount'] ?? 0)) / 100, 2) }}
                                         </label>
                                     </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4">---- No parts are currently available ----</td>
+                                    <td colspan="6">---- No parts are currently available ----</td>
                                 </tr>
                             @endforelse
-
                         </tbody>
                     </table>
 

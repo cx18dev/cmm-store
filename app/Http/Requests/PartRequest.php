@@ -26,7 +26,7 @@ class PartRequest extends FormRequest
             'name' => [
                 'required',
                 'string',
-                Rule::unique('parts', 'name')->ignore($this->route('part')),
+                // Rule::unique('parts', 'name')->ignore($this->route('part')),
             ],
             'title' => 'nullable|string',
             'probe_id' => 'required|array',
