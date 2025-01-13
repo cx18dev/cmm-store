@@ -20,7 +20,7 @@
                 <ul class="navbar-nav w-100 justify-content-between">
                     <li class="nav-item {{ request()->is('CMM-probes*') ? 'active' : '' }}">
                         <a class="nav-link"
-                            href="{{ route('probes', ['category' => '3-axis-motorized-probe-heads']) }}">CMM
+                            href="{{ route('probes', ['category' => 'RBE-repair-by-exchange']) }}">CMM
                             Probes</a>
                     </li>
                     <li class="nav-item">
