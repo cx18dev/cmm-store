@@ -162,7 +162,7 @@
                                 <section class="cust-form-sec relative shadow">
                                     <h3 class="text-center">Get a Quote</h3>
                                     <div class="cust-discount">
-                                        <img src="http://cmm-store.local/assets/images/10-discount.png" alt="cust-discount" class="cust-img">
+                                        <img src="{{ asset('assets/images/10-discount.png') }}" alt="cust-discount" class="cust-img">
                                     </div>
                                     <div class="row" id="product-form">
                                         <div class="col-6">
@@ -488,7 +488,7 @@
                                 <section class="cust-form-sec relative shadow">
                                     <h3 class="text-center">Get a Quote</h3>
                                     <div class="cust-discount">
-                                        <img src="http://cmm-store.local/assets/images/10-discount.png" alt="cust-discount" class="cust-img">
+                                        <img src="{{ asset('assets/images/10-discount.png') }}" alt="cust-discount" class="cust-img">
                                     </div>
                                     <div class="row" id="product-form">
                                         <div class="col-6">
@@ -700,7 +700,7 @@
                                 <section class="cust-form-sec relative shadow">
                                     <h3 class="text-center">Get a Quote</h3>
                                     <div class="cust-discount">
-                                        <img src="http://cmm-store.local/assets/images/10-discount.png" alt="cust-discount" class="cust-img">
+                                        <img src="{{ asset('assets/images/10-discount.png') }}" alt="cust-discount" class="cust-img">
                                     </div>
                                     <div class="row" id="product-form">
                                         <div class="col-6">
