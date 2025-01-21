@@ -476,7 +476,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <img id="AddToCart" src="http://cmm-store.local/assets/images/add-to-cart.png" alt="Add to cart"
+                                            <img id="AddToCart" src="{{ asset('assets/images/add-to-cart.png') }}" alt="Add to cart"
                                                 style="width: 15%; cursor: pointer;">
                                         </div>
                                     </div>
@@ -688,7 +688,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <img id="AddToCart" src="http://cmm-store.local/assets/images/add-to-cart.png" alt="Add to cart"
+                                            <img id="AddToCart" src="{{ asset('assets/images/add-to-cart.png') }}" alt="Add to cart"
                                                 style="width: 15%; cursor: pointer;">
                                         </div>
                                     </div>
@@ -824,7 +824,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <img id="AddToCart" src="http://cmm-store.local/assets/images/add-to-cart.png" alt="Add to cart"
+                                            <img id="AddToCart" src="{{ asset('assets/images/add-to-cart.png') }}" alt="Add to cart"
                                                 style="width: 15%; cursor: pointer;">
                                         </div>
                                     </div>
