@@ -12,7 +12,7 @@
             <div class="row">
                 @forelse ($probes as $probe)
                     <div class="col-lg-4 col-md-6 col-sm-6 p-lg-3">
-                        <a class="card shadow-sm"
+                        <a class="card shadow-sm probe-link"
                             href="{{ route('probes', ['category' => $category->slug, 'probes' => $probe->slug]) }}">
                             <img src="{{ asset('assets/admin/probes/' . $probe->image) }}" alt="{{ $probe->name }}">
                             <div class="info">

@@ -35,7 +35,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0);">CMM Fixtures</a>
                     </li>
-                    <li class="nav-item {{ request()->is('cart') ? 'active' : '' }}">
+                    <li class="nav-item {{ request()->is('cart') || request()->is('checkout') ? 'active' : '' }}">
                         <a class="nav-link d-flex align-items-center position-relative" href="{{ route('cart') }}">
                             CMM Cart
                             <i class="fa-duotone fa-solid fa-cart-shopping ms-2"></i>
