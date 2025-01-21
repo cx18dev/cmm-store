@@ -130,7 +130,7 @@
                                         <h5 class="category-title px-5">
                                             Upgrade to TP20 Standard Body with 1 Module Options
                                         </h5>
-                                        <img class="img-fluid part-img" src="{{ asset('assets/probes/1-module.png') }}" alt="{{ $probe->slug }}">
+                                        <img class="img-fluid part-img" src="{{ asset('assets/probes/1-Module.png') }}" alt="{{ $probe->slug }}">
                                     </div>
                                 </button>
                             </li>
@@ -141,7 +141,7 @@
                                         <h5 class="category-title px-5">
                                             Upgrade to TP20 Standard Body with 2 Module Options
                                         </h5>
-                                        <img class="img-fluid part-img" src="{{ asset('assets/probes/2-module.png') }}" alt="{{ $probe->slug }}">
+                                        <img class="img-fluid part-img" src="{{ asset('assets/probes/2-Module.png') }}" alt="{{ $probe->slug }}">
                                     </div>
                                 </button>
                             </li>
@@ -152,7 +152,7 @@
                                         <h5 class="category-title px-5">
                                             Upgrade to TP20 Standard Body with 3 Module Options
                                         </h5>
-                                        <img class="img-fluid part-img" src="{{ asset('assets/probes/3-module.png') }}" alt="{{ $probe->slug }}">
+                                        <img class="img-fluid part-img" src="{{ asset('assets/probes/3-Module.png') }}" alt="{{ $probe->slug }}">
                                     </div>
                                 </button>
                             </li>
