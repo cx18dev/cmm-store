@@ -74,17 +74,26 @@ class ProbeRepository
         if (!$probe) {
             return [];
         }
-
+        
+        $parts = Part::whereRaw('FIND_IN_SET(?, probe_id)', [$probe->id])->where('status', 1)->get();
+        
+        $partsData = [];
+        foreach($parts as $part){
+            if($part->part_category_id){
+                $partsData['module'][$part->partCategory->name][] = $part->toArray();
+            }else{
+                $partsData['original'][] = $part->toArray();                
+            }
+        }
         return [
             'probe' => $probe,
-            'parts' => Part::whereRaw('FIND_IN_SET(?, probe_id)', [$probe->id])->where('status', 1)->get(),
+            'parts' => $partsData,
         ];
     }
 
     public function getProbeLinks($category)
     {
         $probe = Probe::with('category')->where('category_id', $category)->where('status', 1)->get(['name', 'slug']);
-        
         return $probe;
     }
 

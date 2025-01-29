@@ -19,6 +19,8 @@ class Part extends Model
         'discount',
         'status',
         'upgrade_to',
+        'part_category_id',
+        'module'
     ];
 
     public function probes()
@@ -36,6 +38,11 @@ class Part extends Model
     public function probe()
     {
         return $this->belongsTo(Probe::class);
+    }
+
+    public function partCategory()
+    {
+        return $this->belongsTo(PartCategory::class,'part_category_id','id');
     }
 
 

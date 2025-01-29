@@ -23,11 +23,11 @@
         <div class="card">
             @if (isset($part->id))
                 @php
-                    $action = route('admin.parts.update', $part->id);
+    $action = route('admin.parts.update', $part->id);
                 @endphp
             @else
                 @php
-                    $action = route('admin.parts.store');
+    $action = route('admin.parts.store');
                 @endphp
             @endif
             <form action="{{ $action }}" method="POST" enctype="multipart/form-data" id="partsForm">
@@ -46,7 +46,7 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-md-12 mb-3 select2-primary">
+                        <div class="col-md-6 mb-3 select2-primary">
                             <label for="probe_id" class="form-label">Probes</label>
                             <select class="select2 select2-primary form-select" name="probe_id[]" id="probe_id" multiple>
                                 <option value="">Select Probes</option>
@@ -57,6 +57,38 @@
                                 @endforeach
                             </select>
                             @error('probe_id')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="module" class="form-label">Module</label>
+                            <select class="form-select" name="module" id="module">
+                                <option value="">Select Category</option>
+                                <option value="1" {{ old('module', $part->module ?? '') == 1 ? 'selected' : '' }}>
+                                    Module 1
+                                </option>
+                                <option value="2" {{ old('module', $part->module ?? '') == 2 ? 'selected' : '' }}>
+                                    Module 2
+                                </option>
+                                <option value="3" {{ old('module', $part->module ?? '') == 3 ? 'selected' : '' }}>
+                                    Module 3
+                                </option>
+                            </select>
+                                @error('module')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="part_category_id" class="form-label">Probes Category</label>
+                            <select class="form-select" name="part_category_id" id="part_category_id">
+                                <option value="">Select Category</option>
+                            @foreach ($partCategories as $partCategory)
+                                <option value="{{ $partCategory->id }}" {{ (old('part_category_id', $part->part_category_id ?? '') == $partCategory->id) ? 'selected' : '' }}>
+                                    {{ $partCategory->name }}
+                                </option>
+                            @endforeach
+                            </select>
+                            @error('category_id')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>

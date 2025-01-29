@@ -3,12 +3,18 @@
 namespace App\Repositories;
 
 use App\Models\Part;
+use App\Models\PartCategory;
 
 class PartRepository
 {
     public function all()
     {
         return Part::all();
+    }
+
+    public function partCategory()
+    {
+        return PartCategory::get();
     }
 
     public function getCount()
@@ -40,6 +46,8 @@ class PartRepository
             'discount' => $data['discount'],
             'upgrade_to' => $data['upgrade_to'],
             'status' => $data['status'] ?? 0,
+            'part_category_id' => $data['part_category_id'] ?? null,
+            'module' => $data['module'] ?? null,
         ]);
     }
 
@@ -59,6 +67,8 @@ class PartRepository
             'discount' => $data['discount'],
             'upgrade_to' => $data['upgrade_to'],
             'status' => $data['status'] ?? 0,
+            'part_category_id' => $data['part_category_id'] ?? null,
+            'module' => $data['module'] ?? null,
         ]);
     }
 

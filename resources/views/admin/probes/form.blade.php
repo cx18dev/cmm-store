@@ -23,11 +23,11 @@
         <div class="card">
             @if (isset($probe->id))
                 @php
-                    $action = route('admin.probes.update', $probe->id);
+    $action = route('admin.probes.update', $probe->id);
                 @endphp
             @else
                 @php
-                    $action = route('admin.probes.store');
+    $action = route('admin.probes.store');
                 @endphp
             @endif
             <form action="{{ $action }}" method="POST" enctype="multipart/form-data" id="probesForm">

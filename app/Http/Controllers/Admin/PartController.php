@@ -79,7 +79,8 @@ class PartController extends Controller
     public function create()
     {
         $probes = $this->probeRepo->all();
-        return view('admin.parts.form', compact('probes'));
+        $partCategories = $this->partsRepo->partCategory();
+        return view('admin.parts.form', compact('probes', 'partCategories'));
     }
 
     /**
@@ -106,13 +107,13 @@ class PartController extends Controller
     {
         $part = $this->partsRepo->find($id);
         $probes = $this->probeRepo->all();
-
+        $partCategories = $this->partsRepo->partCategory();
         if (!$part) {
             return redirect()->route('admin.parts.index')
                 ->with('error', 'Selected record not found.');
         }
 
-        return view('admin.parts.form', compact('part', 'probes'));
+        return view('admin.parts.form', compact('part', 'probes', 'partCategories'));
     }
 
     /**

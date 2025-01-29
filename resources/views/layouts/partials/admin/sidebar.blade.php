@@ -56,6 +56,13 @@
             </a>
         </li>
 
+        <li class="menu-item {{ request()->is('admin/part-category*') ? 'active' : '' }}">
+            <a href="{{ route('admin.part-category.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-package"></i>
+                <div data-i18n="Probes">Part Category</div>
+            </a>
+        </li>
+
         <li class="menu-item {{ request()->is('admin/parts*') ? 'active' : '' }}">
             <a href="{{ route('admin.parts.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>

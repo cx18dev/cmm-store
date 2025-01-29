@@ -34,6 +34,8 @@ class PartRequest extends FormRequest
             'discount' => 'required|numeric|min:0|max:100',
             'status' => 'nullable',
             'upgrade_to' => 'nullable',
+            'part_category_id' => 'nullable',
+            'module' => 'nullable'
         ];
     }
 }

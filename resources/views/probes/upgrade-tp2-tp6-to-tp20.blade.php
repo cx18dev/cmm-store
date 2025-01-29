@@ -124,7 +124,7 @@
                     <div class="col-12 col-md-12">
                         <ul class="nav nav-tabs probes-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#Module1" type="button"
+                                <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#Module-1" type="button"
                                     role="tab">
                                     <div class="col-12 text-center probe-item">
                                         <h5 class="category-title px-5">
@@ -135,7 +135,7 @@
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#Module2" type="button"
+                                <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#Module-2" type="button"
                                     role="tab">
                                     <div class="col-12 text-center probe-item">
                                         <h5 class="category-title px-5">
@@ -146,7 +146,7 @@
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tab3-tab" data-bs-toggle="tab" data-bs-target="#Module3" type="button"
+                                <button class="nav-link" id="tab3-tab" data-bs-toggle="tab" data-bs-target="#Module-3" type="button"
                                     role="tab">
                                     <div class="col-12 text-center probe-item">
                                         <h5 class="category-title px-5">
@@ -157,7 +157,12 @@
                                 </button>
                             </li>
                         </ul>
-                        <div class="tab-content mt-3" id="myTabContent">
+
+                        <!-- Get Quote Form Section -->
+                        @include('layouts.partials.get-quote')
+
+
+                        {{-- <div class="tab-content mt-3" id="myTabContent">
                             <div class="tab-pane fade show active" id="Module1" role="tabpanel">
                                 <section class="cust-form-sec relative shadow">
                                     <h3 class="text-center">Get a Quote</h3>
@@ -830,7 +835,7 @@
                                     </div>
                                 </section>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 

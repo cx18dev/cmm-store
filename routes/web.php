@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PartController;
 use App\Http\Controllers\Admin\ProbeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PartCategoryController;
 
 require __DIR__ . '/auth.php';
 
@@ -26,7 +27,8 @@ Route::post('submit-inquiry', [CartController::class, 'submitInquiry'])->name('s
 
 
 // Route::get('/CMM/{category}/{subcategory?}/{childcategory?}', [HomeController::class, 'category'])->name('category');
-Route::get('/CMM-probes/{category}/{probes?}', [HomeController::class, 'probes'])->name('probes');
+// Route::get('/CMM-probes/{category}/{probes?}', [HomeController::class, 'probes'])->name('probes');
+Route::get('/CMM-probes/{category}/{probes?}/{module?}', [HomeController::class, 'probes'])->name('probes');
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
 
@@ -53,4 +55,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('probes', ProbeController::class);
     Route::match(['post', 'put'], '/image-upload', [ProbeController::class, 'imageUpload'])->name('image.upload');
     Route::put('probes/{probe}', [ProbeController::class, 'update']);
+
+    // probe category
+    Route::resource('part-category', PartCategoryController::class);
+
 });
