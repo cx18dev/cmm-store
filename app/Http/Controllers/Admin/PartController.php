@@ -97,7 +97,8 @@ class PartController extends Controller
         $this->partsRepo->create($data);
 
         // Redirect with success message
-        return redirect()->route('admin.parts.index')->with('success', 'Part created successfully.');
+        // return redirect()->route('admin.parts.index')->with('success', 'Part created successfully.');
+        return redirect()->back()->with('success', 'Parts updated successfully.');
     }
 
     /**
@@ -131,8 +132,8 @@ class PartController extends Controller
         $this->partsRepo->update($id, $data);
 
         // Redirect with success message
-        return redirect()->route('admin.parts.index')->with('success', 'Part updated successfully.');
-        // return redirect()->back()->with('success', 'Parts updated successfully.');
+        // return redirect()->route('admin.parts.index')->with('success', 'Part updated successfully.');
+        return redirect()->back()->with('success', 'Parts updated successfully.');
     }
 
     /**

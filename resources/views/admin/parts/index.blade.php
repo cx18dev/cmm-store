@@ -98,8 +98,11 @@
                         'data-url': "{{ route('admin.parts.create') }}"
                     }
                 }],
+                order: [
+                    [0, 'desc']
+                ],
                 lengthMenu: [5, 10, 25, 50, 100],
-                pageLength: 5,
+                pageLength: 10,
                 language: {
                     paginate: {
                         next: '<i class="bx bx-chevron-right bx-18px"></i>',

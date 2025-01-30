@@ -155,7 +155,7 @@
                     </div>
                     <div class="row" id="product-form">
                         @foreach ($partModule as $partCate => $module)
-                            <div class="col-6">
+                            <div class="{{ count($partModule) > 1 ? 'col-lg-6 col-sm-12' : 'col-lg-12 col-sm-12' }}">
                                 <h4 class="text-primary text-center">{{ $partCate }}</h4>
                                 <div class="my-4 mb-2">
                                     <div class="select-product">
@@ -298,7 +298,7 @@
                 method: 'POST',
                 data: {
                     parts: selectedParts,
-                    remove_parts: removedParts, // Send the removed parts
+                    remove_parts: removedParts,
                     _token: $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function (response) {

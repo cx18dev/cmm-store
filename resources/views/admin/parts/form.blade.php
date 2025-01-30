@@ -46,7 +46,7 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-md-6 mb-3 select2-primary">
+                        <div class="col-md-4 mb-3 select2-primary">
                             <label for="probe_id" class="form-label">Probes</label>
                             <select class="select2 select2-primary form-select" name="probe_id[]" id="probe_id" multiple>
                                 <option value="">Select Probes</option>
@@ -60,8 +60,8 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="module" class="form-label">Module</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="module" class="form-label">Module</label>
                             <select class="form-select" name="module" id="module">
                                 <option value="">Select Category</option>
                                 <option value="1" {{ old('module', $part->module ?? '') == 1 ? 'selected' : '' }}>
@@ -74,11 +74,11 @@
                                     Module 3
                                 </option>
                             </select>
-                                @error('module')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        <div class="col-md-6 mb-3">
+                            @error('module')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4 mb-3">
                             <label for="part_category_id" class="form-label">Probes Category</label>
                             <select class="form-select" name="part_category_id" id="part_category_id">
                                 <option value="">Select Category</option>
@@ -121,7 +121,7 @@
                             <label for="discount" class="form-label">Discount</label>
                             <div class="input-group">
                                 <input type="text" id="discount" name="discount" class="form-control"
-                                    placeholder="Enter Discount" value="{{ old('discount', $part->discount ?? '') }}">
+                                    placeholder="Enter Discount" value="{{ old('discount', $part->discount ?? '10') }}">
                                 <span class="input-group-text">%</span>
                             </div>
                             @error('discount')
@@ -143,7 +143,7 @@
                             <label for="status" class="form-label">Status</label>
                             <div class="form-check">
                                 <input type="checkbox" id="status" name="status" class="form-check-input" value="1"
-                                    {{ old('status', $part->status ?? 0) == 1 ? 'checked' : '' }}>
+                                    {{ old('status', $part->status ?? 0) == 1 ? 'checked' : 'checked' }}>
                                 <label class="form-check-label" for="status">Active</label>
                             </div>
                         </div>
