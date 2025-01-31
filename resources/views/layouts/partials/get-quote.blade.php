@@ -163,11 +163,11 @@
                                             <table class="table text-center">
                                                 <thead>
                                                     <tr>
-                                                        <th class="fw-bold" style="width: 5%;"></th>
-                                                        <th class="fw-bold" style="width: 15%;">Part Number</th>
-                                                        <th class="fw-bold" style="width: 15%;">Upgrade To</th>
-                                                        <th class="fw-bold" style="width: 15%;">Renishaw List Price</th>
-                                                        <th class="fw-bold" style="width: 15%;">Our Discounted Price</th>
+                                                        <th class="fw-bold" style="width: 0%;"></th>
+                                                        <th class="fw-bold" style="width: 25%;">Part Number</th>
+                                                        <th class="fw-bold" style="width: 25%;">Upgrade To</th>
+                                                        <th class="fw-bold" style="width: 25%;">Renishaw List Price</th>
+                                                        <th class="fw-bold" style="width: 25%;">Our Discounted Price</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>

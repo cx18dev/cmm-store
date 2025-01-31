@@ -43,7 +43,7 @@
                                 $totalItems = Helper::getTotalItems();
                             @endphp
                             @if (Helper::getTotalItems() > 0)
-                                <span class="position-absolute top-10 start-100 translate-middle badge rounded-pill bg-light text-bg-light ms-2" style="font-size: 12px;">
+                                <span class="badge">
                                     {{ $totalItems > 10 ? '10+' : $totalItems }}
                                 </span>
                             @endif

@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
     <!-- Toastr CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"> --}}
     
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
@@ -69,8 +69,18 @@
     
     <!-- Sweetalert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://github.com/twbs/bootstrap/blob/v5.3.3/site/assets/js/snippets.js"></script>
 
     <script>
+        const toastTrigger = document.getElementById('liveToastBtn')
+        const toastLiveExample = document.getElementById('liveToast')
+
+        if (toastTrigger) {
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            toastTrigger.addEventListener('click', () => {
+                toastBootstrap.show()
+            })
+        }
         // $("#leftside-navigation .parent > p > .arrow-icon").click(function(e) {
         //     e.preventDefault();
         //     var toClose = $("#leftside-navigation ul").not($(this).parents("ul"));

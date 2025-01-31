@@ -121,7 +121,7 @@
                             <label for="discount" class="form-label">Discount</label>
                             <div class="input-group">
                                 <input type="text" id="discount" name="discount" class="form-control"
-                                    placeholder="Enter Discount" value="{{ old('discount', $part->discount ?? '10') }}">
+                                    placeholder="Enter Discount" value="{{ old('discount', $part->discount ?? '') }}">
                                 <span class="input-group-text">%</span>
                             </div>
                             @error('discount')
@@ -143,7 +143,7 @@
                             <label for="status" class="form-label">Status</label>
                             <div class="form-check">
                                 <input type="checkbox" id="status" name="status" class="form-check-input" value="1"
-                                    {{ old('status', $part->status ?? 0) == 1 ? 'checked' : 'checked' }}>
+                                    {{ old('status', $part->status ?? 0) == 1 ? 'checked' : '' }}>
                                 <label class="form-check-label" for="status">Active</label>
                             </div>
                         </div>
