@@ -58,6 +58,7 @@
                                         class="content-cell">
                                         <h2 style="color: black;">New Product Form Submission</h2>
                                         <p><strong>Name:</strong><br>{{ $formDetails['name'] }}</p>
+                                        <p><strong>Company Name:</strong><br>{{ $formDetails['company_name'] }}</p>
                                         <p><strong>Email:</strong><br>{{ $formDetails['email'] }}</p>
                                         <p><strong>Phone:</strong><br>{{ $formDetails['phone'] }}</p>
                                         <p><strong>Message:</strong><br>{{ $formDetails['message'] }}</p>

@@ -35,17 +35,22 @@
         <div class="card">
             <div class="card-body">
                 <div class="row g-2">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" id="name" name="name" class="form-control" value="{{ $quote->name }}"
                             disabled>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
+                        <label for="name" class="form-label">Company Name</label>
+                        <input type="text" id="company_name" name="company_name" class="form-control" value="{{ $quote->company_name }}"
+                            disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="text" id="email" name="email" class="form-control" value="{{ $quote->email }}"
                             disabled>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="phone" class="form-label">Phone</label>
                         <input type="text" id="phone" name="phone" class="form-control" value="{{ $quote->phone }}"
                             disabled>
@@ -100,8 +105,8 @@
                                         <td>${{ number_format($renishawPrice, 2) }}</td>
                                         <td>${{ number_format($discountedPrice, 2) }}</td>
                                     </tr>
-                                    @php 
-                                        $itemCounter++; 
+                                    @php
+                                        $itemCounter++;
                                         $totalItems += $quantity;
                                     @endphp
                                 @endforeach

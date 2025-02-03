@@ -21,9 +21,9 @@
         @endif
 
         <div class="card">
-            @if (isset($part_category->id))
+            @if (isset($parts_category->id))
                 @php
-                    $action = route('admin.probes-category.update', $part_category->id);
+                    $action = route('admin.part-category.update', $parts_category->id);
                 @endphp
             @else
                 @php
@@ -32,7 +32,7 @@
             @endif
             <form action="{{ $action }}" method="POST" enctype="multipart/form-data" id="probesForm">
                 @csrf
-                @if (isset($part_category->id))
+                @if (isset($parts_category->id))
                     @method('PUT')
                 @endif
 
@@ -41,14 +41,14 @@
                         <div class="col-md-12 mb-3">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" id="name" name="name" class="form-control"
-                                placeholder="Enter Name" value="{{ old('name', $part_category->name ?? '') }}">
+                                placeholder="Enter Name" value="{{ old('name', $parts_category->name ?? '') }}">
                             @error('name')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
                 </div>
-             
+
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Save changes</button>
                     <a href="{{ route('admin.part-category.index') }}" class="btn btn-outline-secondary">Close</a>

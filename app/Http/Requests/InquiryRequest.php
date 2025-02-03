@@ -28,6 +28,7 @@ class InquiryRequest extends FormRequest
             'phone' => 'required|numeric',
             'products' => 'required|string',
             'message' => 'required|string',
+            'company_name' => 'required|string',
         ];
     }
 }

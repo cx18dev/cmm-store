@@ -12,5 +12,6 @@ class Inquiry extends Model
         'phone',
         'products',
         'message',
+        'company_name',
     ];
 }

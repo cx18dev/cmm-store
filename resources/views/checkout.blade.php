@@ -91,6 +91,11 @@
                                                         placeholder="Enter Name">
                                                 </div>
                                                 <div class="col-md-6 mb-3">
+                                                    <label for="company_name" class="form-label fw-bold">Company Name:</label>
+                                                    <input type="text" class="form-control" id="company_name" name="company_name"
+                                                        placeholder="Enter Company Name">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
                                                     <label for="email" class="form-label fw-bold">Email:</label>
                                                     <input type="email" class="form-control" id="email" name="email"
                                                         placeholder="Enter Email">
@@ -172,6 +177,9 @@
                             required: true,
                             minlength: 3
                         },
+                        company_name: {
+                            required: true,
+                        },
                         email: {
                             required: true,
                             email: true
@@ -189,6 +197,9 @@
                         name: {
                             required: "Please enter your name",
                             minlength: "Your name must be at least 3 characters long"
+                        },
+                        company_name: {
+                            required: "Please enter company name",
                         },
                         email: {
                             required: "Please enter your email",

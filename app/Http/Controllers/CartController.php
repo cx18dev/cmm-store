@@ -199,7 +199,9 @@ class CartController extends Controller
                 'phone' => $validatedData['phone'],
                 'message' => $validatedData['message'],
                 'products' => $validatedData['products'] ? json_decode($validatedData['products'], true) : [],
+                'company_name' => $validatedData['company_name'],
             ];
+
 
             // Send the email to the admin
             try {
