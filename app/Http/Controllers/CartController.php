@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\InquiryRequest;
-use Illuminate\Support\Facades\Session;
 use App\Repositories\InquiryRepository;
+use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
@@ -82,21 +83,34 @@ class CartController extends Controller
             $removeParts = $request->input('remove_parts');
 
             foreach ($removeParts as $item) {
-                $probe = $item['probe'];
-                $part = $item['part'];
+                // Ensure the item has 'probe' and 'part' keys before proceeding
+                if (isset($item['probe'], $item['part'])) {
+                    $probe = $item['probe'];
+                    $part = $item['part'];
 
-                if (null !== ($cartItems[$probe['name']] ?? null)) {
-                    // Filter out the part to remove it
-                    $cartItems[$probe['name']]['parts'] = array_filter($cartItems[$probe['name']]['parts'], function ($cartPart) use ($part) {
-                        return $cartPart['name'] !== $part['name'];
-                    });
-                    $cartUpdated = true;
+                    // Check if the probe exists in cartItems
+                    if (isset($cartItems[$probe['name']])) {
+                        // Filter out the part to remove it
+                        $cartItems[$probe['name']]['parts'] = array_filter(
+                            $cartItems[$probe['name']]['parts'],
+                            function ($cartPart) use ($part) {
+                                // Only keep parts where the name does not match the one in removeParts
+                                return $cartPart['name'] !== $part['name'];
+                            }
+                        );
 
-                    // If there are no parts left under the probe, remove the probe
-                    if (empty($cartItems[$probe['name']]['parts'])) {
-                        unset($cartItems[$probe['name']]);
-                        $cartUpdated = true; // Mark the cart as updated
+                        $cartUpdated = true; // Mark cart as updated
+
+                        // If there are no parts left under the probe, remove the probe itself
+                        if (empty($cartItems[$probe['name']]['parts'])) {
+                            unset($cartItems[$probe['name']]);
+                            $cartUpdated = true;
+                        }
                     }
+                } else {
+                    // Log or handle the case where 'probe' or 'part' is missing from $item
+                    // You can use this for debugging purposes
+                    Log::error('Invalid remove part data', ['item' => $item]);
                 }
             }
         }

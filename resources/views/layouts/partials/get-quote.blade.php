@@ -113,7 +113,7 @@
 
             @if (count($parts['original']) > 0)
                 <div class="text-center">
-                    <img id="AddToCart" src="{{ asset('assets/images/add-to-cart.png') }}" alt="Add to cart"
+                    <img id="AddToCart" class="AddToCart" src="{{ asset('assets/images/add-to-cart.png') }}" alt="Add to cart"
                         style="width: 15%; cursor: pointer;">
                 </div>
             @endif
@@ -233,7 +233,7 @@
                             </div>
                         @endforeach
                         <div class="text-center">
-                            <img id="AddToCart" src="{{ asset('assets/images/add-to-cart.png') }}" alt="Add to cart"
+                            <img id="AddToCart" class="AddToCart" src="{{ asset('assets/images/add-to-cart.png') }}" alt="Add to cart"
                                 style="width: 15%; cursor: pointer;">
                         </div>
                     </div>
@@ -250,7 +250,7 @@
 <script>
     $(document).ready(function () {
         // Handle the Add to Cart button click
-        $('#AddToCart').on('click', function () {
+        $('.AddToCart').on('click', function () {
             let selectedParts = [];
             let removedParts = [];
 
