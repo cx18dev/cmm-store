@@ -47,6 +47,30 @@ svg {
     font-weight: 600;
 }
 
+.theme-color {
+    color: #3498db;
+}
+.cmm-card-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.used-cmm-request img {
+    width: 35%;
+    height: 90px;
+}
+.used-cmm-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.used-cmm-content {
+    color: #000000;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
 .marketplace-section .market-content p {
     color: #000000;
     font-size: 20px;
@@ -104,7 +128,7 @@ svg {
     background-color: #ffffff;
     position: absolute;
     left: 100%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
 .footer {

@@ -59,4 +59,14 @@ class HomeController extends Controller
 
         abort(404, 'View not found or invalid category path.');
     }
+
+    public function usedCMMs()
+    {
+        return view('used-cmms');
+    }
+
+    public function requestQuote()
+    {
+        return view('request-quote');
+    }
 }

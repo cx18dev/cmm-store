@@ -14,7 +14,8 @@ require __DIR__ . '/auth.php';
 
 Route::view('/', 'index')->name('index');
 
-// Route::get('CMM-Probes', [HomeController::class, 'probes'])->name('probes');
+Route::get('used-cmms', [HomeController::class, 'usedCMMs'])->name('used.cmm');
+Route::get('request-quote', [HomeController::class, 'requestQuote'])->name('request.quote');
 
 
 // Cart functionality
