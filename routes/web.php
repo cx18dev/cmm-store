@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProbeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PartCategoryController;
+use App\Http\Controllers\CmmQuoteController;
 
 require __DIR__ . '/auth.php';
 
@@ -16,6 +17,7 @@ Route::view('/', 'index')->name('index');
 
 Route::get('used-cmms', [HomeController::class, 'usedCMMs'])->name('used.cmm');
 Route::get('request-quote', [HomeController::class, 'requestQuote'])->name('request.quote');
+Route::post('cmm-quote-request', [HomeController::class, 'cmmQuoteRequest'])->name('cmmQuoteRequest');
 
 
 // Cart functionality
@@ -60,4 +62,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // probe category
     Route::resource('part-category', PartCategoryController::class);
 
+    // Quote routes
+    Route::get('cmm-quotes', [CmmQuoteController::class, 'cmmquotes'])->name('cmm.quotes');
+    Route::get('cmm-quotes/{id}', [CmmQuoteController::class, 'cmmquoteShow'])->name('cmm.quote.show');
+    Route::delete('cmm-quotes/{id}', [CmmQuoteController::class, 'cmmquoteDestroy'])->name('cmm.quote.destroy');
 });

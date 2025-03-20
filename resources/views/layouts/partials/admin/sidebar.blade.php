@@ -73,7 +73,14 @@
         <li class="menu-item {{ request()->is('admin/quotes*') ? 'active' : '' }}">
             <a href="{{ route('admin.quotes') }}" class="menu-link">
                 <i class='menu-icon tf-icons bx bxs-quote-alt-left'></i>
-                <div data-i18n="Quotes">Quotes</div>
+                <div data-i18n="Quotes">Parts Quotes</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('admin/cmm-quotes*') ? 'active' : '' }}">
+            <a href="{{ route('admin.cmm.quotes') }}" class="menu-link">
+                <i class='menu-icon tf-icons bx bxs-quote-alt-left'></i>
+                <div data-i18n="Quotes">CMM Quotes</div>
             </a>
         </li>
 

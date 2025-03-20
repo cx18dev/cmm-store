@@ -22,6 +22,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>CMM Name</th>
                                 <th>Created</th>
                                 <th>Actions</th>
                             </tr>
@@ -43,7 +44,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: `{{ route('admin.quotes') }}`,
+                    url: `{{ route('admin.cmm.quotes') }}`,
                     type: 'GET'
                 },
                 columns: [{
@@ -59,8 +60,12 @@
                         name: 'email',
                     },
                     {
-                        data: 'phone',
-                        name: 'phone',
+                        data: 'phone_number',
+                        name: 'phone_number',
+                    },
+                    {
+                        data: 'cmm_name',
+                        name: 'cmm_name',
                     },
                     {
                         data: 'created_at',

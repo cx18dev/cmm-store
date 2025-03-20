@@ -2,20 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
 use App\Repositories\ProbeRepository;
+use App\Http\Requests\CmmQuoteRequest;
 use App\Repositories\CategoryRepository;
+use App\Repositories\CmmQuoteRepository;
 
 class HomeController extends Controller
 {
     protected $partRepo;
     protected $probeRepo;
     protected $categoryRepo;
+    protected $cmmQuoteRepo;
 
     public function __construct()
     {
         $this->probeRepo = new ProbeRepository;
         $this->categoryRepo = new CategoryRepository;
+        $this->cmmQuoteRepo = new CmmQuoteRepository;
     }
 
     public function probes($category, $probSlug = null)
@@ -68,5 +74,42 @@ class HomeController extends Controller
     public function requestQuote()
     {
         return view('request-quote');
+    }
+
+    public function cmmQuoteRequest(CmmQuoteRequest $request)
+    {
+        $validatedData = $request->validated();
+
+        // Save the CmmQuote data using the repository
+        $created = $this->cmmQuoteRepo->create($validatedData);
+
+        if ($created) {
+            $formDetails = [
+                'name' => $validatedData['name'],
+                'email' => $validatedData['email'],
+                'phone_number' => $validatedData['phone_number'],
+                'cmm_name' => $validatedData['cmm_name'],
+                'cmm_stock_number' => $validatedData['cmm_stock_number'],
+                'company_name' => $validatedData['company_name'],
+                'message' => $validatedData['message'],
+            ];
+
+            // Send the email to the admin
+            try {
+                Mail::send('emails.cmm-quote', compact('formDetails'), function ($message) use ($formDetails) {
+                    $message->from($formDetails['email'], 'CMM Online Store')
+                        ->to('info@cmmstore.com')
+                        ->subject('CMM Quote Request - ' . $formDetails['email']);
+                });
+
+                // Redirect back with success message
+                return redirect()->back()->with('success', 'Your request quote has been sent to the admin. Please wait for a response!');
+            } catch (\Exception $e) {
+                return redirect()->back()->with('error', 'Failed to send email: ' . $e->getMessage());
+            }
+        }
+
+        // Return error response if data saving fails
+        return redirect()->back()->with('error', 'Something went wrong');
     }
 }
