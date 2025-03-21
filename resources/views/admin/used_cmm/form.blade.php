@@ -103,7 +103,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="availablility" class="form-label">Availability</label>
-                            <input type="text" id="availablility" name="availablility" class="form-control"
+                            <input type="number" id="availablility" name="availablility" class="form-control"
                                 placeholder="Enter Availability"
                                 value="{{ old('availablility', $usedCMM->availablility ?? '') }}">
                             @error('availablility')
