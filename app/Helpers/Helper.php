@@ -23,18 +23,5 @@ class Helper
         );
     }
 
-    public static function getCMMName($value)
-    {
-        if ($value == 1) {
-            return 'IMS-MERLIN 142210 DCC CMM';
-        } elseif ($value == 2) {
-            return 'IMS IMPACT-1000';
-        } elseif ($value == 3) {
-            return 'IMS IMPACT-750';
-        } elseif ($value == 4) {
-            return 'IMS IMPACT-600';
-        } else {
-            return '';
-        }
-    }
+
 }

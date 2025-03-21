@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PartController;
 use App\Http\Controllers\Admin\ProbeController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CMMQuoteController as AdminCMMQuoteController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PartCategoryController;
 use App\Http\Controllers\CmmQuoteController;
@@ -16,7 +17,7 @@ require __DIR__ . '/auth.php';
 Route::view('/', 'index')->name('index');
 
 Route::get('used-cmms', [HomeController::class, 'usedCMMs'])->name('used.cmm');
-Route::get('request-quote', [HomeController::class, 'requestQuote'])->name('request.quote');
+Route::get('request-quote/{slug}', [HomeController::class, 'requestQuote'])->name('request.quote');
 Route::post('cmm-quote-request', [HomeController::class, 'cmmQuoteRequest'])->name('cmmQuoteRequest');
 
 
@@ -61,6 +62,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     // probe category
     Route::resource('part-category', PartCategoryController::class);
+
+      // used cmm category
+      Route::resource('used-cmm', AdminCMMQuoteController::class);
 
     // Quote routes
     Route::get('cmm-quotes', [CmmQuoteController::class, 'cmmquotes'])->name('cmm.quotes');

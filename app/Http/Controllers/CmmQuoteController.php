@@ -29,20 +29,27 @@ class CmmQuoteController extends Controller
                     return '<a href="' . route('admin.cmm.quote.show', $quotes->id) . '" class="btn rounded-pill btn-icon btn-outline-info"><span class="bx bx-show-alt"></span></a>
                     <a href="' . route('admin.cmm.quote.destroy', $quotes->id) . '" id="delete-' . $quotes->id . '" class="btn rounded-pill btn-icon btn-outline-danger"><span class="bx bx-trash"></span></a>';
                 })
-                ->editColumn('cmm_name', function ($row) {
-                    if (isset($row['cmm_name'])) {
-                        return \Helper::getCMMName($row['cmm_name']);
-                    }
-                    return ''; // or return a default value if not set
-                })
-                ->rawColumns(['created_at', 'actions', 'cmm_name'])
+
+                ->rawColumns(['created_at', 'actions'])
                 ->make(true);
         }
         return view('admin.cmm_quotes.index');
     }
 
-    public function cmmquoteShow(Request $request) {}
+    public function cmmquoteShow(Request $request, $id)
+    {
+        $cmmQuote = $this->cmmquoteRepo->find($id);
+
+        if ($cmmQuote) {
+            return view('admin.cmm_quotes.show', compact('cmmQuote'));
+        }
+        return redirect()->route('admin.cmm.quotes')->with('warning', "Record does not found!");
+    }
 
 
-    public function cmmquoteDestroy(string $id) {}
+    public function cmmquoteDestroy(string $id)
+    {
+        $this->cmmquoteRepo->delete($id);
+        return response()->json(['success' => 'CMM Quote deleted successfully.']);
+    }
 }

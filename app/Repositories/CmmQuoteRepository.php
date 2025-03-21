@@ -15,6 +15,12 @@ class CmmQuoteRepository
         return CmmQuote::create($data);
     }
 
+    public function find($id)
+    {
+        return CmmQuote::find($id);
+    }
+
+
     public function getCount()
     {
         return CmmQuote::count();

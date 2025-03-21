@@ -62,7 +62,7 @@
                                         <p><strong>Email:</strong><br>{{ $formDetails['email'] }}</p>
                                         <p><strong>Phone:</strong><br>{{ $formDetails['phone_number'] }}</p>
                                         <p><strong>CMM
-                                                Name:</strong><br>{{ Helper::getCMMName($formDetails['cmm_name']) }}</p>
+                                                Name:</strong><br>{{ $formDetails['cmm_name'] }}</p>
                                         <p><strong>CMM Stock Number:</strong><br>{{ $formDetails['cmm_stock_number'] }}
                                         </p>
                                         <p><strong>Message:</strong><br>{{ $formDetails['message'] }}</p>

@@ -87,15 +87,8 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="cmm_name" class="form-label fw-bold">CMM Name:</label>
-                                    <select class="form-select" name="cmm_name">
-                                        <option value="">Select CMM Name</option>
-                                        @foreach ($usedCMMs as $key => $value)
-                                            <option value="{{ $value['id'] }}"
-                                                @if (old('cmm_name') == $value['id']) selected @endif>
-                                                {{ $value['title'] }}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                                    <input name="cmm_name" id="cmm_name" class="form-control"
+                                        value="{{ isset($usedCMM) ? $usedCMM->cmm_name : '' }}" readonly>
                                     @if ($errors->has('cmm_name'))
                                         <div class="text-danger">{{ $errors->first('cmm_name') }}</div>
                                     @endif
@@ -103,8 +96,8 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="cmm_stock_number" class="form-label fw-bold">CMM Stock Number:</label>
-                                    <input type="text" value="{{ old('cmm_stock_number') }}" class="form-control"
-                                        readonly id="cmm_stock_number" name="cmm_stock_number"
+                                    <input type="text" value="{{ isset($usedCMM) ? $usedCMM->stock_number : '' }}"
+                                        class="form-control" readonly id="cmm_stock_number" name="cmm_stock_number"
                                         placeholder="Enter CMM Stock Number">
                                 </div>
                                 <div class="col-12 mb-3">
@@ -129,42 +122,6 @@
         </section>
     </div>
 @section('script')
-    <script>
-        $(document).ready(function() {
-            // When the CMM Name is changed
-            $('select[name="cmm_name"]').on('change', function() {
-                // Get the selected CMM ID
-                var selectedCMMId = $(this).val();
-
-                // Empty the stock number dropdown
-                $('select[name="cmm_stock_number"]').empty();
-
-                // Add default option to stock number dropdown
-                $('select[name="cmm_stock_number"]').append(
-                    '<option value="">Select CMM Stock Number</option>');
-
-                // Check if a CMM ID is selected
-                if (selectedCMMId) {
-                    // Filter the corresponding stock number based on the selected CMM ID
-                    var stockNumber = '';
-
-                    var usedCMMs = @json($usedCMMs);
-
-                    // Loop through the usedCMMs array to find the matching CMM
-                    $.each(usedCMMs, function(index, cmm) {
-                        console.log(cmm.id, selectedCMMId);
-                        if (cmm.id == selectedCMMId) {
-                            stockNumber = cmm.stock;
-                        }
-                    });
-
-                    // If stock number found, append it to the stock number field
-                    if (stockNumber) {
-                        $('#cmm_stock_number').val(stockNumber);
-                    }
-                }
-            });
-        });
-    </script>
+    <script></script>
 @endsection
 @endsection

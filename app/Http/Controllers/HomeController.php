@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
 use App\Repositories\ProbeRepository;
 use App\Http\Requests\CmmQuoteRequest;
+use App\Models\UsedCMM;
 use App\Repositories\CategoryRepository;
 use App\Repositories\CmmQuoteRepository;
+use App\Repositories\UsedCMMRepository;
 
 class HomeController extends Controller
 {
@@ -68,12 +70,14 @@ class HomeController extends Controller
 
     public function usedCMMs()
     {
-        return view('used-cmms');
+        $usedCMMs = UsedCMM::get();
+        return view('used-cmms', compact('usedCMMs'));
     }
 
-    public function requestQuote()
+    public function requestQuote($slug)
     {
-        return view('request-quote');
+        $usedCMM = UsedCMM::where('slug', $slug)->first();
+        return view('request-quote', compact('usedCMM'));
     }
 
     public function cmmQuoteRequest(CmmQuoteRequest $request)

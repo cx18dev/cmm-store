@@ -70,12 +70,21 @@
             </a>
         </li>
 
+        <li class="menu-item {{ request()->is('admin/used-cmm*') ? 'active' : '' }}">
+            <a href="{{ route('admin.used-cmm.index') }}" class="menu-link">
+                <i class='menu-icon tf-icons bx bx-box'></i>
+                <div data-i18n="Quotes">Used CMM</div>
+            </a>
+        </li>
+
         <li class="menu-item {{ request()->is('admin/quotes*') ? 'active' : '' }}">
             <a href="{{ route('admin.quotes') }}" class="menu-link">
                 <i class='menu-icon tf-icons bx bxs-quote-alt-left'></i>
                 <div data-i18n="Quotes">Parts Quotes</div>
             </a>
         </li>
+
+
 
         <li class="menu-item {{ request()->is('admin/cmm-quotes*') ? 'active' : '' }}">
             <a href="{{ route('admin.cmm.quotes') }}" class="menu-link">
