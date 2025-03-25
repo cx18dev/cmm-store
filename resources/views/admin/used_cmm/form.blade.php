@@ -35,11 +35,11 @@
         <div class="card">
             @if (isset($usedCMM->id))
                 @php
-                    $action = route('admin.used-cmm.update', $usedCMM->id);
+    $action = route('admin.used-cmm.update', $usedCMM->id);
                 @endphp
             @else
                 @php
-                    $action = route('admin.used-cmm.store');
+    $action = route('admin.used-cmm.store');
                 @endphp
             @endif
             <form action="{{ $action }}" method="POST" enctype="multipart/form-data" id="categoryForm">
@@ -102,15 +102,6 @@
                             @enderror
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="availablility" class="form-label">Availability</label>
-                            <input type="number" id="availablility" name="availablility" class="form-control"
-                                placeholder="Enter Availability"
-                                value="{{ old('availablility', $usedCMM->availablility ?? '') }}">
-                            @error('availablility')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="col-md-6 mb-3">
                             <label for="image" class="form-label">Image</label>
                             <input type="file" id="image" name="image" class="form-control"
                                 placeholder="select Image" value="{{ old('image', $usedCMM->image ?? '') }}">
@@ -119,10 +110,21 @@
                             @enderror
                             <div class="mt-3">
                                 @if (isset($usedCMM))
-                                    <div><img src="{{ asset('assets/admin/UsedCMM/' . $usedCMM->image) }}" width="100"
-                                            height="100"></div>
+                                    <label for="image">
+                                        <img src="{{ asset('assets/admin/UsedCMM/' . $usedCMM->image) }}"
+                                            class="img-thumbnail"
+                                            width="100"
+                                            height="100">
+                                    </label>
                                 @endif
                             </div>
+                        </div><div class="col-md-6 mb-3">
+                            <label for="availablility" class="form-label">Availability</label>
+                            <input type="number" id="availablility" name="availablility" class="form-control" placeholder="Enter Availability"
+                                value="{{ old('availablility', $usedCMM->availablility ?? '') }}">
+                            @error('availablility')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="col-md-8 mb-3">

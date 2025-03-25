@@ -89,7 +89,7 @@
         <li class="menu-item {{ request()->is('admin/cmm-quotes*') ? 'active' : '' }}">
             <a href="{{ route('admin.cmm.quotes') }}" class="menu-link">
                 <i class='menu-icon tf-icons bx bxs-quote-alt-left'></i>
-                <div data-i18n="Quotes">CMM Quotes</div>
+                <div data-i18n="Quotes">Used CMM Quotes</div>
             </a>
         </li>
 

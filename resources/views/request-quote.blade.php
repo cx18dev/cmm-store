@@ -1,29 +1,5 @@
 @extends('layouts.guest')
-@php
-    $usedCMMs = [
-        [
-            'id' => 1,
-            'title' => 'IMS-MERLIN 142210 DCC CMM',
-            'stock' => 'IMS202501',
-        ],
-        [
-            'id' => 2,
-            'title' => 'IMS IMPACT-1000',
-            'stock' => 'IMS202502',
-        ],
-        [
-            'id' => 3,
-            'title' => 'IMS IMPACT-750',
-            'stock' => 'IMS202503',
-        ],
-        [
-            'id' => 4,
-            'title' => 'IMS IMPACT-600',
-            'stock' => 'IMS202504',
-        ],
-    ];
 
-@endphp
 @section('content')
     <div class="marketplace-section container my-5">
         <div class="market-content">

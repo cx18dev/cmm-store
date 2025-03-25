@@ -1,54 +1,5 @@
 @extends('layouts.guest')
 
-@php
-    // $usedCMMs = [
-    //     [
-    //         'title' => 'IMS-MERLIN 142210 DCC CMM',
-    //         'stock' => 'IMS202501',
-    //         'measuring_range' => '55" x 88.6" x 39"',
-    //         'measuring_range_mm' => '(1400mm X 2250 mm X 1000mm)',
-    //         'software' => 'VDMIS-R2025',
-    //         'probe_head' => 'Renishaw PH10M Probe Head',
-    //         'touch_probe' => 'TP20 RENISHAW UCC-T3 PLUS controller',
-    //         'image' => 'IMS-MERLIN-142210-DCC-CMM.jpg',
-    //         'image_title' => null,
-    //     ],
-    //     [
-    //         'title' => 'IMS IMPACT-1000',
-    //         'stock' => 'IMS202502',
-    //         'measuring_range' => '31" x 39" x 26.6"',
-    //         'measuring_range_mm' => '(800mm X 1000 mm X 650mm)',
-    //         'software' => 'VDMIS-R2025',
-    //         'probe_head' => 'Renishaw PH10 Probe Head',
-    //         'touch_probe' => 'TP20',
-    //         'image' => 'IMS-IMPACT-1000.jpg',
-    //         'image_title' => '2 CMMs available of this size',
-    //     ],
-    //     [
-    //         'title' => 'IMS IMPACT-750',
-    //         'stock' => 'IMS202503',
-    //         'measuring_range' => '29.5" x 29.5" x 21.6"',
-    //         'measuring_range_mm' => '(750mm X 750 mm X 550mm)',
-    //         'software' => 'VDMIS-R2025',
-    //         'probe_head' => 'Renishaw PH10 Probe Head',
-    //         'touch_probe' => 'TP20',
-    //         'image' => 'IMS-IMPACT-750.jpg',
-    //         'image_title' => '4 CMMs available of this size',
-    //     ],
-    //     [
-    //         'title' => 'IMS IMPACT-600',
-    //         'stock' => 'IMS202504',
-    //         'measuring_range' => '19.6" x 23.6" x 17.7"',
-    //         'measuring_range_mm' => '(500mm X 600 mm X 450mm)',
-    //         'software' => 'VDMIS-R2025',
-    //         'probe_head' => 'Renishaw PH10 Probe Head',
-    //         'touch_probe' => 'TP20',
-    //         'image' => 'IMS-IMPACT-600.png',
-    //         'image_title' => '3 CMMs available of this size',
-    //     ],
-    // ];
-@endphp
-
 @section('content')
     <section class="marketplace-section">
         <div class="container my-5">

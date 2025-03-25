@@ -56,7 +56,7 @@
                                 <tr>
                                     <td style="padding: 32px; text-align: left; font-size: 16px; line-height: 1.5em;"
                                         class="content-cell">
-                                        <h2 style="color: black;">New CMM Quote Request</h2>
+                                        <h2 style="color: black;">New Used CMM Quote Request</h2>
                                         <p><strong>Name:</strong><br>{{ $formDetails['name'] }}</p>
                                         <p><strong>Company Name:</strong><br>{{ $formDetails['company_name'] }}</p>
                                         <p><strong>Email:</strong><br>{{ $formDetails['email'] }}</p>

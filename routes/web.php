@@ -67,7 +67,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
       Route::resource('used-cmm', AdminCMMQuoteController::class);
 
     // Quote routes
-    Route::get('cmm-quotes', [CmmQuoteController::class, 'cmmquotes'])->name('cmm.quotes');
-    Route::get('cmm-quotes/{id}', [CmmQuoteController::class, 'cmmquoteShow'])->name('cmm.quote.show');
-    Route::delete('cmm-quotes/{id}', [CmmQuoteController::class, 'cmmquoteDestroy'])->name('cmm.quote.destroy');
+    Route::get('used-cmm-quotes', [CmmQuoteController::class, 'cmmquotes'])->name('cmm.quotes');
+    Route::get('used-cmm-quotes/{id}', [CmmQuoteController::class, 'cmmquoteShow'])->name('cmm.quote.show');
+    Route::delete('used-cmm-quotes/{id}', [CmmQuoteController::class, 'cmmquoteDestroy'])->name('cmm.quote.destroy');
 });

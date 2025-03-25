@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Parts Quotes | Admin CMM Store')
+@section('title', 'Used CMM Quotes | Admin CMM Store')
 
 @section('content')
 
