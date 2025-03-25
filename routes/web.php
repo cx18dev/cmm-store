@@ -16,7 +16,7 @@ require __DIR__ . '/auth.php';
 
 Route::view('/', 'index')->name('index');
 
-Route::get('used-cmms', [HomeController::class, 'usedCMMs'])->name('used.cmm');
+Route::get('certified-cmms', [HomeController::class, 'usedCMMs'])->name('used.cmm');
 Route::get('request-quote/{slug}', [HomeController::class, 'requestQuote'])->name('request.quote');
 Route::post('cmm-quote-request', [HomeController::class, 'cmmQuoteRequest'])->name('cmmQuoteRequest');
 

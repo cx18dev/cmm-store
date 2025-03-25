@@ -23,11 +23,11 @@
                             href="{{ route('probes', ['category' => 'RBE-repair-by-exchange']) }}">CMM
                             Probes</a>
                     </li>
-                    <li class="nav-item  {{ request()->is('used-cmms*') ? 'active' : '' }}">
+                    {{-- <li class="nav-item  {{ request()->is('used-cmms*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('used.cmm') }}">Used CMMs</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);">Certified CMMs</a>
+                        <a class="nav-link" href="{{ route('used.cmm') }}">Certified CMMs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0);">CMM Software</a>
