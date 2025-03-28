@@ -107,7 +107,7 @@ class HomeController extends Controller
                 });
 
                 // Redirect back with success message
-                return redirect()->back()->with('success', 'Your request quote has been sent to the admin. Please wait for a response!');
+                return redirect()->back()->with('success', 'Your quote request has been received by the sales department. We will provide the quote shortly.!');
             } catch (\Exception $e) {
                 return redirect()->back()->with('error', 'Failed to send email: ' . $e->getMessage());
             }
